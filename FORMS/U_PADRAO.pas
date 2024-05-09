@@ -24,23 +24,6 @@ type
     bt_Pesquisar: TBitBtn;
     Q_padrao: TFDQuery;
     DS_padrao: TDataSource;
-    Q_padraoID_USUARIO: TIntegerField;
-    Q_padraoNOME: TStringField;
-    Q_padraoSENHA: TStringField;
-    Q_padraoTIPO: TStringField;
-    Q_padraoCADASTRO: TDateField;
-    Label1: TLabel;
-    DB_id_usuario: TDBEdit;
-    Label2: TLabel;
-    DB_nome: TDBEdit;
-    Label3: TLabel;
-    Label5: TLabel;
-    Label4: TLabel;
-    DB_senha: TDBEdit;
-    Label6: TLabel;
-    Label7: TLabel;
-    DB_cadastro: TDBEdit;
-    DB_tipo: TDBComboBox;
     bt_Sair: TBitBtn;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure bt_NovoClick(Sender: TObject);
@@ -126,13 +109,6 @@ end;
 
 procedure TFrm_padrao.bt_SairClick(Sender: TObject);
 begin
- if messagedlg('Deseja sair do sistema?', mtConfirmation, [mbOk, mbNo],0)=mrOk then
-    begin
-      Application.Terminate;
-    end
-    else
-    abort;
-
  close;
 end;
 

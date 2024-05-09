@@ -3,7 +3,7 @@ object Frm_padrao: TFrm_padrao
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Formul'#225'rio padr'#227'o'
-  ClientHeight = 332
+  ClientHeight = 430
   ClientWidth = 836
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,59 +17,6 @@ object Frm_padrao: TFrm_padrao
   OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 176
-    Top = 106
-    Width = 63
-    Height = 13
-    Caption = 'ID_USUARIO'
-    FocusControl = DB_id_usuario
-  end
-  object Label2: TLabel
-    Left = 176
-    Top = 149
-    Width = 29
-    Height = 13
-    Caption = 'NOME'
-    FocusControl = DB_nome
-  end
-  object Label3: TLabel
-    Left = 496
-    Top = 165
-    Width = 33
-    Height = 13
-    Caption = 'SENHA'
-  end
-  object Label5: TLabel
-    Left = 240
-    Top = 288
-    Width = 55
-    Height = 13
-    Caption = 'CADASTRO'
-  end
-  object Label4: TLabel
-    Left = 176
-    Top = 192
-    Width = 33
-    Height = 13
-    Caption = 'SENHA'
-    FocusControl = DB_senha
-  end
-  object Label6: TLabel
-    Left = 344
-    Top = 192
-    Width = 24
-    Height = 13
-    Caption = 'TIPO'
-  end
-  object Label7: TLabel
-    Left = 512
-    Top = 192
-    Width = 55
-    Height = 13
-    Caption = 'CADASTRO'
-    FocusControl = DB_cadastro
-  end
   object Panel1: TPanel
     Left = 0
     Top = 0
@@ -1203,13 +1150,14 @@ object Frm_padrao: TFrm_padrao
   end
   object Panel2: TPanel
     Left = 0
-    Top = 275
+    Top = 373
     Width = 836
     Height = 57
     Align = alBottom
     Color = clSkyBlue
     ParentBackground = False
-    TabOrder = 5
+    TabOrder = 1
+    ExplicitTop = 249
     object DBNavigator1: TDBNavigator
       Left = 214
       Top = 8
@@ -1220,102 +1168,17 @@ object Frm_padrao: TFrm_padrao
       TabOrder = 0
     end
   end
-  object DB_id_usuario: TDBEdit
-    Left = 176
-    Top = 125
-    Width = 150
-    Height = 21
-    DataField = 'ID_USUARIO'
-    DataSource = DS_padrao
-    TabOrder = 6
-  end
-  object DB_nome: TDBEdit
-    Left = 176
-    Top = 165
-    Width = 486
-    Height = 21
-    CharCase = ecUpperCase
-    DataField = 'NOME'
-    DataSource = DS_padrao
-    TabOrder = 1
-  end
-  object DB_senha: TDBEdit
-    Left = 176
-    Top = 208
-    Width = 150
-    Height = 21
-    DataField = 'SENHA'
-    DataSource = DS_padrao
-    PasswordChar = '*'
-    TabOrder = 2
-  end
-  object DB_cadastro: TDBEdit
-    Left = 512
-    Top = 208
-    Width = 150
-    Height = 21
-    DataField = 'CADASTRO'
-    DataSource = DS_padrao
-    Enabled = False
-    TabOrder = 4
-  end
-  object DB_tipo: TDBComboBox
-    Left = 344
-    Top = 208
-    Width = 150
-    Height = 21
-    Items.Strings = (
-      'ADMINISTRADOR'
-      'APOIO')
-    TabOrder = 3
-  end
   object Q_padrao: TFDQuery
     Connection = DM.conexao
     SQL.Strings = (
-      'SELECT'
-      '       ID_USUARIO,'
-      '       NOME,'
-      '       SENHA,'
-      '       TIPO,'
-      '       CADASTRO'
-      'FROM USUARIO'
-      'ORDER BY ID_USUARIO'
+      ''
       '      ')
     Left = 16
-    Top = 200
-    object Q_padraoID_USUARIO: TIntegerField
-      FieldName = 'ID_USUARIO'
-      Origin = 'ID_USUARIO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object Q_padraoNOME: TStringField
-      FieldName = 'NOME'
-      Origin = 'NOME'
-      Required = True
-      Size = 100
-    end
-    object Q_padraoSENHA: TStringField
-      FieldName = 'SENHA'
-      Origin = 'SENHA'
-      Required = True
-      Size = 30
-    end
-    object Q_padraoTIPO: TStringField
-      FieldName = 'TIPO'
-      Origin = 'TIPO'
-      Required = True
-      Size = 30
-    end
-    object Q_padraoCADASTRO: TDateField
-      FieldName = 'CADASTRO'
-      Origin = 'CADASTRO'
-      Required = True
-    end
+    Top = 168
   end
   object DS_padrao: TDataSource
     DataSet = Q_padrao
     Left = 16
-    Top = 144
+    Top = 104
   end
 end

@@ -12,6 +12,16 @@ uses
 
 type
   TFrm_usuario = class(TFrm_padrao)
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    DB_NOME: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    Label6: TLabel;
+    DB_CADASTRO: TDBEdit;
+    DBComboBox1: TDBComboBox;
     procedure bt_NovoClick(Sender: TObject);
   private
     { Private declarations }
@@ -29,8 +39,8 @@ implementation
 procedure TFrm_usuario.bt_NovoClick(Sender: TObject);
 begin
   inherited;
-  db_id_usuario.Text := '';
-  db_id_usuario.Enabled := false;
+  //db_id_usuario.Text := '';
+ // db_id_usuario.Enabled := false;
   db_cadastro.Text:=dateTostr(now);
   db_nome.SetFocus;
 end;

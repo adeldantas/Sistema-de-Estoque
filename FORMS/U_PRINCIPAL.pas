@@ -21,7 +21,6 @@ type
     SpeedButton9: TSpeedButton;
     SpeedButton10: TSpeedButton;
     StatusBar1: TStatusBar;
-    Timer1: TTimer;
     MainMenu1: TMainMenu;
     Cadastro1: TMenuItem;
     Usurio1: TMenuItem;
@@ -42,10 +41,11 @@ type
     ListaVendas1: TMenuItem;
     SobreoSistema1: TMenuItem;
     N1: TMenuItem;
-    procedure Timer1Timer(Sender: TObject);
+    Timer2: TTimer;
     procedure SpeedButton10Click(Sender: TObject);
     procedure bt_UsuarioClick(Sender: TObject);
     procedure Abre_Tela_Usuario();
+    procedure Timer2Timer(Sender: TObject);
   private
     { Private declarations }
   public
@@ -90,14 +90,13 @@ begin
  close;
 end;
 
-Procedure TFrm_Principal.Timer1Timer(Sender: TObject);
-begin
- // insere dados no status bar
 
- Statusbar1.Panels[0].Text:=DateTostr(now);
+procedure TFrm_Principal.Timer2Timer(Sender: TObject);
+begin
+  Statusbar1.Panels[0].Text:=DateTostr(now);
  Statusbar1.Panels[1].Text:=TimeTostr(now);
  Statusbar1.Panels[2].Text:='SEJA BEM-VINDO AO SISTEMA';
-
 end;
+
 
 end.

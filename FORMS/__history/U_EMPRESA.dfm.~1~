@@ -1,0 +1,17 @@
+inherited Frm_padrao1: TFrm_padrao1
+  Caption = 'Frm_padrao1'
+  ClientHeight = 408
+  ExplicitHeight = 437
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel2: TPanel
+    Top = 351
+    inherited DBNavigator1: TDBNavigator
+      Hints.Strings = ()
+    end
+  end
+  inherited Q_padrao: TFDQuery
+    SQL.Strings = (
+      'SELECT * FROM EMPRESA')
+  end
+end

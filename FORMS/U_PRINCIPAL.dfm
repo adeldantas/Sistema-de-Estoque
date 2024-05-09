@@ -2,7 +2,7 @@ object Frm_Principal: TFrm_Principal
   Left = 0
   Top = 0
   Caption = 'SISTEMA DE CONTROLE DE ESTOQUE'
-  ClientHeight = 299
+  ClientHeight = 487
   ClientWidth = 1200
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -4921,7 +4921,7 @@ object Frm_Principal: TFrm_Principal
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 280
+    Top = 468
     Width = 1200
     Height = 19
     Panels = <
@@ -4934,15 +4934,11 @@ object Frm_Principal: TFrm_Principal
       item
         Width = 50
       end>
-  end
-  object Timer1: TTimer
-    OnTimer = Timer1Timer
-    Left = 48
-    Top = 136
+    ExplicitTop = 280
   end
   object MainMenu1: TMainMenu
-    Left = 144
-    Top = 144
+    Left = 120
+    Top = 120
     object Cadastro1: TMenuItem
       Caption = 'Cadastro'
       object Usurio1: TMenuItem
@@ -5000,5 +4996,10 @@ object Frm_Principal: TFrm_Principal
     object SobreoSistema1: TMenuItem
       Caption = 'Sobre o Sistema'
     end
+  end
+  object Timer2: TTimer
+    OnTimer = Timer2Timer
+    Left = 48
+    Top = 120
   end
 end

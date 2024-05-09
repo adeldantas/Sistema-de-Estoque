@@ -1,0 +1,114 @@
+inherited Frm_usuario: TFrm_usuario
+  Caption = 'CADASTRO DE USU'#193'RIOS'
+  ClientHeight = 364
+  ExplicitHeight = 393
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel [0]
+    Left = 152
+    Top = 112
+    Width = 63
+    Height = 13
+    Caption = 'ID_USUARIO'
+    FocusControl = DBEdit1
+  end
+  object Label2: TLabel [1]
+    Left = 152
+    Top = 152
+    Width = 29
+    Height = 13
+    Caption = 'NOME'
+    FocusControl = DB_NOME
+  end
+  object Label3: TLabel [2]
+    Left = 152
+    Top = 192
+    Width = 33
+    Height = 13
+    Caption = 'SENHA'
+    FocusControl = DBEdit3
+  end
+  object Label4: TLabel [3]
+    Left = 392
+    Top = 192
+    Width = 24
+    Height = 13
+    Caption = 'TIPO'
+    FocusControl = DBEdit4
+  end
+  object Label6: TLabel [4]
+    Left = 312
+    Top = 112
+    Width = 55
+    Height = 13
+    Caption = 'CADASTRO'
+    FocusControl = DB_CADASTRO
+  end
+  inherited Panel2: TPanel
+    Top = 307
+    inherited DBNavigator1: TDBNavigator
+      Hints.Strings = ()
+    end
+  end
+  object DBEdit1: TDBEdit [7]
+    Left = 152
+    Top = 128
+    Width = 134
+    Height = 21
+    DataField = 'ID_USUARIO'
+    DataSource = DS_padrao
+    TabOrder = 2
+  end
+  object DB_NOME: TDBEdit [8]
+    Left = 152
+    Top = 168
+    Width = 600
+    Height = 21
+    CharCase = ecUpperCase
+    DataField = 'NOME'
+    DataSource = DS_padrao
+    TabOrder = 3
+  end
+  object DBEdit3: TDBEdit [9]
+    Left = 152
+    Top = 208
+    Width = 215
+    Height = 21
+    DataField = 'SENHA'
+    DataSource = DS_padrao
+    PasswordChar = '*'
+    TabOrder = 4
+  end
+  object DBEdit4: TDBEdit [10]
+    Left = 392
+    Top = 208
+    Width = 215
+    Height = 21
+    DataField = 'TIPO'
+    DataSource = DS_padrao
+    TabOrder = 5
+  end
+  object DB_CADASTRO: TDBEdit [11]
+    Left = 312
+    Top = 128
+    Width = 134
+    Height = 21
+    DataField = 'CADASTRO'
+    DataSource = DS_padrao
+    TabOrder = 6
+  end
+  inherited Q_padrao: TFDQuery
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_ID_USUARIO'
+    UpdateOptions.AutoIncFields = 'ID_USUARIO'
+    SQL.Strings = (
+      'SELECT * FROM USUARIO'
+      'ORDER BY ID_USUARIO')
+    inherited Q_padraoID_USUARIO: TIntegerField
+      AutoGenerateValue = arAutoInc
+      ProviderFlags = [pfInWhere, pfInKey]
+      Required = False
+    end
+  end
+end
