@@ -1,17 +1,346 @@
-inherited Frm_padrao1: TFrm_padrao1
-  Caption = 'Frm_padrao1'
-  ClientHeight = 408
-  ExplicitHeight = 437
+inherited Frm_Empresa: TFrm_Empresa
+  Caption = 'Frm_Empresa'
+  ClientHeight = 701
+  ExplicitHeight = 730
   PixelsPerInch = 96
   TextHeight = 13
+  inherited Bevel1: TBevel
+    Height = 554
+    ExplicitHeight = 554
+  end
+  object Label1: TLabel [1]
+    Left = 64
+    Top = 64
+    Width = 63
+    Height = 13
+    Caption = 'ID_EMPRESA'
+    FocusControl = DBEdit1
+  end
+  object Label2: TLabel [2]
+    Left = 64
+    Top = 104
+    Width = 78
+    Height = 13
+    Caption = 'RAZAO_SOCIAL'
+    FocusControl = DBEdit2
+  end
+  object Label3: TLabel [3]
+    Left = 64
+    Top = 144
+    Width = 63
+    Height = 13
+    Caption = 'N_FANTASIA'
+    FocusControl = DBEdit3
+  end
+  object Label4: TLabel [4]
+    Left = 64
+    Top = 184
+    Width = 54
+    Height = 13
+    Caption = 'ENDERECO'
+    FocusControl = DBEdit4
+  end
+  object Label5: TLabel [5]
+    Left = 64
+    Top = 224
+    Width = 43
+    Height = 13
+    Caption = 'NUMERO'
+    FocusControl = DBEdit5
+  end
+  object Label6: TLabel [6]
+    Left = 64
+    Top = 264
+    Width = 39
+    Height = 13
+    Caption = 'BAIRRO'
+    FocusControl = DBEdit6
+  end
+  object Label7: TLabel [7]
+    Left = 64
+    Top = 304
+    Width = 38
+    Height = 13
+    Caption = 'CIDADE'
+    FocusControl = DBEdit7
+  end
+  object Label8: TLabel [8]
+    Left = 64
+    Top = 344
+    Width = 13
+    Height = 13
+    Caption = 'UF'
+    FocusControl = DBEdit8
+  end
+  object Label9: TLabel [9]
+    Left = 64
+    Top = 384
+    Width = 50
+    Height = 13
+    Caption = 'TELEFONE'
+    FocusControl = DBEdit9
+  end
+  object Label10: TLabel [10]
+    Left = 64
+    Top = 424
+    Width = 25
+    Height = 13
+    Caption = 'CNPJ'
+    FocusControl = DBEdit10
+  end
+  object Label11: TLabel [11]
+    Left = 64
+    Top = 464
+    Width = 30
+    Height = 13
+    Caption = 'EMAIL'
+    FocusControl = DBEdit11
+  end
+  object Label12: TLabel [12]
+    Left = 64
+    Top = 504
+    Width = 55
+    Height = 13
+    Caption = 'CADASTRO'
+    FocusControl = DBEdit12
+  end
+  object Label13: TLabel [13]
+    Left = 64
+    Top = 544
+    Width = 19
+    Height = 13
+    Caption = 'CEP'
+    FocusControl = DBEdit13
+  end
+  object Label14: TLabel [14]
+    Left = 694
+    Top = 116
+    Width = 28
+    Height = 13
+    Caption = 'LOGO'
+    FocusControl = DBImage1
+  end
   inherited Panel2: TPanel
-    Top = 351
+    Top = 649
+    ExplicitTop = 436
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
   end
+  object DBEdit1: TDBEdit [17]
+    Left = 64
+    Top = 80
+    Width = 134
+    Height = 21
+    DataField = 'ID_EMPRESA'
+    DataSource = ds_padrao
+    TabOrder = 2
+  end
+  object DBEdit2: TDBEdit [18]
+    Left = 64
+    Top = 120
+    Width = 600
+    Height = 21
+    DataField = 'RAZAO_SOCIAL'
+    DataSource = ds_padrao
+    TabOrder = 3
+  end
+  object DBEdit3: TDBEdit [19]
+    Left = 64
+    Top = 160
+    Width = 600
+    Height = 21
+    DataField = 'N_FANTASIA'
+    DataSource = ds_padrao
+    TabOrder = 4
+  end
+  object DBEdit4: TDBEdit [20]
+    Left = 64
+    Top = 200
+    Width = 600
+    Height = 21
+    DataField = 'ENDERECO'
+    DataSource = ds_padrao
+    TabOrder = 5
+  end
+  object DBEdit5: TDBEdit [21]
+    Left = 64
+    Top = 240
+    Width = 134
+    Height = 21
+    DataField = 'NUMERO'
+    DataSource = ds_padrao
+    TabOrder = 6
+  end
+  object DBEdit6: TDBEdit [22]
+    Left = 64
+    Top = 280
+    Width = 600
+    Height = 21
+    DataField = 'BAIRRO'
+    DataSource = ds_padrao
+    TabOrder = 7
+  end
+  object DBEdit7: TDBEdit [23]
+    Left = 64
+    Top = 320
+    Width = 600
+    Height = 21
+    DataField = 'CIDADE'
+    DataSource = ds_padrao
+    TabOrder = 8
+  end
+  object DBEdit8: TDBEdit [24]
+    Left = 64
+    Top = 360
+    Width = 30
+    Height = 21
+    DataField = 'UF'
+    DataSource = ds_padrao
+    TabOrder = 9
+  end
+  object DBEdit9: TDBEdit [25]
+    Left = 64
+    Top = 400
+    Width = 199
+    Height = 21
+    DataField = 'TELEFONE'
+    DataSource = ds_padrao
+    TabOrder = 10
+  end
+  object DBEdit10: TDBEdit [26]
+    Left = 64
+    Top = 440
+    Width = 264
+    Height = 21
+    DataField = 'CNPJ'
+    DataSource = ds_padrao
+    TabOrder = 11
+  end
+  object DBEdit11: TDBEdit [27]
+    Left = 64
+    Top = 480
+    Width = 600
+    Height = 21
+    DataField = 'EMAIL'
+    DataSource = ds_padrao
+    TabOrder = 12
+  end
+  object DBEdit12: TDBEdit [28]
+    Left = 64
+    Top = 520
+    Width = 134
+    Height = 21
+    DataField = 'CADASTRO'
+    DataSource = ds_padrao
+    TabOrder = 13
+  end
+  object DBEdit13: TDBEdit [29]
+    Left = 64
+    Top = 560
+    Width = 600
+    Height = 21
+    DataField = 'CEP'
+    DataSource = ds_padrao
+    TabOrder = 14
+  end
+  object DBImage1: TDBImage [30]
+    Left = 694
+    Top = 132
+    Width = 105
+    Height = 105
+    DataField = 'LOGO'
+    DataSource = ds_padrao
+    TabOrder = 15
+  end
   inherited Q_padrao: TFDQuery
     SQL.Strings = (
       'SELECT * FROM EMPRESA')
+    Left = 736
+    Top = 400
+    object Q_padraoID_EMPRESA: TIntegerField
+      FieldName = 'ID_EMPRESA'
+      Origin = 'ID_EMPRESA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_padraoRAZAO_SOCIAL: TStringField
+      FieldName = 'RAZAO_SOCIAL'
+      Origin = 'RAZAO_SOCIAL'
+      Required = True
+      Size = 100
+    end
+    object Q_padraoN_FANTASIA: TStringField
+      FieldName = 'N_FANTASIA'
+      Origin = 'N_FANTASIA'
+      Required = True
+      Size = 100
+    end
+    object Q_padraoENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Origin = 'ENDERECO'
+      Required = True
+      Size = 100
+    end
+    object Q_padraoNUMERO: TIntegerField
+      FieldName = 'NUMERO'
+      Origin = 'NUMERO'
+      Required = True
+    end
+    object Q_padraoBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Origin = 'BAIRRO'
+      Required = True
+      Size = 100
+    end
+    object Q_padraoCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Origin = 'CIDADE'
+      Required = True
+      Size = 100
+    end
+    object Q_padraoUF: TStringField
+      FieldName = 'UF'
+      Origin = 'UF'
+      Required = True
+      FixedChar = True
+      Size = 2
+    end
+    object Q_padraoTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Origin = 'TELEFONE'
+      Required = True
+      Size = 15
+    end
+    object Q_padraoCNPJ: TStringField
+      FieldName = 'CNPJ'
+      Origin = 'CNPJ'
+      Required = True
+    end
+    object Q_padraoEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Required = True
+      Size = 100
+    end
+    object Q_padraoCADASTRO: TDateField
+      FieldName = 'CADASTRO'
+      Origin = 'CADASTRO'
+      Required = True
+    end
+    object Q_padraoCEP: TStringField
+      FieldName = 'CEP'
+      Origin = 'CEP'
+      Required = True
+      Size = 100
+    end
+    object Q_padraoLOGO: TBlobField
+      FieldName = 'LOGO'
+      Origin = 'LOGO'
+    end
+  end
+  inherited ds_padrao: TDataSource
+    Left = 736
+    Top = 464
   end
 end

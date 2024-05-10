@@ -4,29 +4,30 @@ object DM: TDM
   Width = 575
   object conexao: TFDConnection
     Params.Strings = (
-      'Database=C:\Sistema-de-Estoque\EXE\BANCO\ESTOQUE.FDB'
+      'Database=C:\Estoque\EXE\BANCO\ESTOQUE.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Protocol=TCPIP'
       'Port=3050'
       'CharacterSet=WIN1252'
       'DriverID=FB')
+    Connected = True
     LoginPrompt = False
-    Left = 56
-    Top = 48
+    Left = 40
+    Top = 32
   end
   object transacao: TFDTransaction
     Connection = conexao
-    Left = 56
-    Top = 112
+    Left = 368
+    Top = 48
   end
   object FDPhysFBDriverLink1: TFDPhysFBDriverLink
-    Left = 280
-    Top = 56
+    Left = 136
+    Top = 48
   end
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'Forms'
-    Left = 312
-    Top = 128
+    Left = 264
+    Top = 48
   end
 end

@@ -1,28 +1,34 @@
-unit U_USUARIO;
+unit U_Usuario;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_PADRAO, FireDAC.Stan.Intf,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_padrao, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
   Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
 
 type
-  TFrm_usuario = class(TFrm_padrao)
+  Tfrm_usuario = class(TFrm_padrao)
+    Q_padraoID_USUARIO: TIntegerField;
+    Q_padraoNOME: TStringField;
+    Q_padraoSENHA: TStringField;
+    Q_padraoTIPO: TStringField;
+    Q_padraoCADASTRO: TDateField;
     Label1: TLabel;
     DBEdit1: TDBEdit;
     Label2: TLabel;
-    DB_NOME: TDBEdit;
+    db_nome: TDBEdit;
     Label3: TLabel;
-    DBEdit3: TDBEdit;
+    db_senha: TDBEdit;
     Label4: TLabel;
     DBEdit4: TDBEdit;
-    Label6: TLabel;
-    DB_CADASTRO: TDBEdit;
-    procedure bt_NovoClick(Sender: TObject);
+    Label5: TLabel;
+    db_cadastro: TDBEdit;
+    DBComboBox1: TDBComboBox;
+    procedure bt_novoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,19 +36,18 @@ type
   end;
 
 var
-  Frm_usuario: TFrm_usuario;
+  frm_usuario: Tfrm_usuario;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFrm_usuario.bt_NovoClick(Sender: TObject);
+procedure Tfrm_usuario.bt_novoClick(Sender: TObject);
 begin
   inherited;
-  //db_id_usuario.Text := '';
- // db_id_usuario.Enabled := false;
-  db_cadastro.Text:=dateTostr(now);
+  Q_padraoCADASTRO.AsDateTime:=date;
   db_nome.SetFocus;
+
 end;
 
 end.

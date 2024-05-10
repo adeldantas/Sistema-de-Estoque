@@ -1,126 +1,124 @@
-inherited Frm_usuario: TFrm_usuario
-  Caption = 'CADASTRO DE USU'#193'RIOS'
-  ClientHeight = 364
-  ExplicitHeight = 393
+inherited frm_usuario: Tfrm_usuario
+  Caption = 'FORMUL'#193'RIO DE CADASTRO DE USU'#193'RIO'
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
-    Left = 152
-    Top = 112
+    Left = 144
+    Top = 144
     Width = 79
     Height = 16
     Caption = 'ID_USUARIO'
     FocusControl = DBEdit1
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clWhite
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
   end
   object Label2: TLabel [1]
-    Left = 152
-    Top = 152
+    Left = 144
+    Top = 184
     Width = 35
     Height = 16
     Caption = 'NOME'
-    FocusControl = DB_NOME
+    FocusControl = db_nome
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clWhite
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
   end
   object Label3: TLabel [2]
-    Left = 152
-    Top = 192
+    Left = 144
+    Top = 224
     Width = 42
     Height = 16
     Caption = 'SENHA'
-    FocusControl = DBEdit3
+    FocusControl = db_senha
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clWhite
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
   end
   object Label4: TLabel [3]
-    Left = 392
-    Top = 192
+    Left = 424
+    Top = 224
     Width = 29
     Height = 16
     Caption = 'TIPO'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clWhite
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label6: TLabel [4]
-    Left = 312
-    Top = 112
+  object Label5: TLabel [4]
+    Left = 284
+    Top = 144
     Width = 70
     Height = 16
     Caption = 'CADASTRO'
-    FocusControl = DB_CADASTRO
+    FocusControl = db_cadastro
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
+    Font.Color = clWhite
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
   end
-  inherited Panel1: TPanel
-    TabOrder = 5
+  inherited Bevel1: TBevel
+    Width = 809
+    ExplicitWidth = 809
   end
   inherited Panel2: TPanel
-    Top = 307
-    TabOrder = 6
+    TabOrder = 3
+    ExplicitTop = 436
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
   end
-  object DBEdit1: TDBEdit [7]
-    Left = 152
-    Top = 128
+  object DBEdit1: TDBEdit [8]
+    Left = 144
+    Top = 160
     Width = 134
     Height = 24
     DataField = 'ID_USUARIO'
-    DataSource = DS_padrao
+    DataSource = ds_padrao
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 0
+    TabOrder = 4
   end
-  object DB_NOME: TDBEdit [8]
-    Left = 152
-    Top = 168
-    Width = 600
+  object db_nome: TDBEdit [9]
+    Left = 144
+    Top = 200
+    Width = 530
     Height = 24
-    CharCase = ecUpperCase
     DataField = 'NOME'
-    DataSource = DS_padrao
+    DataSource = ds_padrao
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 5
   end
-  object DBEdit3: TDBEdit [9]
-    Left = 152
-    Top = 208
-    Width = 215
+  object db_senha: TDBEdit [10]
+    Left = 144
+    Top = 240
+    Width = 265
     Height = 24
     DataField = 'SENHA'
-    DataSource = DS_padrao
+    DataSource = ds_padrao
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -128,31 +126,30 @@ inherited Frm_usuario: TFrm_usuario
     Font.Style = []
     ParentFont = False
     PasswordChar = '*'
-    TabOrder = 3
+    TabOrder = 1
   end
-  object DB_CADASTRO: TDBEdit [10]
-    Left = 312
-    Top = 128
+  object db_cadastro: TDBEdit [11]
+    Left = 284
+    Top = 160
     Width = 134
     Height = 24
     DataField = 'CADASTRO'
-    DataSource = DS_padrao
-    Enabled = False
+    DataSource = ds_padrao
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 6
   end
-  object DBComboBox1: TDBComboBox [11]
-    Left = 392
-    Top = 209
-    Width = 215
+  object DBComboBox1: TDBComboBox [12]
+    Left = 424
+    Top = 240
+    Width = 250
     Height = 24
     DataField = 'TIPO'
-    DataSource = DS_padrao
+    DataSource = ds_padrao
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -162,20 +159,44 @@ inherited Frm_usuario: TFrm_usuario
       'ADMINISTRADOR'
       'APOIO')
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 2
   end
   inherited Q_padrao: TFDQuery
+    Active = True
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_ID_USUARIO'
     UpdateOptions.AutoIncFields = 'ID_USUARIO'
     SQL.Strings = (
-      'SELECT * FROM USUARIO'
-      'ORDER BY ID_USUARIO')
-    inherited Q_padraoID_USUARIO: TIntegerField
+      'SELECT * FROM USUARIO')
+    object Q_padraoID_USUARIO: TIntegerField
       AutoGenerateValue = arAutoInc
-      ProviderFlags = [pfInWhere, pfInKey]
-      Required = False
+      FieldName = 'ID_USUARIO'
+      Origin = 'ID_USUARIO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object Q_padraoNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Required = True
+      Size = 100
+    end
+    object Q_padraoSENHA: TStringField
+      FieldName = 'SENHA'
+      Origin = 'SENHA'
+      Required = True
+      Size = 30
+    end
+    object Q_padraoTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      Required = True
+      Size = 30
+    end
+    object Q_padraoCADASTRO: TDateField
+      FieldName = 'CADASTRO'
+      Origin = 'CADASTRO'
+      Required = True
     end
   end
 end
