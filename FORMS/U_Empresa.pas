@@ -86,6 +86,7 @@ procedure TFrm_Empresa.BT_fotoClick(Sender: TObject);
 begin
   // insere uma foto
   Q_padrao.Edit;
+  opendialog1.Execute;
   dbimage1.Picture.LoadFromFile(opendialog1.FileName);
   Q_padrao.refresh;
   Messagedlg('Imagem inserida com sucesso!', mtinformation, [mbok], 0);

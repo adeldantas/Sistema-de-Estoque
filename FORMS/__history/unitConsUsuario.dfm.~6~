@@ -1,0 +1,102 @@
+object FormConsUsuario: TFormConsUsuario
+  Left = 0
+  Top = 0
+  Caption = 'FormConsUsuario'
+  ClientHeight = 394
+  ClientWidth = 386
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 386
+    Height = 65
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 8
+    ExplicitWidth = 387
+    object Label1: TLabel
+      Left = 16
+      Top = 17
+      Width = 27
+      Height = 13
+      Caption = 'Nome'
+    end
+    object Edit1: TEdit
+      Left = 16
+      Top = 36
+      Width = 257
+      Height = 21
+      TabOrder = 0
+      Text = 'Edit1'
+    end
+    object Button1: TButton
+      Left = 279
+      Top = 34
+      Width = 75
+      Height = 25
+      Caption = 'Listar'
+      TabOrder = 1
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 352
+    Width = 386
+    Height = 42
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 1
+    ExplicitTop = 358
+    object Button2: TButton
+      Left = 216
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Confirmar'
+      TabOrder = 0
+    end
+    object Button3: TButton
+      Left = 297
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Cancelar'
+      TabOrder = 1
+      OnClick = Button3Click
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 65
+    Width = 386
+    Height = 287
+    Align = alClient
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object FDConsulta: TFDQuery
+    Connection = DM.conexao
+    Transaction = FDTrans
+    Left = 296
+    Top = 176
+  end
+  object FDTrans: TFDTransaction
+    Connection = DM.conexao
+    Left = 296
+    Top = 120
+  end
+end

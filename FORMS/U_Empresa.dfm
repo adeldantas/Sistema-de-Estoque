@@ -1,8 +1,6 @@
 inherited Frm_Empresa: TFrm_Empresa
   Caption = 'Frm_Empresa'
   ClientHeight = 461
-  ExplicitLeft = -55
-  ExplicitTop = -51
   ExplicitHeight = 490
   PixelsPerInch = 96
   TextHeight = 13
@@ -130,7 +128,7 @@ inherited Frm_Empresa: TFrm_Empresa
   inherited Panel2: TPanel
     Top = 409
     TabOrder = 12
-    ExplicitTop = 649
+    ExplicitTop = 409
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end

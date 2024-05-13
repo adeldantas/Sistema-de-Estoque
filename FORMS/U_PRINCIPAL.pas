@@ -95,7 +95,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_Usuario, U_Empresa;
+uses U_Usuario,  unitUsuario;
 
 {uses U_usuario, U_EMPRESA, U_CLIENTE, U_Fornecedor, U_produto, U_forma_pgto,
   U_Compra, U_pesq_usuario, U_pesq_fornecedor, U_Pesq_Cliente, U_PESQ_COMPRA,
@@ -700,27 +700,39 @@ end; }
 procedure TFrm_Principal.Abre_tela_empresa;
 begin
     // Abre tela de empresa
- frm_empresa:=Tfrm_empresa.Create(self);
+{ frm_empresa:=Tfrm_empresa.Create(self);
  Frm_empresa.ShowModal;
  try
 
  finally
   frm_empresa.Free;
   frm_empresa:=nil;
-end;
+end; }
 end;
 
 procedure TFrm_Principal.Abre_tela_usuario;
 begin
   // Abre tela de Usuários
- frm_Usuario:=Tfrm_usuario.Create(self);
+
+ FormCadUsuario:=TFormCadUsuario.Create(self);
+ FormCadUsuario.ShowModal;
+ try
+
+ finally
+  FormCadUsuario.Free;
+  FormCadUsuario:=nil;
+ end;
+
+{ frm_Usuario:=Tfrm_usuario.Create(self);
  Frm_Usuario.ShowModal;
  try
 
  finally
   frm_usuario.Free;
   frm_usuario:=nil;
- end;
+ end; }
+
+
 end;
 
 procedure TFrm_Principal.bt_empresaClick(Sender: TObject);

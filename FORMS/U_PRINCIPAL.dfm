@@ -38,7 +38,7 @@ object Frm_Principal: TFrm_Principal
     ParentBackground = False
     TabOrder = 0
     object bt_Usuario: TSpeedButton
-      Left = 0
+      Left = 8
       Top = 0
       Width = 100
       Height = 90
