@@ -78,6 +78,9 @@ type
     procedure Abre_tela_usuario();
     procedure bt_empresaClick(Sender: TObject);
     procedure  Abre_tela_empresa();
+    procedure Menu_empresaClick(Sender: TObject);
+    procedure Menu_UsuarioClick(Sender: TObject);
+    procedure Fechar1Click(Sender: TObject);
 
 
 
@@ -742,6 +745,21 @@ end;
 procedure TFrm_Principal.bt_UsuarioClick(Sender: TObject);
 begin
  Abre_tela_Usuario();
+end;
+
+procedure TFrm_Principal.Fechar1Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TFrm_Principal.Menu_empresaClick(Sender: TObject);
+begin
+    abre_tela_empresa;
+end;
+
+procedure TFrm_Principal.Menu_UsuarioClick(Sender: TObject);
+begin
+  abre_tela_usuario;
 end;
 
 end.

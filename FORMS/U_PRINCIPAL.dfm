@@ -6986,6 +6986,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = '&Usu'#225'rio'
         ShortCut = 16449
+        OnClick = Menu_UsuarioClick
       end
       object Menu_empresa: TMenuItem
         Bitmap.Data = {
@@ -7505,6 +7506,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = '&Empresa'
         ShortCut = 16450
+        OnClick = Menu_empresaClick
       end
       object menu_cliente: TMenuItem
         Bitmap.Data = {
@@ -9684,6 +9686,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = '&Fechar'
         ShortCut = 16455
+        OnClick = Fechar1Click
       end
     end
     object Movimentos1: TMenuItem

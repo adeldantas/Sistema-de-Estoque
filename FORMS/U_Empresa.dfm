@@ -249,6 +249,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Height = 105
     DataField = 'LOGO'
     DataSource = ds_padrao
+    Stretch = True
     TabOrder = 15
   end
   object BT_foto: TBitBtn [30]
