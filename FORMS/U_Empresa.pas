@@ -41,7 +41,6 @@ type
     Label7: TLabel;
     DBEdit7: TDBEdit;
     Label8: TLabel;
-    DBEdit8: TDBEdit;
     Label9: TLabel;
     DBEdit9: TDBEdit;
     Label10: TLabel;
@@ -57,8 +56,11 @@ type
     BT_foto: TBitBtn;
     bt_clear: TBitBtn;
     OpenDialog1: TOpenDialog;
+    DBEdit8: TDBComboBox;
+    DBEdit2: TDBEdit;
     procedure BT_fotoClick(Sender: TObject);
     procedure bt_clearClick(Sender: TObject);
+    procedure bt_novoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -86,9 +88,17 @@ procedure TFrm_Empresa.BT_fotoClick(Sender: TObject);
 begin
   // insere uma foto
   Q_padrao.Edit;
+  opendialog1.execute;
   dbimage1.Picture.LoadFromFile(opendialog1.FileName);
   Q_padrao.refresh;
   Messagedlg('Imagem inserida com sucesso!', mtinformation, [mbok], 0);
+end;
+
+procedure TFrm_Empresa.bt_novoClick(Sender: TObject);
+begin
+  inherited;
+  db_cadastro.Text:=datetostr(now);
+  db_razao_social.SetFocus;
 end;
 
 end.

@@ -1,8 +1,7 @@
 inherited Frm_Empresa: TFrm_Empresa
   Caption = 'Frm_Empresa'
   ClientHeight = 461
-  ExplicitLeft = -55
-  ExplicitTop = -51
+  ExplicitTop = -8
   ExplicitHeight = 490
   PixelsPerInch = 96
   TextHeight = 13
@@ -74,7 +73,6 @@ inherited Frm_Empresa: TFrm_Empresa
     Width = 13
     Height = 13
     Caption = 'UF'
-    FocusControl = DBEdit8
   end
   object Label9: TLabel [9]
     Left = 253
@@ -130,7 +128,7 @@ inherited Frm_Empresa: TFrm_Empresa
   inherited Panel2: TPanel
     Top = 409
     TabOrder = 12
-    ExplicitTop = 649
+    ExplicitTop = 409
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
@@ -198,16 +196,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 5
   end
-  object DBEdit8: TDBEdit [24]
-    Left = 596
-    Top = 280
-    Width = 44
-    Height = 21
-    DataField = 'UF'
-    DataSource = ds_padrao
-    TabOrder = 6
-  end
-  object DBEdit9: TDBEdit [25]
+  object DBEdit9: TDBEdit [24]
     Left = 253
     Top = 320
     Width = 204
@@ -216,7 +205,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 8
   end
-  object DBEdit10: TDBEdit [26]
+  object DBEdit10: TDBEdit [25]
     Left = 474
     Top = 320
     Width = 166
@@ -225,7 +214,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 9
   end
-  object DBEdit11: TDBEdit [27]
+  object DBEdit11: TDBEdit [26]
     Left = 40
     Top = 360
     Width = 600
@@ -234,7 +223,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 10
   end
-  object DB_cadastro: TDBEdit [28]
+  object DB_cadastro: TDBEdit [27]
     Left = 180
     Top = 80
     Width = 134
@@ -244,7 +233,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Enabled = False
     TabOrder = 14
   end
-  object DBEdit13: TDBEdit [29]
+  object DBEdit13: TDBEdit [28]
     Left = 40
     Top = 320
     Width = 195
@@ -253,7 +242,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 7
   end
-  object DBImage1: TDBImage [30]
+  object DBImage1: TDBImage [29]
     Left = 670
     Top = 120
     Width = 105
@@ -262,7 +251,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 15
   end
-  object BT_foto: TBitBtn [31]
+  object BT_foto: TBitBtn [30]
     Left = 672
     Top = 240
     Width = 75
@@ -402,7 +391,7 @@ inherited Frm_Empresa: TFrm_Empresa
     TabOrder = 16
     OnClick = BT_fotoClick
   end
-  object bt_clear: TBitBtn [32]
+  object bt_clear: TBitBtn [31]
     Left = 753
     Top = 240
     Width = 75
@@ -542,7 +531,57 @@ inherited Frm_Empresa: TFrm_Empresa
     TabOrder = 17
     OnClick = bt_clearClick
   end
+  object DBEdit8: TDBComboBox [32]
+    Left = 596
+    Top = 280
+    Width = 44
+    Height = 21
+    DataField = 'UF'
+    DataSource = ds_padrao
+    Items.Strings = (
+      'AC'
+      'AL'
+      'AP'
+      'AM'
+      'BA'
+      'CE'
+      'DF'
+      'ES'
+      'GO'
+      'MA'
+      'MT'
+      'MS'
+      'MG'
+      'PA'
+      'PB'
+      'PR'
+      'PE'
+      'PI'
+      'RJ'
+      'RN'
+      'RS'
+      'RO'
+      'RR'
+      'SC'
+      'SP'
+      'SE'
+      'TO')
+    TabOrder = 6
+  end
+  object DBEdit2: TDBEdit [33]
+    Left = 616
+    Top = 584
+    Width = 30
+    Height = 21
+    DataField = 'UF'
+    DataSource = ds_padrao
+    TabOrder = 18
+  end
   inherited Q_padrao: TFDQuery
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_ID_EMPRESA'
+    UpdateOptions.AutoIncFields = 'ID_EMPRESA'
     SQL.Strings = (
       'SELECT * FROM EMPRESA')
     Left = 736
@@ -550,7 +589,7 @@ inherited Frm_Empresa: TFrm_Empresa
     object Q_padraoID_EMPRESA: TIntegerField
       FieldName = 'ID_EMPRESA'
       Origin = 'ID_EMPRESA'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ProviderFlags = [pfInWhere, pfInKey]
       Required = True
     end
     object Q_padraoRAZAO_SOCIAL: TStringField
@@ -623,6 +662,7 @@ inherited Frm_Empresa: TFrm_Empresa
       FieldName = 'CEP'
       Origin = 'CEP'
       Required = True
+      EditMask = '00000\-999;0;_'
       Size = 100
     end
     object Q_padraoLOGO: TBlobField
