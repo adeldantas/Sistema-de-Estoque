@@ -91,6 +91,9 @@ type
     procedure bt_produtoClick(Sender: TObject);
     procedure abre_tela_produto();
     procedure Menu_ProdutoClick(Sender: TObject);
+    procedure bt_forma_pgtoClick(Sender: TObject);
+    procedure abre_tela_forma_pgto();
+    procedure Menu_Forma_pgtoClick(Sender: TObject);
 
 
 
@@ -108,7 +111,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_Usuario, U_Empresa, U_CLIENTE, U_FORNECEDOR, U_PRODUTO;
+uses U_Usuario, U_Empresa, U_CLIENTE, U_FORNECEDOR, U_PRODUTO, U_FORMA_PGTO;
 
 {uses U_usuario, U_EMPRESA, U_CLIENTE, U_Fornecedor, U_produto, U_forma_pgto,
   U_Compra, U_pesq_usuario, U_pesq_fornecedor, U_Pesq_Cliente, U_PESQ_COMPRA,
@@ -736,6 +739,19 @@ begin
 end;
 end;
 
+procedure TFrm_Principal.abre_tela_forma_pgto;
+begin
+      // Abre tela de Formas de Pagamento
+ frm_Forma_PGTO:=Tfrm_Forma_PGTO.Create(self);
+ Frm_Forma_PGTO.ShowModal;
+ try
+
+ finally
+  frm_Forma_PGTO.Free;
+  frm_Forma_PGTO:=nil;
+ end;
+end;
+
 procedure TFrm_Principal.abre_tela_fornecedor;
 begin
     // Abre tela de Fornecedores
@@ -796,6 +812,11 @@ begin
      abort;
 end;
 
+procedure TFrm_Principal.bt_forma_pgtoClick(Sender: TObject);
+begin
+  abre_tela_forma_pgto;
+end;
+
 procedure TFrm_Principal.bt_fornecedorClick(Sender: TObject);
 begin
   abre_tela_fornecedor;
@@ -824,6 +845,11 @@ end;
 procedure TFrm_Principal.Menu_empresaClick(Sender: TObject);
 begin
     abre_tela_empresa;
+end;
+
+procedure TFrm_Principal.Menu_Forma_pgtoClick(Sender: TObject);
+begin
+  abre_tela_Forma_PGTO;
 end;
 
 procedure TFrm_Principal.menu_FornecedorClick(Sender: TObject);

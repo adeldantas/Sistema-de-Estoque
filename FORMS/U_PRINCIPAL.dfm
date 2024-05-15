@@ -3239,6 +3239,7 @@ object Frm_Principal: TFrm_Principal
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = bt_forma_pgtoClick
     end
     object bt_compra: TSpeedButton
       Left = 685
@@ -9168,6 +9169,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = '&Formas de Pgto'
         ShortCut = 16454
+        OnClick = Menu_Forma_pgtoClick
       end
       object Fechar1: TMenuItem
         Bitmap.Data = {

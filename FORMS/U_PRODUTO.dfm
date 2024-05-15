@@ -224,6 +224,12 @@ inherited Frm_Produto: TFrm_Produto
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
+    object Q_padraoPRODUTO_DESCRICAO: TStringField
+      FieldName = 'PRODUTO_DESCRICAO'
+      Origin = 'PRODUTO_DESCRICAO'
+      Required = True
+      Size = 100
+    end
     object Q_padraoVL_CUSTO: TBCDField
       FieldName = 'VL_CUSTO'
       Origin = 'VL_CUSTO'
@@ -275,12 +281,6 @@ inherited Frm_Produto: TFrm_Produto
       Origin = 'NOME'
       ProviderFlags = []
       ReadOnly = True
-      Size = 100
-    end
-    object Q_padraoPRODUTO_DESCRICAO: TStringField
-      FieldName = 'PRODUTO_DESCRICAO'
-      Origin = 'PRODUTO_DESCRICAO'
-      Required = True
       Size = 100
     end
   end

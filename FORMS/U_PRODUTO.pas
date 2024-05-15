@@ -12,7 +12,6 @@ uses
 
 type
   TFrm_Produto = class(TFrm_padrao)
-    Q_padraoID_PRODUTO: TIntegerField;
     Q_padraoVL_CUSTO: TBCDField;
     Q_padraoVL_VENDA: TBCDField;
     Q_padraoESTOQUE: TBCDField;
@@ -42,6 +41,7 @@ type
     Label10: TLabel;
     DB_descricao: TDBEdit;
     DBC_unidade: TDBComboBox;
+    Q_padraoID_PRODUTO: TIntegerField;
     procedure bt_novoClick(Sender: TObject);
   private
     { Private declarations }
@@ -59,7 +59,7 @@ implementation
 procedure TFrm_Produto.bt_novoClick(Sender: TObject);
 begin
   inherited;
-  db_cadastro.Text:=datetostr(now);
+   db_cadastro.Text:=datetostr(now);
   db_nome.SetFocus;
 end;
 
