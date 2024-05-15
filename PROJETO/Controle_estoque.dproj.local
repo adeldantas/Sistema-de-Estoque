@@ -2,30 +2,35 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2024/05/05 21:30:56.000.890,=C:\Users\Adelson\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/05/05 22:15:36.000.410,C:\Users\Adelson\Documents\ESTOQUE\FORMS\U_PRINCIPAL.dfm=C:\Users\Adelson\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2024/05/05 22:15:36.000.410,C:\Users\Adelson\Documents\ESTOQUE\FORMS\U_PRINCIPAL.pas=C:\Users\Adelson\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/05/05 22:16:11.000.316,C:\Users\Adelson\Documents\ESTOQUE\PROJETO\Controle_estoque.dproj=C:\Users\Adelson\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/05/05 22:15:36.000.410,C:\Users\Adelson\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Adelson\Documents\ESTOQUE\FORMS\U_PRINCIPAL.dfm</Transaction>
+    <Transaction>2024/05/05 22:15:36.000.410,C:\Users\Adelson\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Adelson\Documents\ESTOQUE\FORMS\U_PRINCIPAL.pas</Transaction>
+    <Transaction>2024/05/05 22:16:11.000.316,C:\Users\Adelson\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Adelson\Documents\ESTOQUE\PROJETO\Controle_estoque.dproj</Transaction>
     <Transaction>2024/05/06 17:03:29.000.730,=C:\ESTOQUE\PROJETO\Unit1.pas</Transaction>
-    <Transaction>2024/05/06 17:04:07.000.724,C:\ESTOQUE\PROJETO\Unit1.dfm=C:\ESTOQUE\FORMS\U_DM.dfm</Transaction>
-    <Transaction>2024/05/06 17:04:07.000.724,C:\ESTOQUE\PROJETO\Unit1.pas=C:\ESTOQUE\FORMS\U_DM.pas</Transaction>
+    <Transaction>2024/05/06 17:04:07.000.724,C:\ESTOQUE\FORMS\U_DM.pas=C:\ESTOQUE\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/06 17:04:07.000.724,C:\ESTOQUE\FORMS\U_DM.dfm=C:\ESTOQUE\PROJETO\Unit1.dfm</Transaction>
     <Transaction>2024/05/07 08:31:00.000.111,=C:\ESTOQUE\PROJETO\Unit2.pas</Transaction>
-    <Transaction>2024/05/07 08:33:06.000.633,C:\ESTOQUE\FORMS\U_PADRAO.dfm=C:\ESTOQUE\PROJETO\Unit2.dfm</Transaction>
-    <Transaction>2024/05/07 08:33:06.000.633,C:\ESTOQUE\FORMS\U_PADRAO.pas=C:\ESTOQUE\PROJETO\Unit2.pas</Transaction>
+    <Transaction>2024/05/07 08:33:06.000.633,C:\ESTOQUE\PROJETO\Unit2.dfm=C:\ESTOQUE\FORMS\U_PADRAO.dfm</Transaction>
+    <Transaction>2024/05/07 08:33:06.000.633,C:\ESTOQUE\PROJETO\Unit2.pas=C:\ESTOQUE\FORMS\U_PADRAO.pas</Transaction>
     <Transaction>2024/05/07 10:30:02.000.319,=C:\ESTOQUE\PROJETO\Unit1.pas</Transaction>
-    <Transaction>2024/05/07 10:31:34.000.341,C:\ESTOQUE\FORMS\U_USUARIO.dfm=C:\ESTOQUE\PROJETO\Unit1.dfm</Transaction>
-    <Transaction>2024/05/07 10:31:34.000.341,C:\ESTOQUE\FORMS\U_USUARIO.pas=C:\ESTOQUE\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/07 10:31:34.000.341,C:\ESTOQUE\PROJETO\Unit1.pas=C:\ESTOQUE\FORMS\U_USUARIO.pas</Transaction>
+    <Transaction>2024/05/07 10:31:34.000.341,C:\ESTOQUE\PROJETO\Unit1.dfm=C:\ESTOQUE\FORMS\U_USUARIO.dfm</Transaction>
     <Transaction>2024/05/07 15:49:00.000.588,=C:\ESTOQUE\PROJETO\Unit1.pas</Transaction>
     <Transaction>2024/05/09 08:21:57.000.072,=C:\Sistema-de-Estoque\PROJETO\Unit1.pas</Transaction>
     <Transaction>2024/05/09 09:30:28.000.127,=C:\Sistema-de-Estoque\PROJETO\Unit1.pas</Transaction>
     <Transaction>2024/05/09 15:17:34.000.009,=C:\Sistema-de-Estoque\PROJETO\Unit1.pas</Transaction>
-    <Transaction>2024/05/09 15:19:35.000.742,C:\Sistema-de-Estoque\PROJETO\Unit1.dfm=C:\Sistema-de-Estoque\FORMS\U_EMPRESA.dfm</Transaction>
-    <Transaction>2024/05/09 15:19:35.000.742,C:\Sistema-de-Estoque\PROJETO\Unit1.pas=C:\Sistema-de-Estoque\FORMS\U_EMPRESA.pas</Transaction>
+    <Transaction>2024/05/09 15:19:35.000.742,C:\Sistema-de-Estoque\FORMS\U_EMPRESA.dfm=C:\Sistema-de-Estoque\PROJETO\Unit1.dfm</Transaction>
+    <Transaction>2024/05/09 15:19:35.000.742,C:\Sistema-de-Estoque\FORMS\U_EMPRESA.pas=C:\Sistema-de-Estoque\PROJETO\Unit1.pas</Transaction>
     <Transaction>2024/05/13 14:49:58.000.407,=C:\Sistema_de_Estoque\FORMS\U_Empresa.pas</Transaction>
-    <Transaction>2024/05/14 08:37:03.881,=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
-    <Transaction>2024/05/14 08:38:25.215,C:\Sistema_de_Estoque\FORMS\U_CLIENTE.dfm=C:\Sistema_de_Estoque\PROJETO\Unit1.dfm</Transaction>
-    <Transaction>2024/05/14 08:38:25.215,C:\Sistema_de_Estoque\FORMS\U_CLIENTE.pas=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
-    <Transaction>2024/05/14 16:16:13.110,=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
-    <Transaction>2024/05/14 16:17:17.777,C:\Sistema_de_Estoque\FORMS\U_FORNECEDOR.pas=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
-    <Transaction>2024/05/14 16:17:17.777,C:\Sistema_de_Estoque\FORMS\U_FORNECEDOR.dfm=C:\Sistema_de_Estoque\PROJETO\Unit1.dfm</Transaction>
+    <Transaction>2024/05/14 08:37:03.000.881,=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/14 08:38:25.000.215,C:\Sistema_de_Estoque\PROJETO\Unit1.pas=C:\Sistema_de_Estoque\FORMS\U_CLIENTE.pas</Transaction>
+    <Transaction>2024/05/14 08:38:25.000.215,C:\Sistema_de_Estoque\PROJETO\Unit1.dfm=C:\Sistema_de_Estoque\FORMS\U_CLIENTE.dfm</Transaction>
+    <Transaction>2024/05/14 16:16:13.000.110,=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/14 16:17:17.000.777,C:\Sistema_de_Estoque\PROJETO\Unit1.pas=C:\Sistema_de_Estoque\FORMS\U_FORNECEDOR.pas</Transaction>
+    <Transaction>2024/05/14 16:17:17.000.777,C:\Sistema_de_Estoque\PROJETO\Unit1.dfm=C:\Sistema_de_Estoque\FORMS\U_FORNECEDOR.dfm</Transaction>
+    <Transaction>2024/05/15 10:39:35.778,=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/15 10:40:32.661,C:\Sistema_de_Estoque\FORMS\U_PRODUTOS.pas=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/15 10:40:32.661,C:\Sistema_de_Estoque\FORMS\U_PRODUTOS.dfm=C:\Sistema_de_Estoque\PROJETO\Unit1.dfm</Transaction>
+    <Transaction>2024/05/15 14:36:11.592,C:\Sistema_de_Estoque\FORMS\U_PRODUTO.dfm=C:\Sistema_de_Estoque\FORMS\U_PRODUTOS.dfm</Transaction>
+    <Transaction>2024/05/15 14:36:11.592,C:\Sistema_de_Estoque\FORMS\U_PRODUTO.pas=C:\Sistema_de_Estoque\FORMS\U_PRODUTOS.pas</Transaction>
   </Transactions>
 </BorlandProject>

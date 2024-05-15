@@ -8,7 +8,8 @@ uses
   U_USUARIO in '..\FORMS\U_USUARIO.pas' {Frm_usuario},
   U_Empresa in '..\FORMS\U_Empresa.pas' {Frm_Empresa},
   U_CLIENTE in '..\FORMS\U_CLIENTE.pas' {Frm_Cliente},
-  U_FORNECEDOR in '..\FORMS\U_FORNECEDOR.pas' {Frm_Fornecedor};
+  U_FORNECEDOR in '..\FORMS\U_FORNECEDOR.pas' {Frm_Fornecedor},
+  U_PRODUTO in '..\FORMS\U_PRODUTO.pas' {Frm_Produto};
 
 // U_EMPRESA in '..\FORMS\U_EMPRESA.pas' {Frm_padrao1};
 
@@ -24,6 +25,7 @@ begin
   Application.CreateForm(TFrm_Empresa, Frm_Empresa);
   Application.CreateForm(TFrm_Cliente, Frm_Cliente);
   Application.CreateForm(TFrm_Fornecedor, Frm_Fornecedor);
+  Application.CreateForm(TFrm_Produto, Frm_Produto);
   // Application.CreateForm(TFrm_padrao1, Frm_padrao1);
   Application.Run;
 end.

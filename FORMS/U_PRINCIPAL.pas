@@ -88,6 +88,9 @@ type
     procedure bt_fornecedorClick(Sender: TObject);
     procedure abre_tela_fornecedor();
     procedure menu_FornecedorClick(Sender: TObject);
+    procedure bt_produtoClick(Sender: TObject);
+    procedure abre_tela_produto();
+    procedure Menu_ProdutoClick(Sender: TObject);
 
 
 
@@ -105,7 +108,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_Usuario, U_Empresa, U_CLIENTE, U_FORNECEDOR;
+uses U_Usuario, U_Empresa, U_CLIENTE, U_FORNECEDOR, U_PRODUTO;
 
 {uses U_usuario, U_EMPRESA, U_CLIENTE, U_Fornecedor, U_produto, U_forma_pgto,
   U_Compra, U_pesq_usuario, U_pesq_fornecedor, U_Pesq_Cliente, U_PESQ_COMPRA,
@@ -746,6 +749,19 @@ begin
  end;
 end;
 
+procedure TFrm_Principal.abre_tela_produto;
+begin
+   // Abre tela de Produtos
+ frm_Produto:=Tfrm_Produto.Create(self);
+ Frm_Produto.ShowModal;
+ try
+
+ finally
+  frm_Produto.Free;
+  frm_Produto:=nil;
+ end;
+end;
+
 procedure TFrm_Principal.Abre_tela_usuario;
 begin
   // Abre tela de Usuários
@@ -785,6 +801,11 @@ begin
   abre_tela_fornecedor;
 end;
 
+procedure TFrm_Principal.bt_produtoClick(Sender: TObject);
+begin
+  abre_tela_produto;
+end;
+
 procedure TFrm_Principal.bt_UsuarioClick(Sender: TObject);
 begin
  Abre_tela_Usuario();
@@ -808,6 +829,11 @@ end;
 procedure TFrm_Principal.menu_FornecedorClick(Sender: TObject);
 begin
   abre_tela_fornecedor;
+end;
+
+procedure TFrm_Principal.Menu_ProdutoClick(Sender: TObject);
+begin
+  abre_tela_produto;
 end;
 
 procedure TFrm_Principal.Menu_UsuarioClick(Sender: TObject);

@@ -1,7 +1,6 @@
 inherited Frm_Cliente: TFrm_Cliente
   Caption = 'CADASTRO DE CLIENTE'
   ClientHeight = 397
-  ExplicitLeft = -38
   ExplicitHeight = 426
   PixelsPerInch = 96
   TextHeight = 13
