@@ -1,6 +1,5 @@
 inherited frm_usuario: Tfrm_usuario
   Caption = 'FORMUL'#193'RIO DE CADASTRO DE USU'#193'RIO'
-  ExplicitLeft = -55
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
@@ -82,8 +81,11 @@ inherited frm_usuario: Tfrm_usuario
     ExplicitWidth = 849
     ExplicitHeight = 425
   end
-  inherited Panel2: TPanel
+  inherited Panel1: TPanel
     TabOrder = 3
+  end
+  inherited Panel2: TPanel
+    TabOrder = 4
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
@@ -101,7 +103,7 @@ inherited frm_usuario: Tfrm_usuario
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 5
   end
   object db_nome: TDBEdit [9]
     Left = 166
@@ -116,7 +118,7 @@ inherited frm_usuario: Tfrm_usuario
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 0
   end
   object db_senha: TDBEdit [10]
     Left = 166
@@ -179,7 +181,7 @@ inherited frm_usuario: Tfrm_usuario
       AutoGenerateValue = arAutoInc
       FieldName = 'ID_USUARIO'
       Origin = 'ID_USUARIO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ProviderFlags = [pfInWhere, pfInKey]
     end
     object Q_padraoNOME: TStringField
       FieldName = 'NOME'

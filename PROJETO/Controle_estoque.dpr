@@ -22,12 +22,6 @@ begin
   Application.CreateForm(TFrm_Principal, Frm_Principal);
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrm_padrao, Frm_padrao);
-  Application.CreateForm(TFrm_usuario, Frm_usuario);
-  Application.CreateForm(TFrm_Empresa, Frm_Empresa);
-  Application.CreateForm(TFrm_Cliente, Frm_Cliente);
-  Application.CreateForm(TFrm_Fornecedor, Frm_Fornecedor);
-  Application.CreateForm(TFrm_Produto, Frm_Produto);
-  Application.CreateForm(TFrm_Forma_Pgto, Frm_Forma_Pgto);
   // Application.CreateForm(TFrm_padrao1, Frm_padrao1);
   Application.Run;
 end.

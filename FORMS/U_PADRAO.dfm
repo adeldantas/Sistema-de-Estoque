@@ -20,7 +20,7 @@ object Frm_padrao: TFrm_padrao
   TextHeight = 13
   object Bevel1: TBevel
     Left = 8
-    Top = 55
+    Top = 47
     Width = 820
     Height = 375
   end
@@ -1164,7 +1164,6 @@ object Frm_padrao: TFrm_padrao
     Color = clActiveCaption
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 280
     object DBNavigator1: TDBNavigator
       Left = 216
       Top = 8
