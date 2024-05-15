@@ -10,9 +10,7 @@ uses
   U_CLIENTE in '..\FORMS\U_CLIENTE.pas' {Frm_Cliente},
   U_FORNECEDOR in '..\FORMS\U_FORNECEDOR.pas' {Frm_Fornecedor},
   U_PRODUTO in '..\FORMS\U_PRODUTO.pas' {Frm_Produto},
-  U_FORMA_PGTO in '..\FORMS\U_FORMA_PGTO.pas' {Frm_Forma_Pgto},
-  Vcl.Themes,
-  Vcl.Styles;
+  U_FORMA_PGTO in '..\FORMS\U_FORMA_PGTO.pas' {Frm_Forma_Pgto};
 
 // U_EMPRESA in '..\FORMS\U_EMPRESA.pas' {Frm_padrao1};
 
@@ -21,7 +19,6 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Windows10 Dark');
   Application.CreateForm(TFrm_Principal, Frm_Principal);
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrm_padrao, Frm_padrao);
