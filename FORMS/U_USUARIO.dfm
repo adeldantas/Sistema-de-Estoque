@@ -1,10 +1,11 @@
 inherited frm_usuario: Tfrm_usuario
   Caption = 'FORMUL'#193'RIO DE CADASTRO DE USU'#193'RIO'
+  ExplicitLeft = -55
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
-    Left = 144
-    Top = 144
+    Left = 166
+    Top = 160
     Width = 79
     Height = 16
     Caption = 'ID_USUARIO'
@@ -17,8 +18,8 @@ inherited frm_usuario: Tfrm_usuario
     ParentFont = False
   end
   object Label2: TLabel [1]
-    Left = 144
-    Top = 184
+    Left = 166
+    Top = 200
     Width = 35
     Height = 16
     Caption = 'NOME'
@@ -31,8 +32,8 @@ inherited frm_usuario: Tfrm_usuario
     ParentFont = False
   end
   object Label3: TLabel [2]
-    Left = 144
-    Top = 224
+    Left = 166
+    Top = 240
     Width = 42
     Height = 16
     Caption = 'SENHA'
@@ -45,8 +46,8 @@ inherited frm_usuario: Tfrm_usuario
     ParentFont = False
   end
   object Label4: TLabel [3]
-    Left = 424
-    Top = 224
+    Left = 446
+    Top = 240
     Width = 29
     Height = 16
     Caption = 'TIPO'
@@ -58,8 +59,8 @@ inherited frm_usuario: Tfrm_usuario
     ParentFont = False
   end
   object Label5: TLabel [4]
-    Left = 284
-    Top = 144
+    Left = 306
+    Top = 160
     Width = 70
     Height = 16
     Caption = 'CADASTRO'
@@ -72,19 +73,24 @@ inherited frm_usuario: Tfrm_usuario
     ParentFont = False
   end
   inherited Bevel1: TBevel
-    Width = 809
-    ExplicitWidth = 809
+    Left = 0
+    Top = 40
+    Width = 849
+    Height = 425
+    ExplicitLeft = 0
+    ExplicitTop = 40
+    ExplicitWidth = 849
+    ExplicitHeight = 425
   end
   inherited Panel2: TPanel
     TabOrder = 3
-    ExplicitTop = 436
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
   end
   object DBEdit1: TDBEdit [8]
-    Left = 144
-    Top = 160
+    Left = 166
+    Top = 176
     Width = 134
     Height = 24
     DataField = 'ID_USUARIO'
@@ -98,8 +104,8 @@ inherited frm_usuario: Tfrm_usuario
     TabOrder = 4
   end
   object db_nome: TDBEdit [9]
-    Left = 144
-    Top = 200
+    Left = 166
+    Top = 216
     Width = 530
     Height = 24
     DataField = 'NOME'
@@ -113,8 +119,8 @@ inherited frm_usuario: Tfrm_usuario
     TabOrder = 5
   end
   object db_senha: TDBEdit [10]
-    Left = 144
-    Top = 240
+    Left = 166
+    Top = 256
     Width = 265
     Height = 24
     DataField = 'SENHA'
@@ -129,8 +135,8 @@ inherited frm_usuario: Tfrm_usuario
     TabOrder = 1
   end
   object db_cadastro: TDBEdit [11]
-    Left = 284
-    Top = 160
+    Left = 306
+    Top = 176
     Width = 134
     Height = 24
     DataField = 'CADASTRO'
@@ -144,8 +150,8 @@ inherited frm_usuario: Tfrm_usuario
     TabOrder = 6
   end
   object DBComboBox1: TDBComboBox [12]
-    Left = 424
-    Top = 240
+    Left = 446
+    Top = 256
     Width = 250
     Height = 24
     DataField = 'TIPO'

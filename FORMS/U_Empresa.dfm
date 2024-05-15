@@ -1,15 +1,18 @@
 inherited Frm_Empresa: TFrm_Empresa
   Caption = 'Frm_Empresa'
   ClientHeight = 461
-  ExplicitTop = -8
   ExplicitHeight = 490
   PixelsPerInch = 96
   TextHeight = 13
   inherited Bevel1: TBevel
-    Width = 828
-    Height = 346
-    ExplicitWidth = 828
-    ExplicitHeight = 346
+    Left = 0
+    Top = 16
+    Width = 836
+    Height = 445
+    ExplicitLeft = 0
+    ExplicitTop = 16
+    ExplicitWidth = 836
+    ExplicitHeight = 445
   end
   object Label1: TLabel [1]
     Left = 40

@@ -81,6 +81,13 @@ type
     procedure Menu_empresaClick(Sender: TObject);
     procedure Menu_UsuarioClick(Sender: TObject);
     procedure Fechar1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure bt_clienteClick(Sender: TObject);
+    procedure abre_tela_cliente();
+    procedure menu_clienteClick(Sender: TObject);
+    procedure bt_fornecedorClick(Sender: TObject);
+    procedure abre_tela_fornecedor();
+    procedure menu_FornecedorClick(Sender: TObject);
 
 
 
@@ -98,7 +105,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_Usuario, U_Empresa;
+uses U_Usuario, U_Empresa, U_CLIENTE, U_FORNECEDOR;
 
 {uses U_usuario, U_EMPRESA, U_CLIENTE, U_Fornecedor, U_produto, U_forma_pgto,
   U_Compra, U_pesq_usuario, U_pesq_fornecedor, U_Pesq_Cliente, U_PESQ_COMPRA,
@@ -700,6 +707,19 @@ begin
   Abre_tela_Usuario;
 end; }
 
+procedure TFrm_Principal.abre_tela_cliente;
+begin
+      // Abre tela de cliente
+ frm_cliente:=Tfrm_cliente.Create(self);
+ Frm_cliente.ShowModal;
+ try
+
+ finally
+  frm_cliente.Free;
+  frm_cliente:=nil;
+end;
+end;
+
 procedure TFrm_Principal.Abre_tela_empresa;
 begin
     // Abre tela de empresa
@@ -713,6 +733,19 @@ begin
 end;
 end;
 
+procedure TFrm_Principal.abre_tela_fornecedor;
+begin
+    // Abre tela de Fornecedores
+ frm_Fornecedor:=Tfrm_Fornecedor.Create(self);
+ Frm_Fornecedor.ShowModal;
+ try
+
+ finally
+  frm_Fornecedor.Free;
+  frm_Fornecedor:=nil;
+ end;
+end;
+
 procedure TFrm_Principal.Abre_tela_usuario;
 begin
   // Abre tela de Usuários
@@ -724,6 +757,11 @@ begin
   frm_usuario.Free;
   frm_usuario:=nil;
  end;
+end;
+
+procedure TFrm_Principal.bt_clienteClick(Sender: TObject);
+begin
+  abre_tela_cliente;
 end;
 
 procedure TFrm_Principal.bt_empresaClick(Sender: TObject);
@@ -742,6 +780,11 @@ begin
      abort;
 end;
 
+procedure TFrm_Principal.bt_fornecedorClick(Sender: TObject);
+begin
+  abre_tela_fornecedor;
+end;
+
 procedure TFrm_Principal.bt_UsuarioClick(Sender: TObject);
 begin
  Abre_tela_Usuario();
@@ -752,14 +795,31 @@ begin
   close;
 end;
 
+procedure TFrm_Principal.menu_clienteClick(Sender: TObject);
+begin
+  abre_tela_cliente;
+end;
+
 procedure TFrm_Principal.Menu_empresaClick(Sender: TObject);
 begin
     abre_tela_empresa;
 end;
 
+procedure TFrm_Principal.menu_FornecedorClick(Sender: TObject);
+begin
+  abre_tela_fornecedor;
+end;
+
 procedure TFrm_Principal.Menu_UsuarioClick(Sender: TObject);
 begin
   abre_tela_usuario;
+end;
+
+procedure TFrm_Principal.Timer1Timer(Sender: TObject);
+begin
+  statusbar1.panels[0].text:=datetostr(now);
+  statusbar1.panels[1].text:=timetostr(now);
+  statusbar1.panels[2].text:='SEJA BEM VINDO AO SISTEMA!';
 end;
 
 end.

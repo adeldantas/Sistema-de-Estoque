@@ -6,7 +6,9 @@ uses
   U_DM in '..\FORMS\U_DM.pas' {DM: TDataModule},
   U_PADRAO in '..\FORMS\U_PADRAO.pas' {Frm_padrao},
   U_USUARIO in '..\FORMS\U_USUARIO.pas' {Frm_usuario},
-  U_Empresa in '..\FORMS\U_Empresa.pas' {Frm_Empresa};
+  U_Empresa in '..\FORMS\U_Empresa.pas' {Frm_Empresa},
+  U_CLIENTE in '..\FORMS\U_CLIENTE.pas' {Frm_Cliente},
+  U_FORNECEDOR in '..\FORMS\U_FORNECEDOR.pas' {Frm_Fornecedor};
 
 // U_EMPRESA in '..\FORMS\U_EMPRESA.pas' {Frm_padrao1};
 
@@ -20,6 +22,8 @@ begin
   Application.CreateForm(TFrm_padrao, Frm_padrao);
   Application.CreateForm(TFrm_usuario, Frm_usuario);
   Application.CreateForm(TFrm_Empresa, Frm_Empresa);
+  Application.CreateForm(TFrm_Cliente, Frm_Cliente);
+  Application.CreateForm(TFrm_Fornecedor, Frm_Fornecedor);
   // Application.CreateForm(TFrm_padrao1, Frm_padrao1);
   Application.Run;
 end.

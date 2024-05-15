@@ -18,8 +18,14 @@
     <Transaction>2024/05/09 08:21:57.000.072,=C:\Sistema-de-Estoque\PROJETO\Unit1.pas</Transaction>
     <Transaction>2024/05/09 09:30:28.000.127,=C:\Sistema-de-Estoque\PROJETO\Unit1.pas</Transaction>
     <Transaction>2024/05/09 15:17:34.000.009,=C:\Sistema-de-Estoque\PROJETO\Unit1.pas</Transaction>
-    <Transaction>2024/05/09 15:19:35.000.742,C:\Sistema-de-Estoque\PROJETO\Unit1.pas=C:\Sistema-de-Estoque\FORMS\U_EMPRESA.pas</Transaction>
     <Transaction>2024/05/09 15:19:35.000.742,C:\Sistema-de-Estoque\PROJETO\Unit1.dfm=C:\Sistema-de-Estoque\FORMS\U_EMPRESA.dfm</Transaction>
-    <Transaction>2024/05/13 14:49:58.407,=C:\Sistema_de_Estoque\FORMS\U_Empresa.pas</Transaction>
+    <Transaction>2024/05/09 15:19:35.000.742,C:\Sistema-de-Estoque\PROJETO\Unit1.pas=C:\Sistema-de-Estoque\FORMS\U_EMPRESA.pas</Transaction>
+    <Transaction>2024/05/13 14:49:58.000.407,=C:\Sistema_de_Estoque\FORMS\U_Empresa.pas</Transaction>
+    <Transaction>2024/05/14 08:37:03.881,=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/14 08:38:25.215,C:\Sistema_de_Estoque\FORMS\U_CLIENTE.dfm=C:\Sistema_de_Estoque\PROJETO\Unit1.dfm</Transaction>
+    <Transaction>2024/05/14 08:38:25.215,C:\Sistema_de_Estoque\FORMS\U_CLIENTE.pas=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/14 16:16:13.110,=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/14 16:17:17.777,C:\Sistema_de_Estoque\FORMS\U_FORNECEDOR.pas=C:\Sistema_de_Estoque\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/14 16:17:17.777,C:\Sistema_de_Estoque\FORMS\U_FORNECEDOR.dfm=C:\Sistema_de_Estoque\PROJETO\Unit1.dfm</Transaction>
   </Transactions>
 </BorlandProject>

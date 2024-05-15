@@ -11,6 +11,7 @@ object DM: TDM
       'Port=3050'
       'CharacterSet=WIN1252'
       'DriverID=FB')
+    Connected = True
     LoginPrompt = False
     Left = 40
     Top = 32

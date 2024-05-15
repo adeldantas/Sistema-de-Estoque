@@ -1637,6 +1637,7 @@ object Frm_Principal: TFrm_Principal
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = bt_clienteClick
     end
     object bt_fornecedor: TSpeedButton
       Left = 342
@@ -2170,6 +2171,7 @@ object Frm_Principal: TFrm_Principal
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = bt_fornecedorClick
     end
     object bt_produto: TSpeedButton
       Left = 457
@@ -6444,22 +6446,17 @@ object Frm_Principal: TFrm_Principal
     Height = 19
     Panels = <
       item
-        Width = 10
+        Width = 150
       end
       item
-        Width = 300
-      end
-      item
-        Width = 300
-      end
-      item
-        Width = 300
+        Width = 150
       end
       item
         Width = 50
       end>
   end
   object Timer1: TTimer
+    OnTimer = Timer1Timer
     Left = 32
     Top = 104
   end
@@ -8026,6 +8023,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = '&Clientes'
         ShortCut = 16451
+        OnClick = menu_clienteClick
       end
       object menu_Fornecedor: TMenuItem
         Bitmap.Data = {
@@ -8545,6 +8543,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = '&Fornecedores'
         ShortCut = 16452
+        OnClick = menu_FornecedorClick
       end
       object Menu_Produto: TMenuItem
         Bitmap.Data = {
