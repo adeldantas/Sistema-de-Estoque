@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/05/09 15:53:41.000.566,=C:\Users\qualifaz\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/05/09 16:00:36.000.149,=C:\Estoque\FORMS\U_DM.pas</Transaction>
+    <Transaction>2024/05/09 16:00:37.000.158,=C:\Estoque\FORMS\U_Principal.pas</Transaction>
+    <Transaction>2024/05/09 16:07:31.000.459,=C:\Estoque\FORMS\U_padrao.pas</Transaction>
+    <Transaction>2024/05/09 16:09:05.000.711,=C:\Users\qualifaz\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/05/09 16:09:38.000.855,C:\Users\qualifaz\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Estoque\FORMS\U_Usuario.pas</Transaction>
+    <Transaction>2024/05/09 16:09:38.000.855,C:\Users\qualifaz\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Estoque\FORMS\U_Usuario.dfm</Transaction>
+    <Transaction>2024/05/09 16:10:17.000.987,C:\Users\qualifaz\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Estoque\PROJETO\Estoque.dproj</Transaction>
+    <Transaction>2024/05/09 16:28:02.000.262,=C:\Estoque\PROJETO\Unit1.pas</Transaction>
+    <Transaction>2024/05/09 16:30:29.000.898,C:\Estoque\PROJETO\Unit1.pas=C:\Estoque\FORMS\U_Empresa.pas</Transaction>
+    <Transaction>2024/05/09 16:30:29.000.898,C:\Estoque\PROJETO\Unit1.dfm=C:\Estoque\FORMS\U_Empresa.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
