@@ -13,7 +13,8 @@ uses
   U_FORMA_PGTO in '..\FORMS\U_FORMA_PGTO.pas' {Frm_Forma_Pgto},
   Vcl.Themes,
   Vcl.Styles,
-  U_PESQUISA_PADRAO in '..\FORMS\U_PESQUISA_PADRAO.pas' {Frm_Pesquisa_Padrao};
+  U_PESQUISA_PADRAO in '..\FORMS\U_PESQUISA_PADRAO.pas' {Frm_Pesquisa_Padrao},
+  U_PESQUISA_USUARIO in '..\FORMS\U_PESQUISA_USUARIO.pas' {Frm_Pesquisa_Usuario};
 
 // U_EMPRESA in '..\FORMS\U_EMPRESA.pas' {Frm_padrao1};
 
@@ -24,8 +25,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFrm_Principal, Frm_Principal);
   Application.CreateForm(TDM, DM);
-  Application.CreateForm(TFrm_padrao, Frm_padrao);
-  Application.CreateForm(TFrm_Pesquisa_Padrao, Frm_Pesquisa_Padrao);
   // Application.CreateForm(TFrm_padrao1, Frm_padrao1);
   Application.Run;
 end.
