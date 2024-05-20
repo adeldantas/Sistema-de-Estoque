@@ -5,7 +5,6 @@ uses
   U_PRINCIPAL in '..\FORMS\U_PRINCIPAL.pas' {Form1},
   U_DM in '..\FORMS\U_DM.pas' {DM: TDataModule},
   U_PADRAO in '..\FORMS\U_PADRAO.pas' {Frm_padrao},
-  U_USUARIO in '..\FORMS\U_USUARIO.pas' {Frm_usuario},
   U_Empresa in '..\FORMS\U_Empresa.pas' {Frm_Empresa},
   U_CLIENTE in '..\FORMS\U_CLIENTE.pas' {Frm_Cliente},
   U_FORNECEDOR in '..\FORMS\U_FORNECEDOR.pas' {Frm_Fornecedor},
@@ -14,7 +13,8 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   U_PESQUISA_PADRAO in '..\FORMS\U_PESQUISA_PADRAO.pas' {Frm_Pesquisa_Padrao},
-  U_PESQUISA_USUARIO in '..\FORMS\U_PESQUISA_USUARIO.pas' {Frm_Pesquisa_Usuario};
+  U_PESQUISA_USUARIO in '..\FORMS\U_PESQUISA_USUARIO.pas' {Frm_Pesquisa_Usuario},
+  U_USUARIO in '..\FORMS\U_USUARIO.pas' {frm_usuario};
 
 // U_EMPRESA in '..\FORMS\U_EMPRESA.pas' {Frm_padrao1};
 

@@ -17,6 +17,7 @@ type
     query_pesquisa_padraoTIPO: TStringField;
     query_pesquisa_padraoCADASTRO: TDateField;
     procedure Bt_pesquisaClick(Sender: TObject);
+    procedure CB_chave_pesquisaChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,14 +38,58 @@ begin
   qUERY_pesquisa_padrao.sql.add('');
   QUERY_pesquisa_padrao.sql.clear;
   QUERY_pesquisa_padrao.sql.add('SELECT ID_USUARIO,NOME,TIPO,CADASTRO FROM USUARIO');
-  QUERY_PESQUISA_PADRAO.SQL.ADD('WHEREID_USUARIO =:PID_USUARIO');
-  QUERY_PESQUISA_PADRAO.PARAMBYNAME('PID_USUARIO').ASSTRING:=ed_nome.Text;
+
+
+  case cb_chave_pesquisa.ItemIndex of
+    0:begin
+      QUERY_PESQUISA_PADRAO.SQL.ADD('WHEREID_USUARIO =:PID_USUARIO');
+      QUERY_PESQUISA_PADRAO.PARAMBYNAME('PID_USUARIO').ASSTRING:=ed_nome.Text;
+    end;
+  end;
+
   QUERY_pesquisa_padrao.Open;
 
   if query_pesquisa_padrao.IsEmpty then
     begin
       messagedlg('Registro não encontrado!', mtinformation,[mbok],0);
+    end
+    else
+    abort;
+end;
+
+procedure TFrm_Pesquisa_Usuario.CB_chave_pesquisaChange(Sender: TObject);
+begin
+  inherited;
+  case cb_chave_pesquisa.ItemIndex of
+    0:begin
+      ed_nome.Visible:=true;
+      ed_nome.SetFocus;
+      mk_inicio.Visible:=false;
+      mk_fim.Visible:=false;
     end;
+
+    1:begin
+      ed_nome.Visible:=true;
+      ed_nome.SetFocus;
+      mk_inicio.Visible:=false;
+      mk_fim.Visible:=false;
+    end;
+
+    2:begin
+      ed_nome.Visible:=false;
+      mk_inicio.Visible:=true;
+      mk_inicio.SetFocus;
+      mk_fim.Visible:=false;
+    end;
+
+    3:begin
+      ed_nome.Visible:=false;
+      mk_inicio.Visible:=true;
+      mk_fim.Visible:=true;
+      mk_inicio.SetFocus;
+    end;
+
+  end;
 end;
 
 end.

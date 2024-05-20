@@ -1,9 +1,14 @@
 inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
   Caption = 'Pesquisa de Usu'#225'rios'
-  ExplicitLeft = -235
+  ExplicitLeft = 7
+  ExplicitWidth = 1022
+  ExplicitHeight = 570
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
+    inherited CB_chave_pesquisa: TComboBox
+      OnChange = CB_chave_pesquisaChange
+    end
     inherited Bt_pesquisa: TBitBtn
       OnClick = Bt_pesquisaClick
     end
@@ -20,13 +25,13 @@ inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
       item
         Expanded = False
         FieldName = 'NOME'
-        Width = 96
+        Width = 206
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'TIPO'
-        Width = 100
+        Width = 118
         Visible = True
       end
       item

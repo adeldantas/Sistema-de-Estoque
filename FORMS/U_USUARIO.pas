@@ -28,6 +28,7 @@ type
     db_cadastro: TDBEdit;
     DBComboBox1: TDBComboBox;
     procedure bt_novoClick(Sender: TObject);
+    procedure bt_PesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,11 +42,27 @@ implementation
 
 {$R *.dfm}
 
+uses U_PESQUISA_USUARIO;
+
 procedure Tfrm_usuario.bt_novoClick(Sender: TObject);
 begin
   inherited;
   Q_padraoCADASTRO.AsDateTime:=date;
   db_nome.SetFocus;
+
+end;
+
+procedure Tfrm_usuario.bt_PesquisarClick(Sender: TObject);
+begin
+  inherited;
+  frm_pesquisa_usuario:=tfrm_pesquisa_usuario.Create(self);
+  frm_PESQUISA_usuario.ShowModal;
+  try
+
+  finally
+    frm_pesquisa_usuario.Free;
+    frm_pesquisa_usuario:=nil;
+  end;
 
 end;
 
