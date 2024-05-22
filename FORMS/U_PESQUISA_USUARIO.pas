@@ -50,6 +50,17 @@ begin
       QUERY_PESQUISA_PADRAO.PARAMBYNAME('PNOME').ASSTRING:= '%' + ed_nome.Text + '%';
       end;
 
+    2:begin
+      QUERY_PESQUISA_PADRAO.SQL.ADD('WHERE CADASTRO =:PCADASTRO');
+      QUERY_PESQUISA_PADRAO.PARAMBYNAME('PCADASTRO').ASDATE:= strTodate (mk_inicio.Text);
+      end;
+
+    3:begin
+      QUERY_PESQUISA_PADRAO.SQL.ADD('WHERE CADASTRO BETWEEN =:PINICIO AND =: PFIM');
+      QUERY_PESQUISA_PADRAO.PARAMBYNAME('PINICIO').ASDATE:= strTodate (mk_inicio.Text);
+      QUERY_PESQUISA_PADRAO.PARAMBYNAME('PFIM').ASDATE:= strTodate (mk_FIM.Text);
+      end;
+
   end;
 
   QUERY_pesquisa_padrao.Open;
