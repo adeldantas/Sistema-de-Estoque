@@ -18,9 +18,9 @@ type
     eD_Nome: TEdit;
     mk_inicio: TMaskEdit;
     mk_fim: TMaskEdit;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
+    lb_nome: TLabel;
+    lb_inicio: TLabel;
+    lb_fim: TLabel;
     DBGrid1: TDBGrid;
     Panel2: TPanel;
     Bt_pesquisa: TBitBtn;

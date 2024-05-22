@@ -65,6 +65,10 @@ begin
       ed_nome.SetFocus;
       mk_inicio.Visible:=false;
       mk_fim.Visible:=false;
+      lb_nome.visible:=true;
+      lb_inicio.Visible:=false;
+      lb_fim.Visible:=false;
+      lb_nome.Caption:='DIGITE O CÓDIGO';
     end;
 
     1:begin
@@ -72,6 +76,10 @@ begin
       ed_nome.SetFocus;
       mk_inicio.Visible:=false;
       mk_fim.Visible:=false;
+      lb_nome.visible:=true;
+      lb_inicio.Visible:=false;
+      lb_fim.Visible:=false;
+      lb_nome.Caption:='DIGITE O NOME';
     end;
 
     2:begin
@@ -79,6 +87,9 @@ begin
       mk_inicio.Visible:=true;
       mk_inicio.SetFocus;
       mk_fim.Visible:=false;
+      lb_nome.visible:=false;
+      lb_inicio.Visible:=true;
+      lb_inicio.Caption:='DIGITE A DATA ';
     end;
 
     3:begin
@@ -86,6 +97,10 @@ begin
       mk_inicio.Visible:=true;
       mk_fim.Visible:=true;
       mk_inicio.SetFocus;
+      lb_nome.visible:=false;
+      lb_inicio.Visible:=true;
+      lb_fim.Visible:=false;
+      lb_inicio.Caption:='DIGITE O PERIODO';
     end;
 
   end;
