@@ -23,9 +23,6 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
     Color = clSkyBlue
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 32
-    ExplicitTop = 24
-    ExplicitWidth = 780
     object Label1: TLabel
       Left = 8
       Top = 18
@@ -557,10 +554,17 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
     Color = clSkyBlue
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 688
   end
   object query_pesquisa_padrao: TFDQuery
     Connection = DM.conexao
+    SQL.Strings = (
+      'SELECT'
+      '      ID_USUARIO,'
+      '      NOME,'
+      '      TIPO,'
+      '      CADASTRO'
+      'FROM USUARIO'
+      'ORDER BY ID_USUARIO')
     Left = 832
     Top = 232
   end

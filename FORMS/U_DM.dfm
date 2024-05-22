@@ -13,6 +13,7 @@ object DM: TDM
       'DriverID=FB')
     Connected = True
     LoginPrompt = False
+    Transaction = transacao
     Left = 40
     Top = 32
   end
@@ -22,6 +23,7 @@ object DM: TDM
     Top = 48
   end
   object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    DriverID = 'FB'
     Left = 136
     Top = 48
   end

@@ -1,11 +1,10 @@
 inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
   Caption = 'Pesquisa de Usu'#225'rios'
-  ExplicitLeft = 7
-  ExplicitWidth = 1022
-  ExplicitHeight = 570
+  ExplicitLeft = 8
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
+    ExplicitTop = -6
     inherited CB_chave_pesquisa: TComboBox
       OnChange = CB_chave_pesquisaChange
     end
@@ -42,14 +41,6 @@ inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
       end>
   end
   inherited query_pesquisa_padrao: TFDQuery
-    SQL.Strings = (
-      'SELECT'
-      '      ID_USUARIO,'
-      '      NOME,'
-      '      TIPO,'
-      '      CADASTRO'
-      'FROM USUARIO'
-      'ORDER BY ID_USUARIO')
     object query_pesquisa_padraoID_USUARIO: TIntegerField
       FieldName = 'ID_USUARIO'
       Origin = 'ID_USUARIO'

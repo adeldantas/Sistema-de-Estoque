@@ -54,7 +54,6 @@ end;
 
 procedure Tfrm_usuario.bt_PesquisarClick(Sender: TObject);
 begin
-  inherited;
   frm_pesquisa_usuario:=tfrm_pesquisa_usuario.Create(self);
   frm_PESQUISA_usuario.ShowModal;
   try

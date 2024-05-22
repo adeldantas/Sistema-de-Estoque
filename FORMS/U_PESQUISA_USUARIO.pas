@@ -33,18 +33,17 @@ implementation
 
 procedure TFrm_Pesquisa_Usuario.Bt_pesquisaClick(Sender: TObject);
 begin
-  inherited;
   QUERY_pesquisa_padrao.close;
-  qUERY_pesquisa_padrao.sql.add('');
+  QUERY_pesquisa_padrao.sql.add('');
+  QUERY_pesquisa_padrao.Params.Clear;
   QUERY_pesquisa_padrao.sql.clear;
   QUERY_pesquisa_padrao.sql.add('SELECT ID_USUARIO,NOME,TIPO,CADASTRO FROM USUARIO');
 
-
   case cb_chave_pesquisa.ItemIndex of
     0:begin
-      QUERY_PESQUISA_PADRAO.SQL.ADD('WHEREID_USUARIO =:PID_USUARIO');
+      QUERY_PESQUISA_PADRAO.SQL.ADD('WHERE ID_USUARIO =:PID_USUARIO');
       QUERY_PESQUISA_PADRAO.PARAMBYNAME('PID_USUARIO').ASSTRING:=ed_nome.Text;
-    end;
+      end
   end;
 
   QUERY_pesquisa_padrao.Open;
