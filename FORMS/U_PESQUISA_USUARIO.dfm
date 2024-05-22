@@ -1,6 +1,5 @@
 inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
   Caption = 'Pesquisa de Usu'#225'rios'
-  ExplicitLeft = 8
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel

@@ -43,7 +43,13 @@ begin
     0:begin
       QUERY_PESQUISA_PADRAO.SQL.ADD('WHERE ID_USUARIO =:PID_USUARIO');
       QUERY_PESQUISA_PADRAO.PARAMBYNAME('PID_USUARIO').ASSTRING:=ed_nome.Text;
-      end
+      end;
+
+    1:begin
+      QUERY_PESQUISA_PADRAO.SQL.ADD('WHERE NOME LIKE :PNOME');
+      QUERY_PESQUISA_PADRAO.PARAMBYNAME('PNOME').ASSTRING:= '%' + ed_nome.Text + '%';
+      end;
+
   end;
 
   QUERY_pesquisa_padrao.Open;

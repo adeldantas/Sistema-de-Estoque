@@ -25,7 +25,6 @@ type
     ds_padrao: TDataSource;
     bt_Sair: TBitBtn;
     DBNavigator1: TDBNavigator;
-    Bevel1: TBevel;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure bt_novoClick(Sender: TObject);
     procedure bt_DeletarClick(Sender: TObject);

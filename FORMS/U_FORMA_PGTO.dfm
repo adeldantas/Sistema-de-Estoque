@@ -1,20 +1,11 @@
 inherited Frm_Forma_Pgto: TFrm_Forma_Pgto
-  ActiveControl = nil
   Caption = 'CADASTRO DE FORMAS DE PAGAMENTO'
   ClientHeight = 294
-  ExplicitLeft = -10
+  ExplicitLeft = 8
   ExplicitHeight = 323
   PixelsPerInch = 96
   TextHeight = 13
-  inherited Bevel1: TBevel
-    Left = 0
-    Top = 0
-    Width = 842
-    ExplicitLeft = 0
-    ExplicitTop = 0
-    ExplicitWidth = 842
-  end
-  object Label1: TLabel [1]
+  object Label1: TLabel [0]
     Left = 144
     Top = 112
     Width = 86
@@ -22,7 +13,7 @@ inherited Frm_Forma_Pgto: TFrm_Forma_Pgto
     Caption = 'ID_FORMA_PGTO'
     FocusControl = DB_id_forma_pgto
   end
-  object Label2: TLabel [2]
+  object Label2: TLabel [1]
     Left = 144
     Top = 152
     Width = 59
@@ -30,7 +21,7 @@ inherited Frm_Forma_Pgto: TFrm_Forma_Pgto
     Caption = 'DESCRICAO'
     FocusControl = DB_descricao
   end
-  object Label3: TLabel [3]
+  object Label3: TLabel [2]
     Left = 284
     Top = 112
     Width = 55
@@ -40,11 +31,12 @@ inherited Frm_Forma_Pgto: TFrm_Forma_Pgto
   end
   inherited Panel2: TPanel
     Top = 242
+    ExplicitTop = 242
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
   end
-  object DB_id_forma_pgto: TDBEdit [6]
+  object DB_id_forma_pgto: TDBEdit [5]
     Left = 144
     Top = 128
     Width = 134
@@ -53,7 +45,7 @@ inherited Frm_Forma_Pgto: TFrm_Forma_Pgto
     DataSource = ds_padrao
     TabOrder = 2
   end
-  object DB_descricao: TDBEdit [7]
+  object DB_descricao: TDBEdit [6]
     Left = 144
     Top = 168
     Width = 600
@@ -62,7 +54,7 @@ inherited Frm_Forma_Pgto: TFrm_Forma_Pgto
     DataSource = ds_padrao
     TabOrder = 3
   end
-  object DB_cadastro: TDBEdit [8]
+  object DB_cadastro: TDBEdit [7]
     Left = 284
     Top = 128
     Width = 134

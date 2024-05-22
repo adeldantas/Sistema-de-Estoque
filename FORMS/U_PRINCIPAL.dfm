@@ -4,7 +4,7 @@ object Frm_Principal: TFrm_Principal
   Caption = 'SISTEMA DE CONTROLE  DE ESTOQUE'
   ClientHeight = 467
   ClientWidth = 1370
-  Color = clTeal
+  Color = clWindowFrame
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -34,7 +34,7 @@ object Frm_Principal: TFrm_Principal
     Width = 1370
     Height = 90
     Align = alTop
-    Color = clSkyBlue
+    Color = clSilver
     ParentBackground = False
     TabOrder = 0
     object bt_Usuario: TSpeedButton
@@ -572,7 +572,7 @@ object Frm_Principal: TFrm_Principal
       OnClick = bt_UsuarioClick
     end
     object bt_empresa: TSpeedButton
-      Left = 114
+      Left = 122
       Top = 0
       Width = 100
       Height = 90

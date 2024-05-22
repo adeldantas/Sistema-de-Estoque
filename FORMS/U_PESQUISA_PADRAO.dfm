@@ -20,7 +20,7 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
     Width = 1006
     Height = 105
     Align = alTop
-    Color = clSkyBlue
+    Color = clSilver
     ParentBackground = False
     TabOrder = 0
     object Label1: TLabel
@@ -81,6 +81,7 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
       Width = 161
       Height = 21
       TabOrder = 0
+      OnChange = CB_chave_pesquisaChange
       Items.Strings = (
         'C'#211'DIGO'
         'NOME'
@@ -538,6 +539,8 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
     Width = 1006
     Height = 383
     Align = alClient
+    Color = clWindowFrame
+    FixedColor = clWindowFrame
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText

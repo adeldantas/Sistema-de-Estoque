@@ -1,22 +1,11 @@
 inherited Frm_Produto: TFrm_Produto
   Caption = 'CADASTRO DE PRODUTOS'
   ClientHeight = 420
-  ExplicitLeft = -55
-  ExplicitTop = -10
+  ExplicitLeft = 8
   ExplicitHeight = 449
   PixelsPerInch = 96
   TextHeight = 13
-  inherited Bevel1: TBevel
-    Left = 0
-    Top = 48
-    Width = 836
-    Height = 364
-    ExplicitLeft = 0
-    ExplicitTop = 48
-    ExplicitWidth = 836
-    ExplicitHeight = 364
-  end
-  object Label1: TLabel [1]
+  object Label1: TLabel [0]
     Left = 158
     Top = 120
     Width = 66
@@ -24,7 +13,7 @@ inherited Frm_Produto: TFrm_Produto
     Caption = 'ID_PRODUTO'
     FocusControl = DB_id_produto
   end
-  object Label2: TLabel [2]
+  object Label2: TLabel [1]
     Left = 158
     Top = 200
     Width = 51
@@ -32,7 +21,7 @@ inherited Frm_Produto: TFrm_Produto
     Caption = 'VL_CUSTO'
     FocusControl = DB_vl_custo
   end
-  object Label3: TLabel [3]
+  object Label3: TLabel [2]
     Left = 298
     Top = 200
     Width = 50
@@ -40,7 +29,7 @@ inherited Frm_Produto: TFrm_Produto
     Caption = 'VL_VENDA'
     FocusControl = DB_vl_venda
   end
-  object Label4: TLabel [4]
+  object Label4: TLabel [3]
     Left = 437
     Top = 200
     Width = 47
@@ -48,7 +37,7 @@ inherited Frm_Produto: TFrm_Produto
     Caption = 'ESTOQUE'
     FocusControl = DB_estoque
   end
-  object Label5: TLabel [5]
+  object Label5: TLabel [4]
     Left = 577
     Top = 200
     Width = 72
@@ -56,14 +45,14 @@ inherited Frm_Produto: TFrm_Produto
     Caption = 'ESTOQUE_MIN'
     FocusControl = DB_estoque_min
   end
-  object Label6: TLabel [6]
+  object Label6: TLabel [5]
     Left = 158
     Top = 240
     Width = 45
     Height = 13
     Caption = 'UNIDADE'
   end
-  object Label7: TLabel [7]
+  object Label7: TLabel [6]
     Left = 298
     Top = 120
     Width = 55
@@ -71,7 +60,7 @@ inherited Frm_Produto: TFrm_Produto
     Caption = 'CADASTRO'
     FocusControl = DB_cadastro
   end
-  object Label8: TLabel [8]
+  object Label8: TLabel [7]
     Left = 246
     Top = 240
     Width = 86
@@ -79,7 +68,7 @@ inherited Frm_Produto: TFrm_Produto
     Caption = 'ID_FORNECEDOR'
     FocusControl = DB_id_fornecedor
   end
-  object Label9: TLabel [9]
+  object Label9: TLabel [8]
     Left = 348
     Top = 240
     Width = 29
@@ -87,7 +76,7 @@ inherited Frm_Produto: TFrm_Produto
     Caption = 'NOME'
     FocusControl = DB_nome
   end
-  object Label10: TLabel [10]
+  object Label10: TLabel [9]
     Left = 158
     Top = 159
     Width = 114
@@ -101,11 +90,12 @@ inherited Frm_Produto: TFrm_Produto
   inherited Panel2: TPanel
     Top = 368
     TabOrder = 9
+    ExplicitTop = 368
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
   end
-  object DB_id_produto: TDBEdit [13]
+  object DB_id_produto: TDBEdit [12]
     Left = 158
     Top = 136
     Width = 134
@@ -114,7 +104,7 @@ inherited Frm_Produto: TFrm_Produto
     DataSource = ds_padrao
     TabOrder = 10
   end
-  object DB_vl_custo: TDBEdit [14]
+  object DB_vl_custo: TDBEdit [13]
     Left = 158
     Top = 216
     Width = 134
@@ -123,7 +113,7 @@ inherited Frm_Produto: TFrm_Produto
     DataSource = ds_padrao
     TabOrder = 1
   end
-  object DB_vl_venda: TDBEdit [15]
+  object DB_vl_venda: TDBEdit [14]
     Left = 298
     Top = 216
     Width = 133
@@ -132,7 +122,7 @@ inherited Frm_Produto: TFrm_Produto
     DataSource = ds_padrao
     TabOrder = 2
   end
-  object DB_estoque: TDBEdit [16]
+  object DB_estoque: TDBEdit [15]
     Left = 437
     Top = 216
     Width = 134
@@ -141,7 +131,7 @@ inherited Frm_Produto: TFrm_Produto
     DataSource = ds_padrao
     TabOrder = 3
   end
-  object DB_estoque_min: TDBEdit [17]
+  object DB_estoque_min: TDBEdit [16]
     Left = 577
     Top = 216
     Width = 135
@@ -150,7 +140,7 @@ inherited Frm_Produto: TFrm_Produto
     DataSource = ds_padrao
     TabOrder = 4
   end
-  object DB_cadastro: TDBEdit [18]
+  object DB_cadastro: TDBEdit [17]
     Left = 298
     Top = 136
     Width = 134
@@ -159,7 +149,7 @@ inherited Frm_Produto: TFrm_Produto
     DataSource = ds_padrao
     TabOrder = 11
   end
-  object DB_id_fornecedor: TDBEdit [19]
+  object DB_id_fornecedor: TDBEdit [18]
     Left = 246
     Top = 256
     Width = 96
@@ -168,7 +158,7 @@ inherited Frm_Produto: TFrm_Produto
     DataSource = ds_padrao
     TabOrder = 6
   end
-  object DB_nome: TDBEdit [20]
+  object DB_nome: TDBEdit [19]
     Left = 348
     Top = 256
     Width = 364
@@ -177,16 +167,16 @@ inherited Frm_Produto: TFrm_Produto
     DataSource = ds_padrao
     TabOrder = 7
   end
-  object DB_descricao: TDBEdit [21]
+  object DB_descricao: TDBEdit [20]
     Left = 158
     Top = 176
     Width = 554
-    Height = 23
+    Height = 21
     DataField = 'PRODUTO_DESCRICAO'
     DataSource = ds_padrao
     TabOrder = 0
   end
-  object DBC_unidade: TDBComboBox [22]
+  object DBC_unidade: TDBComboBox [21]
     Left = 158
     Top = 256
     Width = 82

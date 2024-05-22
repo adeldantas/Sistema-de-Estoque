@@ -1,20 +1,11 @@
 inherited Frm_Empresa: TFrm_Empresa
   Caption = 'Frm_Empresa'
   ClientHeight = 461
+  ExplicitLeft = 8
   ExplicitHeight = 490
   PixelsPerInch = 96
   TextHeight = 13
-  inherited Bevel1: TBevel
-    Left = 0
-    Top = 16
-    Width = 836
-    Height = 445
-    ExplicitLeft = 0
-    ExplicitTop = 16
-    ExplicitWidth = 836
-    ExplicitHeight = 445
-  end
-  object Label1: TLabel [1]
+  object Label1: TLabel [0]
     Left = 40
     Top = 64
     Width = 63
@@ -22,7 +13,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'ID_EMPRESA'
     FocusControl = DBEdit1
   end
-  object Label2: TLabel [2]
+  object Label2: TLabel [1]
     Left = 40
     Top = 104
     Width = 78
@@ -30,7 +21,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'RAZAO_SOCIAL'
     FocusControl = DB_razao_social
   end
-  object Label3: TLabel [3]
+  object Label3: TLabel [2]
     Left = 40
     Top = 144
     Width = 63
@@ -38,7 +29,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'N_FANTASIA'
     FocusControl = DBEdit3
   end
-  object Label4: TLabel [4]
+  object Label4: TLabel [3]
     Left = 40
     Top = 184
     Width = 54
@@ -46,7 +37,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'ENDERECO'
     FocusControl = DBEdit4
   end
-  object Label5: TLabel [5]
+  object Label5: TLabel [4]
     Left = 595
     Top = 184
     Width = 43
@@ -54,7 +45,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'NUMERO'
     FocusControl = DBEdit5
   end
-  object Label6: TLabel [6]
+  object Label6: TLabel [5]
     Left = 40
     Top = 224
     Width = 39
@@ -62,7 +53,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'BAIRRO'
     FocusControl = DBEdit6
   end
-  object Label7: TLabel [7]
+  object Label7: TLabel [6]
     Left = 40
     Top = 264
     Width = 38
@@ -70,14 +61,14 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'CIDADE'
     FocusControl = DBEdit7
   end
-  object Label8: TLabel [8]
+  object Label8: TLabel [7]
     Left = 596
     Top = 264
     Width = 13
     Height = 13
     Caption = 'UF'
   end
-  object Label9: TLabel [9]
+  object Label9: TLabel [8]
     Left = 253
     Top = 304
     Width = 50
@@ -85,7 +76,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'TELEFONE'
     FocusControl = DBEdit9
   end
-  object Label10: TLabel [10]
+  object Label10: TLabel [9]
     Left = 474
     Top = 304
     Width = 25
@@ -93,7 +84,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'CNPJ'
     FocusControl = DBEdit10
   end
-  object Label11: TLabel [11]
+  object Label11: TLabel [10]
     Left = 40
     Top = 344
     Width = 30
@@ -101,7 +92,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'EMAIL'
     FocusControl = DBEdit11
   end
-  object Label12: TLabel [12]
+  object Label12: TLabel [11]
     Left = 180
     Top = 64
     Width = 55
@@ -109,7 +100,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'CADASTRO'
     FocusControl = DB_cadastro
   end
-  object Label13: TLabel [13]
+  object Label13: TLabel [12]
     Left = 40
     Top = 305
     Width = 19
@@ -117,7 +108,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Caption = 'CEP'
     FocusControl = DBEdit13
   end
-  object Label14: TLabel [14]
+  object Label14: TLabel [13]
     Left = 670
     Top = 104
     Width = 28
@@ -136,7 +127,7 @@ inherited Frm_Empresa: TFrm_Empresa
       Hints.Strings = ()
     end
   end
-  object DBEdit1: TDBEdit [17]
+  object DBEdit1: TDBEdit [16]
     Left = 40
     Top = 80
     Width = 134
@@ -145,7 +136,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 13
   end
-  object DB_razao_social: TDBEdit [18]
+  object DB_razao_social: TDBEdit [17]
     Left = 40
     Top = 120
     Width = 600
@@ -154,7 +145,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 0
   end
-  object DBEdit3: TDBEdit [19]
+  object DBEdit3: TDBEdit [18]
     Left = 40
     Top = 160
     Width = 600
@@ -163,7 +154,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 1
   end
-  object DBEdit4: TDBEdit [20]
+  object DBEdit4: TDBEdit [19]
     Left = 40
     Top = 200
     Width = 549
@@ -172,7 +163,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 2
   end
-  object DBEdit5: TDBEdit [21]
+  object DBEdit5: TDBEdit [20]
     Left = 595
     Top = 200
     Width = 45
@@ -181,7 +172,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 3
   end
-  object DBEdit6: TDBEdit [22]
+  object DBEdit6: TDBEdit [21]
     Left = 40
     Top = 240
     Width = 598
@@ -190,7 +181,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 4
   end
-  object DBEdit7: TDBEdit [23]
+  object DBEdit7: TDBEdit [22]
     Left = 40
     Top = 280
     Width = 550
@@ -199,7 +190,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 5
   end
-  object DBEdit9: TDBEdit [24]
+  object DBEdit9: TDBEdit [23]
     Left = 253
     Top = 320
     Width = 204
@@ -208,7 +199,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 8
   end
-  object DBEdit10: TDBEdit [25]
+  object DBEdit10: TDBEdit [24]
     Left = 474
     Top = 320
     Width = 166
@@ -217,7 +208,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 9
   end
-  object DBEdit11: TDBEdit [26]
+  object DBEdit11: TDBEdit [25]
     Left = 40
     Top = 360
     Width = 600
@@ -226,7 +217,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 10
   end
-  object DB_cadastro: TDBEdit [27]
+  object DB_cadastro: TDBEdit [26]
     Left = 180
     Top = 80
     Width = 134
@@ -236,7 +227,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Enabled = False
     TabOrder = 14
   end
-  object DBEdit13: TDBEdit [28]
+  object DBEdit13: TDBEdit [27]
     Left = 40
     Top = 320
     Width = 195
@@ -245,7 +236,7 @@ inherited Frm_Empresa: TFrm_Empresa
     DataSource = ds_padrao
     TabOrder = 7
   end
-  object DBImage1: TDBImage [29]
+  object DBImage1: TDBImage [28]
     Left = 670
     Top = 120
     Width = 105
@@ -255,7 +246,7 @@ inherited Frm_Empresa: TFrm_Empresa
     Stretch = True
     TabOrder = 15
   end
-  object BT_foto: TBitBtn [30]
+  object BT_foto: TBitBtn [29]
     Left = 672
     Top = 240
     Width = 75
@@ -395,7 +386,7 @@ inherited Frm_Empresa: TFrm_Empresa
     TabOrder = 16
     OnClick = BT_fotoClick
   end
-  object bt_clear: TBitBtn [31]
+  object bt_clear: TBitBtn [30]
     Left = 753
     Top = 240
     Width = 75
@@ -535,7 +526,7 @@ inherited Frm_Empresa: TFrm_Empresa
     TabOrder = 17
     OnClick = bt_clearClick
   end
-  object DBEdit8: TDBComboBox [32]
+  object DBEdit8: TDBComboBox [31]
     Left = 596
     Top = 280
     Width = 44
@@ -572,7 +563,7 @@ inherited Frm_Empresa: TFrm_Empresa
       'TO')
     TabOrder = 6
   end
-  object DBEdit2: TDBEdit [33]
+  object DBEdit2: TDBEdit [32]
     Left = 616
     Top = 584
     Width = 30

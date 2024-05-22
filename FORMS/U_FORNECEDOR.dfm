@@ -1,19 +1,11 @@
 inherited Frm_Fornecedor: TFrm_Fornecedor
   Caption = 'CADASTRO DE FORNECEDORES'
   ClientHeight = 412
-  ExplicitLeft = -55
+  ExplicitLeft = 8
   ExplicitHeight = 441
   PixelsPerInch = 96
   TextHeight = 13
-  inherited Bevel1: TBevel
-    Left = 0
-    Top = 37
-    Width = 844
-    ExplicitLeft = 0
-    ExplicitTop = 37
-    ExplicitWidth = 844
-  end
-  object Label1: TLabel [1]
+  object Label1: TLabel [0]
     Left = 130
     Top = 80
     Width = 86
@@ -21,7 +13,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     Caption = 'ID_FORNECEDOR'
     FocusControl = DBEdit1
   end
-  object Label2: TLabel [2]
+  object Label2: TLabel [1]
     Left = 130
     Top = 120
     Width = 29
@@ -29,7 +21,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     Caption = 'NOME'
     FocusControl = db_nome
   end
-  object Label3: TLabel [3]
+  object Label3: TLabel [2]
     Left = 130
     Top = 160
     Width = 54
@@ -37,7 +29,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     Caption = 'ENDERECO'
     FocusControl = DBEdit3
   end
-  object Label4: TLabel [4]
+  object Label4: TLabel [3]
     Left = 686
     Top = 160
     Width = 43
@@ -45,7 +37,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     Caption = 'NUMERO'
     FocusControl = DBEdit4
   end
-  object Label5: TLabel [5]
+  object Label5: TLabel [4]
     Left = 130
     Top = 200
     Width = 39
@@ -53,7 +45,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     Caption = 'BAIRRO'
     FocusControl = DBEdit5
   end
-  object Label6: TLabel [6]
+  object Label6: TLabel [5]
     Left = 130
     Top = 240
     Width = 38
@@ -61,14 +53,14 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     Caption = 'CIDADE'
     FocusControl = DBEdit6
   end
-  object Label7: TLabel [7]
+  object Label7: TLabel [6]
     Left = 686
     Top = 240
     Width = 13
     Height = 13
     Caption = 'UF'
   end
-  object Label8: TLabel [8]
+  object Label8: TLabel [7]
     Left = 130
     Top = 280
     Width = 19
@@ -76,7 +68,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     Caption = 'CEP'
     FocusControl = DBEdit8
   end
-  object Label9: TLabel [9]
+  object Label9: TLabel [8]
     Left = 348
     Top = 280
     Width = 50
@@ -84,7 +76,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     Caption = 'TELEFONE'
     FocusControl = DBEdit9
   end
-  object Label10: TLabel [10]
+  object Label10: TLabel [9]
     Left = 566
     Top = 280
     Width = 25
@@ -92,7 +84,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     Caption = 'CNPJ'
     FocusControl = DBEdit10
   end
-  object Label11: TLabel [11]
+  object Label11: TLabel [10]
     Left = 270
     Top = 80
     Width = 55
@@ -111,7 +103,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
       Hints.Strings = ()
     end
   end
-  object DBEdit1: TDBEdit [14]
+  object DBEdit1: TDBEdit [13]
     Left = 130
     Top = 96
     Width = 134
@@ -120,7 +112,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     DataSource = ds_padrao
     TabOrder = 11
   end
-  object db_nome: TDBEdit [15]
+  object db_nome: TDBEdit [14]
     Left = 130
     Top = 136
     Width = 600
@@ -130,7 +122,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     DataSource = ds_padrao
     TabOrder = 0
   end
-  object DBEdit3: TDBEdit [16]
+  object DBEdit3: TDBEdit [15]
     Left = 130
     Top = 176
     Width = 550
@@ -140,7 +132,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     DataSource = ds_padrao
     TabOrder = 1
   end
-  object DBEdit4: TDBEdit [17]
+  object DBEdit4: TDBEdit [16]
     Left = 686
     Top = 176
     Width = 44
@@ -149,7 +141,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     DataSource = ds_padrao
     TabOrder = 3
   end
-  object DBEdit5: TDBEdit [18]
+  object DBEdit5: TDBEdit [17]
     Left = 130
     Top = 216
     Width = 600
@@ -159,7 +151,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     DataSource = ds_padrao
     TabOrder = 4
   end
-  object DBEdit6: TDBEdit [19]
+  object DBEdit6: TDBEdit [18]
     Left = 130
     Top = 256
     Width = 550
@@ -169,7 +161,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     DataSource = ds_padrao
     TabOrder = 5
   end
-  object DBEdit8: TDBEdit [20]
+  object DBEdit8: TDBEdit [19]
     Left = 130
     Top = 296
     Width = 212
@@ -178,7 +170,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     DataSource = ds_padrao
     TabOrder = 7
   end
-  object DBEdit9: TDBEdit [21]
+  object DBEdit9: TDBEdit [20]
     Left = 348
     Top = 296
     Width = 212
@@ -187,7 +179,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     DataSource = ds_padrao
     TabOrder = 8
   end
-  object DBEdit10: TDBEdit [22]
+  object DBEdit10: TDBEdit [21]
     Left = 566
     Top = 296
     Width = 163
@@ -196,7 +188,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     DataSource = ds_padrao
     TabOrder = 9
   end
-  object DB_cadastro: TDBEdit [23]
+  object DB_cadastro: TDBEdit [22]
     Left = 270
     Top = 96
     Width = 133
@@ -205,7 +197,7 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     DataSource = ds_padrao
     TabOrder = 12
   end
-  object DBEdit7: TDBComboBox [24]
+  object DBEdit7: TDBComboBox [23]
     Left = 686
     Top = 256
     Width = 44
