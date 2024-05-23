@@ -1,11 +1,23 @@
 inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
   Caption = 'Pesquisa de Usu'#225'rios'
+  ExplicitWidth = 1022
+  ExplicitHeight = 570
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    ExplicitTop = -6
-    inherited CB_chave_pesquisa: TComboBox
-      OnChange = CB_chave_pesquisaChange
+    inherited mk_inicio: TMaskEdit
+      Width = 116
+      EditMask = '!99/99/0000;1;_'
+      MaxLength = 10
+      Text = '  /  /    '
+      ExplicitWidth = 116
+    end
+    inherited mk_fim: TMaskEdit
+      Width = 116
+      EditMask = '!99/99/0000;1;_'
+      MaxLength = 10
+      Text = '  /  /    '
+      ExplicitWidth = 116
     end
     inherited Bt_pesquisa: TBitBtn
       OnClick = Bt_pesquisaClick

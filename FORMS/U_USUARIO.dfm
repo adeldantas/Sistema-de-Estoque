@@ -71,16 +71,6 @@ inherited frm_usuario: Tfrm_usuario
     Font.Style = [fsBold]
     ParentFont = False
   end
-  inherited Bevel1: TBevel
-    Left = 0
-    Top = 40
-    Width = 849
-    Height = 425
-    ExplicitLeft = 0
-    ExplicitTop = 40
-    ExplicitWidth = 849
-    ExplicitHeight = 425
-  end
   inherited Panel1: TPanel
     TabOrder = 3
     inherited bt_Pesquisar: TBitBtn
@@ -93,7 +83,7 @@ inherited frm_usuario: Tfrm_usuario
       Hints.Strings = ()
     end
   end
-  object DBEdit1: TDBEdit [8]
+  object DBEdit1: TDBEdit [7]
     Left = 166
     Top = 176
     Width = 134
@@ -108,7 +98,7 @@ inherited frm_usuario: Tfrm_usuario
     ParentFont = False
     TabOrder = 5
   end
-  object db_nome: TDBEdit [9]
+  object db_nome: TDBEdit [8]
     Left = 166
     Top = 216
     Width = 530
@@ -123,7 +113,7 @@ inherited frm_usuario: Tfrm_usuario
     ParentFont = False
     TabOrder = 0
   end
-  object db_senha: TDBEdit [10]
+  object db_senha: TDBEdit [9]
     Left = 166
     Top = 256
     Width = 265
@@ -139,7 +129,7 @@ inherited frm_usuario: Tfrm_usuario
     PasswordChar = '*'
     TabOrder = 1
   end
-  object db_cadastro: TDBEdit [11]
+  object db_cadastro: TDBEdit [10]
     Left = 306
     Top = 176
     Width = 134
@@ -154,7 +144,7 @@ inherited frm_usuario: Tfrm_usuario
     ParentFont = False
     TabOrder = 6
   end
-  object DBComboBox1: TDBComboBox [12]
+  object DBComboBox1: TDBComboBox [11]
     Left = 446
     Top = 256
     Width = 250
