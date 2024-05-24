@@ -1,7 +1,6 @@
 inherited Frm_Produto: TFrm_Produto
   Caption = 'CADASTRO DE PRODUTOS'
   ClientHeight = 420
-  ExplicitLeft = 8
   ExplicitHeight = 449
   PixelsPerInch = 96
   TextHeight = 13
@@ -86,6 +85,9 @@ inherited Frm_Produto: TFrm_Produto
   end
   inherited Panel1: TPanel
     TabOrder = 8
+    inherited bt_Pesquisar: TBitBtn
+      OnClick = bt_PesquisarClick
+    end
   end
   inherited Panel2: TPanel
     Top = 368

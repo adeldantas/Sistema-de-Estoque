@@ -1,7 +1,6 @@
 inherited Frm_Pesquisa_Fornecedor: TFrm_Pesquisa_Fornecedor
   Caption = 'Pesquisa de Fornecedores'
   ClientWidth = 1363
-  ExplicitLeft = -579
   ExplicitWidth = 1379
   PixelsPerInch = 96
   TextHeight = 13
