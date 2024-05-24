@@ -98,22 +98,22 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
     object mk_inicio: TMaskEdit
       Left = 408
       Top = 43
-      Width = 120
+      Width = 118
       Height = 21
-      EditMask = '!99/99/00;0;_'
-      MaxLength = 8
+      EditMask = '!99/99/0000;1;_'
+      MaxLength = 10
       TabOrder = 2
-      Text = ''
+      Text = '  /  /    '
     end
     object mk_fim: TMaskEdit
       Left = 560
       Top = 43
-      Width = 120
+      Width = 118
       Height = 21
-      EditMask = '!99/99/00;0;_'
-      MaxLength = 8
+      EditMask = '!99/99/0000;1;_'
+      MaxLength = 10
       TabOrder = 3
-      Text = ''
+      Text = '  /  /    '
     end
     object Bt_pesquisa: TBitBtn
       Left = 704
@@ -540,6 +540,7 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
     Height = 383
     Align = alClient
     Color = clWindowFrame
+    DataSource = ds_pesquisa_padrao
     FixedColor = clWindowFrame
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
@@ -560,6 +561,7 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
   end
   object query_pesquisa_padrao: TFDQuery
     Connection = DM.conexao
+    Transaction = DM.transacao
     SQL.Strings = (
       'SELECT'
       '      ID_USUARIO,'

@@ -7,16 +7,10 @@ inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
   inherited Panel1: TPanel
     inherited mk_inicio: TMaskEdit
       Width = 116
-      EditMask = '!99/99/0000;1;_'
-      MaxLength = 10
-      Text = '  /  /    '
       ExplicitWidth = 116
     end
     inherited mk_fim: TMaskEdit
       Width = 116
-      EditMask = '!99/99/0000;1;_'
-      MaxLength = 10
-      Text = '  /  /    '
       ExplicitWidth = 116
     end
     inherited Bt_pesquisa: TBitBtn
@@ -24,7 +18,6 @@ inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
     end
   end
   inherited DBGrid1: TDBGrid
-    DataSource = ds_pesquisa_padrao
     Columns = <
       item
         Expanded = False
