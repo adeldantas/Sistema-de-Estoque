@@ -14,7 +14,8 @@ uses
   Vcl.Styles,
   U_PESQUISA_PADRAO in '..\FORMS\U_PESQUISA_PADRAO.pas' {Frm_Pesquisa_Padrao},
   U_PESQUISA_USUARIO in '..\FORMS\U_PESQUISA_USUARIO.pas' {Frm_Pesquisa_Usuario},
-  U_USUARIO in '..\FORMS\U_USUARIO.pas' {frm_usuario};
+  U_USUARIO in '..\FORMS\U_USUARIO.pas' {frm_usuario},
+  U_PESQUISA_CLIENTE in '..\FORMS\U_PESQUISA_CLIENTE.pas' {Frm_Pesquisa_Cliente};
 
 // U_EMPRESA in '..\FORMS\U_EMPRESA.pas' {Frm_padrao1};
 
@@ -25,6 +26,7 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFrm_Principal, Frm_Principal);
   Application.CreateForm(TDM, DM);
+  Application.CreateForm(TFrm_Pesquisa_Cliente, Frm_Pesquisa_Cliente);
   // Application.CreateForm(TFrm_padrao1, Frm_padrao1);
   Application.Run;
 end.

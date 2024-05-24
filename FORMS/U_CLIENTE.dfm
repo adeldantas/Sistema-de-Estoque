@@ -1,8 +1,6 @@
 inherited Frm_Cliente: TFrm_Cliente
   Caption = 'CADASTRO DE CLIENTE'
   ClientHeight = 397
-  ExplicitLeft = 8
-  ExplicitTop = 8
   ExplicitHeight = 426
   PixelsPerInch = 96
   TextHeight = 13
@@ -95,6 +93,9 @@ inherited Frm_Cliente: TFrm_Cliente
   end
   inherited Panel1: TPanel
     TabOrder = 9
+    inherited bt_Pesquisar: TBitBtn
+      OnClick = bt_PesquisarClick
+    end
   end
   inherited Panel2: TPanel
     Top = 345

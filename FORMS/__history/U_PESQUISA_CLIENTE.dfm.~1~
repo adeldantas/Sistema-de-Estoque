@@ -1,0 +1,5 @@
+inherited Frm_Pesquisa_Padrao1: TFrm_Pesquisa_Padrao1
+  Caption = 'Frm_Pesquisa_Padrao1'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

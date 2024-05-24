@@ -46,6 +46,7 @@ type
     DB_Cadastro: TDBEdit;
     DBEdit7: TDBComboBox;
     procedure bt_novoClick(Sender: TObject);
+    procedure bt_PesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,6 +60,8 @@ implementation
 
 {$R *.dfm}
 
+uses U_PESQUISA_CLIENTE;
+
 procedure TFrm_Cliente.bt_novoClick(Sender: TObject);
 begin
   inherited;
@@ -66,4 +69,15 @@ begin
   db_nome.SetFocus;
 end;
 
+procedure TFrm_Cliente.bt_PesquisarClick(Sender: TObject);
+begin
+  Frm_Pesquisa_Cliente:=Tfrm_Pesquisa_Cliente.Create(self);
+  Frm_Pesquisa_Cliente.showmodal;
+    try
+
+    finally
+      Frm_Pesquisa_Cliente.Free;
+      Frm_Pesquisa_Cliente:=nil;
+    end;
+end;
 end.
