@@ -1,7 +1,8 @@
 ﻿inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
   Caption = 'Pesquisa de Usu'#225'rios'
-  ExplicitLeft = -172
-  ExplicitTop = -60
+  ExplicitLeft = -235
+  ExplicitWidth = 1022
+  ExplicitHeight = 570
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
@@ -75,7 +76,7 @@
   end
   inherited Rel_pesquisa_padrao: TfrxReport
     ReportOptions.CreateDate = 45439.470544768500000000
-    ReportOptions.LastChange = 45439.483436354200000000
+    ReportOptions.LastChange = 45439.678395023100000000
     Datasets = <
       item
         DataSet = dataset_pesquisa_padrao
@@ -165,7 +166,7 @@
       object MasterData1: TfrxMasterData
         FillType = ftBrush
         Height = 22.677180000000000000
-        Top = 154.960730000000000000
+        Top = 200.315090000000000000
         Width = 642.520100000000000000
         DataSet = dataset_pesquisa_padrao
         DataSetName = 'frxDB_usuarios'
@@ -183,6 +184,7 @@
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8W = (
             '[frxDB_usuarios."ID_USUARIO"]')
@@ -192,7 +194,7 @@
           Align = baWidth
           Left = 79.370130000000000000
           Top = 3.779530000000000000
-          Width = 166.299320000000000000
+          Width = 162.519790000000000000
           Height = 18.897650000000000000
           DataField = 'NOME'
           DataSet = dataset_pesquisa_padrao
@@ -202,6 +204,7 @@
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8W = (
             '[frxDB_usuarios."NOME"]')
@@ -209,7 +212,7 @@
         end
         object frxDB_usuariosTIPO: TfrxMemoView
           Align = baWidth
-          Left = 245.669450000000000000
+          Left = 241.889920000000000000
           Top = 3.779530000000000000
           Width = 158.740260000000000000
           Height = 18.897650000000000000
@@ -221,6 +224,7 @@
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8W = (
             '[frxDB_usuarios."TIPO"]')
@@ -228,9 +232,9 @@
         end
         object frxDB_usuariosCADASTRO: TfrxMemoView
           Align = baWidth
-          Left = 404.409710000000000000
+          Left = 400.630180000000000000
           Top = 3.779530000000000000
-          Width = 238.110390000000000000
+          Width = 241.889920000000000000
           Height = 18.897650000000000000
           DataField = 'CADASTRO'
           DataSet = dataset_pesquisa_padrao
@@ -240,9 +244,75 @@
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
           HAlign = haCenter
           Memo.UTF8W = (
             '[frxDB_usuarios."CADASTRO"]')
+          ParentFont = False
+        end
+      end
+      object PageHeader1: TfrxPageHeader
+        FillType = ftBrush
+        Height = 22.677180000000000000
+        Top = 117.165430000000000000
+        Width = 642.520100000000000000
+        object Memo2: TfrxMemoView
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'C'#211'DIGO:')
+          ParentFont = False
+        end
+        object Memo3: TfrxMemoView
+          Left = 79.370130000000000000
+          Width = 162.519790000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'NOME:')
+          ParentFont = False
+        end
+        object Memo4: TfrxMemoView
+          Left = 241.889920000000000000
+          Width = 158.740260000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'TIPO:')
+          ParentFont = False
+        end
+        object Memo5: TfrxMemoView
+          Left = 400.630180000000000000
+          Width = 241.889920000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'DATA:')
           ParentFont = False
         end
       end
