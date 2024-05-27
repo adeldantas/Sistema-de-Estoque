@@ -23,6 +23,8 @@ type
     query_pesquisa_padraoID_FORNECEDOR: TIntegerField;
     query_pesquisa_padraoNOME: TStringField;
     procedure Bt_pesquisaClick(Sender: TObject);
+    procedure bt_transferirClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -97,4 +99,21 @@ procedure TFrm_Pesquisa_Produto.Bt_pesquisaClick(Sender: TObject);
       else
       abort;
 end;
+procedure TFrm_Pesquisa_Produto.bt_transferirClick(Sender: TObject);
+begin
+  if query_pesquisa_padrao.RecordCount > 0 then
+    begin
+      codigo:=query_pesquisa_padraoID_PRODUTO.AsInteger;
+    end
+    else
+    abort;
+
+end;
+
+procedure TFrm_Pesquisa_Produto.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  bt_transferir.click;
+end;
+
 end.

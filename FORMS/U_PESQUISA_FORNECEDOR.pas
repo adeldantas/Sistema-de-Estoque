@@ -25,6 +25,8 @@ type
     query_pesquisa_padraoCADASTRO: TDateField;
     query_pesquisa_padraoEMAIL: TStringField;
     procedure Bt_pesquisaClick(Sender: TObject);
+    procedure bt_transferirClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -79,4 +81,21 @@ procedure TFrm_Pesquisa_Fornecedor.Bt_pesquisaClick(Sender: TObject);
     else
     abort;
 end;
+procedure TFrm_Pesquisa_Fornecedor.bt_transferirClick(Sender: TObject);
+begin
+  if query_pesquisa_padrao.RecordCount > 0 then
+    begin
+      codigo:=query_pesquisa_padraoID_FORNECEDOR.AsInteger;
+    end
+    else
+    abort;
+
+end;
+
+procedure TFrm_Pesquisa_Fornecedor.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  bt_transferir.click;
+end;
+
 end.

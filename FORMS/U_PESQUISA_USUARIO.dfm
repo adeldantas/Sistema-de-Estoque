@@ -1,6 +1,6 @@
 inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
   Caption = 'Pesquisa de Usu'#225'rios'
-  ExplicitLeft = -235
+  ExplicitLeft = -221
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
@@ -15,8 +15,12 @@ inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
     inherited Bt_pesquisa: TBitBtn
       OnClick = Bt_pesquisaClick
     end
+    inherited bt_transferir: TBitBtn
+      OnClick = bt_transferirClick
+    end
   end
   inherited DBGrid1: TDBGrid
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False

@@ -24,6 +24,8 @@ type
     query_pesquisa_padraoCPF: TStringField;
     query_pesquisa_padraoCADASTRO: TDateField;
     procedure Bt_pesquisaClick(Sender: TObject);
+    procedure bt_transferirClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -81,6 +83,22 @@ begin
     end
     else
     abort;
+end;
+
+procedure TFrm_Pesquisa_Cliente.bt_transferirClick(Sender: TObject);
+begin
+  if query_pesquisa_padrao.RecordCount > 0 then
+    begin
+      codigo:=query_pesquisa_padraoID_CLIENTE.AsInteger;
+    end
+    else
+    abort;
+end;
+
+procedure TFrm_Pesquisa_Cliente.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  bt_transferir.Click;
 end;
 
 end.

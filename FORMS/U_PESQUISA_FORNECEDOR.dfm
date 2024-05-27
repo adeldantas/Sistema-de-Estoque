@@ -1,17 +1,23 @@
 inherited Frm_Pesquisa_Fornecedor: TFrm_Pesquisa_Fornecedor
   Caption = 'Pesquisa de Fornecedores'
   ClientWidth = 1363
+  ExplicitLeft = -493
   ExplicitWidth = 1379
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 1363
+    ExplicitWidth = 1363
     inherited Bt_pesquisa: TBitBtn
       OnClick = Bt_pesquisaClick
+    end
+    inherited bt_transferir: TBitBtn
+      OnClick = bt_transferirClick
     end
   end
   inherited DBGrid1: TDBGrid
     Width = 1363
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False
@@ -87,6 +93,7 @@ inherited Frm_Pesquisa_Fornecedor: TFrm_Pesquisa_Fornecedor
   end
   inherited Panel2: TPanel
     Width = 1363
+    ExplicitWidth = 1363
   end
   inherited query_pesquisa_padrao: TFDQuery
     SQL.Strings = (

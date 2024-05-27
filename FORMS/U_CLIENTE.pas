@@ -74,6 +74,11 @@ begin
   Frm_Pesquisa_Cliente:=Tfrm_Pesquisa_Cliente.Create(self);
   Frm_Pesquisa_Cliente.showmodal;
     try
+      if frm_pesquisa_cliente.codigo > 0 then
+        begin
+          q_padrao.Open;
+          q_padrao.Locate('ID_CLIENTE',frm_pesquisa_cliente.codigo,[]);
+        end;
 
     finally
       Frm_Pesquisa_Cliente.Free;

@@ -254,7 +254,7 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
         0000000000000000000000000000000000000000000000000000}
       TabOrder = 4
     end
-    object bt_trasnferir: TBitBtn
+    object bt_transferir: TBitBtn
       Left = 802
       Top = 31
       Width = 92
@@ -391,6 +391,7 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
+      ModalResult = 1
       TabOrder = 5
     end
     object bt_imprimir: TBitBtn
@@ -548,6 +549,7 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
   end
   object Panel2: TPanel
     Left = 0
@@ -577,5 +579,34 @@ object Frm_Pesquisa_Padrao: TFrm_Pesquisa_Padrao
     DataSet = query_pesquisa_padrao
     Left = 832
     Top = 312
+  end
+  object Rel_pesquisa_padrao: TfrxReport
+    Version = '5.3.14'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 45439.470544768520000000
+    ReportOptions.LastChange = 45439.470544768520000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 840
+    Top = 176
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+  object dataset_pesquisa_padrao: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    DataSet = query_pesquisa_padrao
+    BCDToCurrency = False
+    Left = 840
+    Top = 392
   end
 end

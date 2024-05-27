@@ -28,9 +28,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFrm_Principal, Frm_Principal);
   Application.CreateForm(TDM, DM);
-  Application.CreateForm(TFrm_Pesquisa_Cliente, Frm_Pesquisa_Cliente);
-  Application.CreateForm(TFrm_Pesquisa_Fornecedor, Frm_Pesquisa_Fornecedor);
-  Application.CreateForm(TFrm_Pesquisa_Produto, Frm_Pesquisa_Produto);
   // Application.CreateForm(TFrm_padrao1, Frm_padrao1);
   Application.Run;
 end.

@@ -8,7 +8,7 @@ uses
   Data.DB, Vcl.Buttons, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, frxClass, frxDBSet;
 
 type
   TFrm_Pesquisa_Padrao = class(TForm)
@@ -24,15 +24,19 @@ type
     DBGrid1: TDBGrid;
     Panel2: TPanel;
     Bt_pesquisa: TBitBtn;
-    bt_trasnferir: TBitBtn;
+    bt_transferir: TBitBtn;
     bt_imprimir: TBitBtn;
     query_pesquisa_padrao: TFDQuery;
     ds_pesquisa_padrao: TDataSource;
+    Rel_pesquisa_padrao: TfrxReport;
+    dataset_pesquisa_padrao: TfrxDBDataset;
     procedure CB_chave_pesquisaChange(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+      codigo:Integer;
   end;
 
 var
@@ -92,4 +96,9 @@ begin
 
   end;
 end;
+procedure TFrm_Pesquisa_Padrao.DBGrid1DblClick(Sender: TObject);
+begin
+  bt_transferir.click;
+end;
+
 end.

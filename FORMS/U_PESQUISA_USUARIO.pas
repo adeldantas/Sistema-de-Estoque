@@ -18,6 +18,8 @@ type
     query_pesquisa_padraoCADASTRO: TDateField;
     procedure Bt_pesquisaClick(Sender: TObject);
     procedure CB_chave_pesquisaChange(Sender: TObject);
+    procedure bt_transferirClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -73,6 +75,17 @@ begin
     abort;
 end;
 
+procedure TFrm_Pesquisa_Usuario.bt_transferirClick(Sender: TObject);
+begin
+  if query_pesquisa_padrao.RecordCount > 0 then
+    begin
+      codigo:=query_pesquisa_padraoID_usuario.AsInteger;
+    end
+    else
+    abort;
+
+end;
+
 procedure TFrm_Pesquisa_Usuario.CB_chave_pesquisaChange(Sender: TObject);
 begin
   inherited;
@@ -121,6 +134,12 @@ begin
     end;
 
   end;
+end;
+
+procedure TFrm_Pesquisa_Usuario.DBGrid1DblClick(Sender: TObject);
+begin
+  inherited;
+  bt_transferir.click;
 end;
 
 end.

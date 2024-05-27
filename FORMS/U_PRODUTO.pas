@@ -71,7 +71,11 @@ begin
   Frm_Pesquisa_PRODUTO:=Tfrm_Pesquisa_PRODUTO.Create(self);
   Frm_Pesquisa_PRODUTO.showmodal;
     try
-
+      if frm_pesquisa_PRODUTO.codigo > 0 then
+        begin
+          q_padrao.Open;
+          q_padrao.Locate('ID_PRODUTO',frm_pesquisa_PRODUTO.codigo,[]);
+        end;
     finally
       Frm_Pesquisa_PRODUTO.Free;
       Frm_Pesquisa_PRODUTO:=nil;
