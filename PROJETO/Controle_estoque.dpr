@@ -16,7 +16,8 @@ uses
   U_PESQUISA_USUARIO in '..\FORMS\U_PESQUISA_USUARIO.pas' {Frm_Pesquisa_Usuario},
   U_USUARIO in '..\FORMS\U_USUARIO.pas' {frm_usuario},
   U_PESQUISA_CLIENTE in '..\FORMS\U_PESQUISA_CLIENTE.pas' {Frm_Pesquisa_Cliente},
-  U_PESQUISA_FORNECEDOR in '..\FORMS\U_PESQUISA_FORNECEDOR.pas' {Frm_Pesquisa_Fornecedor};
+  U_PESQUISA_FORNECEDOR in '..\FORMS\U_PESQUISA_FORNECEDOR.pas' {Frm_Pesquisa_Fornecedor},
+  U_PESQUISA_PRODUTO in '..\FORMS\U_PESQUISA_PRODUTO.pas' {Frm_Pesquisa_Produto};
 
 // U_EMPRESA in '..\FORMS\U_EMPRESA.pas' {Frm_padrao1};
 
@@ -29,6 +30,7 @@ begin
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrm_Pesquisa_Cliente, Frm_Pesquisa_Cliente);
   Application.CreateForm(TFrm_Pesquisa_Fornecedor, Frm_Pesquisa_Fornecedor);
+  Application.CreateForm(TFrm_Pesquisa_Produto, Frm_Pesquisa_Produto);
   // Application.CreateForm(TFrm_padrao1, Frm_padrao1);
   Application.Run;
 end.
