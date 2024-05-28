@@ -17,7 +17,9 @@ uses
   U_USUARIO in '..\FORMS\U_USUARIO.pas' {frm_usuario},
   U_PESQUISA_CLIENTE in '..\FORMS\U_PESQUISA_CLIENTE.pas' {Frm_Pesquisa_Cliente},
   U_PESQUISA_FORNECEDOR in '..\FORMS\U_PESQUISA_FORNECEDOR.pas' {Frm_Pesquisa_Fornecedor},
-  U_PESQUISA_PRODUTO in '..\FORMS\U_PESQUISA_PRODUTO.pas' {Frm_Pesquisa_Produto};
+  U_PESQUISA_PRODUTO in '..\FORMS\U_PESQUISA_PRODUTO.pas' {Frm_Pesquisa_Produto},
+  U_MOVIMENTO_PADRAO in '..\FORMS\U_MOVIMENTO_PADRAO.pas' {Frm_movimento_padrao},
+  U_MOVIMENTO_COMPRA in '..\FORMS\U_MOVIMENTO_COMPRA.pas' {Frm_movimento_compra};
 
 // U_EMPRESA in '..\FORMS\U_EMPRESA.pas' {Frm_padrao1};
 
@@ -28,6 +30,8 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFrm_Principal, Frm_Principal);
   Application.CreateForm(TDM, DM);
+  Application.CreateForm(TFrm_movimento_padrao, Frm_movimento_padrao);
+  Application.CreateForm(TFrm_movimento_compra, Frm_movimento_compra);
   // Application.CreateForm(TFrm_padrao1, Frm_padrao1);
   Application.Run;
 end.

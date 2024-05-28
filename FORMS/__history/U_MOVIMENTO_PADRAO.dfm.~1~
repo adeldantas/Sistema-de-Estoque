@@ -1,0 +1,11 @@
+inherited Frm_movimento_padrao: TFrm_movimento_padrao
+  Caption = 'Formul'#225'rio Padr'#227'o de Movimenta'#231#227'o'
+  ExplicitLeft = -55
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel2: TPanel
+    inherited DBNavigator1: TDBNavigator
+      Hints.Strings = ()
+    end
+  end
+end

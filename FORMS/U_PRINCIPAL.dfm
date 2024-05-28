@@ -3773,6 +3773,7 @@ object Frm_Principal: TFrm_Principal
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = bt_compraClick
     end
     object bt_venda: TSpeedButton
       Left = 799
@@ -10212,6 +10213,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'C&ompras'
         ShortCut = 16456
+        OnClick = Compras1Click
       end
       object menu_vendas: TMenuItem
         Bitmap.Data = {

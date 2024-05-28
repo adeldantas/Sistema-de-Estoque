@@ -94,6 +94,9 @@ type
     procedure bt_forma_pgtoClick(Sender: TObject);
     procedure abre_tela_forma_pgto();
     procedure Menu_Forma_pgtoClick(Sender: TObject);
+    procedure abre_tela_movimento_compra();
+    procedure bt_compraClick(Sender: TObject);
+    procedure Compras1Click(Sender: TObject);
 
 
 
@@ -111,7 +114,8 @@ implementation
 
 {$R *.dfm}
 
-uses U_Usuario, U_Empresa, U_CLIENTE, U_FORNECEDOR, U_PRODUTO, U_FORMA_PGTO;
+uses U_Usuario, U_Empresa, U_CLIENTE, U_FORNECEDOR, U_PRODUTO, U_FORMA_PGTO,
+  U_MOVIMENTO_COMPRA;
 
 {uses U_usuario, U_EMPRESA, U_CLIENTE, U_Fornecedor, U_produto, U_forma_pgto,
   U_Compra, U_pesq_usuario, U_pesq_fornecedor, U_Pesq_Cliente, U_PESQ_COMPRA,
@@ -765,6 +769,18 @@ begin
  end;
 end;
 
+procedure TFrm_Principal.abre_tela_movimento_compra;
+begin
+  frm_MOVIMENTO_COMPRA:=Tfrm_MOVIMENTO_COMPRA.Create(self);
+  Frm_MOVIMENTO_COMPRA.ShowModal;
+  try
+
+ finally
+  frm_MOVIMENTO_COMPRA.Free;
+  frm_MOVIMENTO_COMPRA:=nil;
+ end;
+end;
+
 procedure TFrm_Principal.abre_tela_produto;
 begin
    // Abre tela de Produtos
@@ -794,6 +810,11 @@ end;
 procedure TFrm_Principal.bt_clienteClick(Sender: TObject);
 begin
   abre_tela_cliente;
+end;
+
+procedure TFrm_Principal.bt_compraClick(Sender: TObject);
+begin
+ abre_tela_movimento_compra()
 end;
 
 procedure TFrm_Principal.bt_empresaClick(Sender: TObject);
@@ -830,6 +851,11 @@ end;
 procedure TFrm_Principal.bt_UsuarioClick(Sender: TObject);
 begin
  Abre_tela_Usuario();
+end;
+
+procedure TFrm_Principal.Compras1Click(Sender: TObject);
+begin
+  abre_tela_movimento_compra()
 end;
 
 procedure TFrm_Principal.Fechar1Click(Sender: TObject);
