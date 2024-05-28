@@ -61,6 +61,23 @@ type
     DB_NOME: TDBLookupComboBox;
     Label8: TLabel;
     DB_DESCRICAO: TDBLookupComboBox;
+    Q_padrao_itemID_SEQUENCIA: TIntegerField;
+    Q_padrao_itemID_COMPRA: TIntegerField;
+    Q_padrao_itemID_PRODUTO: TIntegerField;
+    Q_padrao_itemQTDE: TBCDField;
+    Q_padrao_itemVL_CUSTO: TBCDField;
+    Q_padrao_itemTOTAL_ITEM: TBCDField;
+    Label9: TLabel;
+    cxDBSpinEdit1: TcxDBSpinEdit;
+    Label10: TLabel;
+    cxDBCurrencyEdit1: TcxDBCurrencyEdit;
+    Label11: TLabel;
+    cxDBCurrencyEdit2: TcxDBCurrencyEdit;
+    Label12: TLabel;
+    cxDBCurrencyEdit3: TcxDBCurrencyEdit;
+    Q_padrao_itemDESCONTO: TBCDField;
+    Label13: TLabel;
+    cxDBCurrencyEdit4: TcxDBCurrencyEdit;
     procedure bt_novoClick(Sender: TObject);
   private
     { Private declarations }
@@ -79,7 +96,7 @@ procedure TFrm_movimento_compra.bt_novoClick(Sender: TObject);
 begin
   inherited;
   Q_PADRAOCADASTRO.AsDateTime:=Date;
-  Q_PADRAOUSUARIO.AsString:='Teste';
+  Q_PADRAOUSUARIO.AsString:='ADM';
   Q_PADRAOVALOR.AsCurrency:=0;
   db_id_fornecedor.SetFocus;
 

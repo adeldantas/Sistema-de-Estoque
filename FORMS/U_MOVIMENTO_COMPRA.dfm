@@ -1,5 +1,7 @@
 inherited Frm_movimento_compra: TFrm_movimento_compra
   Caption = 'CADASTRO DE COMPRAS'
+  ExplicitLeft = -25
+  ExplicitTop = -34
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel2: TPanel
@@ -144,6 +146,120 @@ inherited Frm_movimento_compra: TFrm_movimento_compra
   inherited Panel4: TPanel
     Caption = ''
     ExplicitTop = 362
+    object Label9: TLabel
+      Left = 88
+      Top = 16
+      Width = 66
+      Height = 13
+      Caption = 'ID_PRODUTO'
+      FocusControl = cxDBSpinEdit1
+    end
+    object Label10: TLabel
+      Left = 215
+      Top = 16
+      Width = 27
+      Height = 13
+      Caption = 'QTDE'
+      FocusControl = cxDBCurrencyEdit1
+    end
+    object Label11: TLabel
+      Left = 342
+      Top = 16
+      Width = 51
+      Height = 13
+      Caption = 'VL_CUSTO'
+      FocusControl = cxDBCurrencyEdit2
+    end
+    object Label12: TLabel
+      Left = 596
+      Top = 16
+      Width = 62
+      Height = 13
+      Caption = 'TOTAL_ITEM'
+      FocusControl = cxDBCurrencyEdit3
+    end
+    object Label13: TLabel
+      Left = 469
+      Top = 16
+      Width = 55
+      Height = 13
+      Caption = 'DESCONTO'
+      FocusControl = cxDBCurrencyEdit4
+    end
+    object cxDBSpinEdit1: TcxDBSpinEdit
+      Left = 88
+      Top = 32
+      DataBinding.DataField = 'ID_PRODUTO'
+      DataBinding.DataSource = ds_padrao_item
+      TabOrder = 0
+      Width = 121
+    end
+    object cxDBCurrencyEdit1: TcxDBCurrencyEdit
+      Left = 215
+      Top = 32
+      DataBinding.DataField = 'QTDE'
+      DataBinding.DataSource = ds_padrao_item
+      TabOrder = 1
+      Width = 121
+    end
+    object cxDBCurrencyEdit2: TcxDBCurrencyEdit
+      Left = 342
+      Top = 32
+      DataBinding.DataField = 'VL_CUSTO'
+      DataBinding.DataSource = ds_padrao_item
+      TabOrder = 2
+      Width = 121
+    end
+    object cxDBCurrencyEdit3: TcxDBCurrencyEdit
+      Left = 596
+      Top = 32
+      DataBinding.DataField = 'TOTAL_ITEM'
+      DataBinding.DataSource = ds_padrao_item
+      TabOrder = 3
+      Width = 146
+    end
+    object cxDBCurrencyEdit4: TcxDBCurrencyEdit
+      Left = 469
+      Top = 32
+      DataBinding.DataField = 'DESCONTO'
+      DataBinding.DataSource = ds_padrao_item
+      TabOrder = 4
+      Width = 121
+    end
+  end
+  inherited DBGrid1: TDBGrid
+    DataSource = ds_padrao_item
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID_SEQUENCIA'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ID_COMPRA'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ID_PRODUTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'QTDE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VL_CUSTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TOTAL_ITEM'
+        Visible = True
+      end>
   end
   inherited Q_padrao: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
@@ -213,7 +329,79 @@ inherited Frm_movimento_compra: TFrm_movimento_compra
       Lookup = True
     end
   end
+  inherited Q_padrao_item: TFDQuery
+    IndexFieldNames = 'ID_COMPRA'
+    MasterFields = 'ID_COMPRA'
+    DetailFields = 'ID_COMPRA'
+    Connection = DM.conexao
+    SQL.Strings = (
+      'SELECT'
+      ' ID_SEQUENCIA,'
+      ' ID_COMPRA,'
+      ' ID_PRODUTO,'
+      ' QTDE,'
+      ' VL_CUSTO,'
+      ' DESCONTO,'
+      ' TOTAL_ITEM'
+      'FROM ITEM_COMPRA'
+      'WHERE ID_COMPRA=:ID_COMPRA')
+    ParamData = <
+      item
+        Name = 'ID_COMPRA'
+        DataType = ftAutoInc
+        ParamType = ptInput
+        Value = 1
+      end>
+    object Q_padrao_itemID_SEQUENCIA: TIntegerField
+      FieldName = 'ID_SEQUENCIA'
+      Origin = 'ID_SEQUENCIA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_padrao_itemID_COMPRA: TIntegerField
+      FieldName = 'ID_COMPRA'
+      Origin = 'ID_COMPRA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_padrao_itemID_PRODUTO: TIntegerField
+      FieldName = 'ID_PRODUTO'
+      Origin = 'ID_PRODUTO'
+      Required = True
+    end
+    object Q_padrao_itemQTDE: TBCDField
+      FieldName = 'QTDE'
+      Origin = 'QTDE'
+      Required = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_padrao_itemVL_CUSTO: TBCDField
+      FieldName = 'VL_CUSTO'
+      Origin = 'VL_CUSTO'
+      Required = True
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_padrao_itemTOTAL_ITEM: TBCDField
+      FieldName = 'TOTAL_ITEM'
+      Origin = 'TOTAL_ITEM'
+      Required = True
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_padrao_itemDESCONTO: TBCDField
+      FieldName = 'DESCONTO'
+      Origin = 'DESCONTO'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+  end
   object q_fornecedor: TFDQuery
+    Active = True
     Connection = DM.conexao
     SQL.Strings = (
       'SELECT'
@@ -237,6 +425,7 @@ inherited Frm_movimento_compra: TFrm_movimento_compra
     end
   end
   object q_forma_pgto: TFDQuery
+    Active = True
     Connection = DM.conexao
     SQL.Strings = (
       'SELECT '
