@@ -21,6 +21,7 @@ type
     procedure CB_chave_pesquisaChange(Sender: TObject);
     procedure bt_transferirClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure bt_imprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,6 +34,23 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrm_Pesquisa_Usuario.bt_imprimirClick(Sender: TObject);
+VAR CAMINHO: STRING;
+begin
+  caminho:=extractfilepath(application.ExeName);
+  frm_pesquisa_padrao:=Tfrm_pesquisa_padrao.Create(self);
+  if frm_pesquisa_padrao.Rel_pesquisa_padrao.LoadFromFile(caminho + 'rel_Usuario.fr3') then
+    begin
+      rel_pesquisa_padrao.Clear;
+      rel_pesquisa_padrao.LoadFromFile(extractfilepath(application.exename) + 'rel_Usuario.fr3');
+      rel_pesquisa_padrao.PrepareReport(true);
+      rel_pesquisa_padrao.ShowPreparedReport;
+    end
+    else
+    messagedlg('Relatorio não encontrado',mterror,[mbok],0);
+
+end;
 
 procedure TFrm_Pesquisa_Usuario.Bt_pesquisaClick(Sender: TObject);
 begin

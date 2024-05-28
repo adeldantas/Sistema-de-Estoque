@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls;
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
+  frxClass, frxDBSet;
 
 type
   TFrm_Pesquisa_Cliente = class(TFrm_Pesquisa_Padrao)
@@ -26,6 +27,7 @@ type
     procedure Bt_pesquisaClick(Sender: TObject);
     procedure bt_transferirClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure bt_imprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,6 +40,23 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrm_Pesquisa_Cliente.bt_imprimirClick(Sender: TObject);
+VAR CAMINHO: STRING;
+begin
+  caminho:=extractfilepath(application.ExeName);
+  frm_pesquisa_padrao:=Tfrm_pesquisa_padrao.Create(self);
+  if frm_pesquisa_padrao.Rel_pesquisa_padrao.LoadFromFile(caminho + 'rel_cliente.fr3') then
+    begin
+      rel_pesquisa_padrao.Clear;
+      rel_pesquisa_padrao.LoadFromFile(extractfilepath(application.exename) + 'rel_cliente.fr3');
+      rel_pesquisa_padrao.PrepareReport(true);
+      rel_pesquisa_padrao.ShowPreparedReport;
+    end
+    else
+    messagedlg('Relatorio não encontrado',mterror,[mbok],0);
+
+end;
 
 procedure TFrm_Pesquisa_Cliente.Bt_pesquisaClick(Sender: TObject);
 begin

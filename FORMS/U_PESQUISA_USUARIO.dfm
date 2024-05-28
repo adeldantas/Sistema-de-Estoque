@@ -20,6 +20,9 @@
     inherited bt_transferir: TBitBtn
       OnClick = bt_transferirClick
     end
+    inherited bt_imprimir: TBitBtn
+      OnClick = bt_imprimirClick
+    end
   end
   inherited DBGrid1: TDBGrid
     Columns = <
