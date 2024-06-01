@@ -1,0 +1,31 @@
+inherited Frm_Aumentar_Preco: TFrm_Aumentar_Preco
+  Caption = 'FORMUL'#193'RIO PARA AUMENTAR PRE'#199'OS'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited RGOpcao: TRadioGroup
+    Height = 81
+    Caption = 'Aumentar pre'#231'os'
+    ExplicitHeight = 81
+  end
+  inherited DBGrid1: TDBGrid
+    Top = 104
+    Width = 745
+    Height = 249
+    Columns = <
+      item
+        Expanded = False
+        Visible = True
+      end>
+  end
+  inherited bt_Acao: TBitBtn
+    OnClick = bt_AcaoClick
+  end
+  inherited Q_movimenta_preco: TFDQuery
+    Left = 712
+    Top = 64
+  end
+  inherited ds_movimenta_preco: TDataSource
+    Left = 712
+    Top = 8
+  end
+end

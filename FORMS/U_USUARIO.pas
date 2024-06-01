@@ -1,4 +1,4 @@
-unit U_Usuario;
+unit U_usuario;
 
 interface
 
@@ -11,7 +11,7 @@ uses
   Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
 
 type
-  Tfrm_usuario = class(TFrm_padrao)
+  TFrm_usuario = class(TFrm_padrao)
     Q_padraoID_USUARIO: TIntegerField;
     Q_padraoNOME: TStringField;
     Q_padraoSENHA: TStringField;
@@ -25,8 +25,8 @@ type
     db_senha: TDBEdit;
     Label4: TLabel;
     Label5: TLabel;
-    db_cadastro: TDBEdit;
-    DBComboBox1: TDBComboBox;
+    DB_cadastro: TDBEdit;
+    DB_tipo: TDBComboBox;
     procedure bt_novoClick(Sender: TObject);
     procedure bt_PesquisarClick(Sender: TObject);
   private
@@ -36,36 +36,36 @@ type
   end;
 
 var
-  frm_usuario: Tfrm_usuario;
+  Frm_usuario: TFrm_usuario;
 
 implementation
 
 {$R *.dfm}
 
-uses U_PESQUISA_USUARIO;
+uses U_pesq_usuario;
 
-procedure Tfrm_usuario.bt_novoClick(Sender: TObject);
+procedure TFrm_usuario.bt_novoClick(Sender: TObject);
 begin
   inherited;
-  Q_padraoCADASTRO.AsDateTime:=date;
-  db_nome.SetFocus;
-
+ db_cadastro.Text:=DateTostr(now);
+ db_nome.SetFocus;
 end;
 
-procedure Tfrm_usuario.bt_PesquisarClick(Sender: TObject);
+procedure TFrm_usuario.bt_PesquisarClick(Sender: TObject);
 begin
-  frm_pesquisa_usuario:=tfrm_pesquisa_usuario.Create(self);
-  frm_PESQUISA_usuario.ShowModal;
-  try
-    if frm_pesquisa_usuario.codigo > 0 then
-        begin
-          q_padrao.Open;
-          q_padrao.Locate('ID_usuario',frm_pesquisa_usuario.codigo,[]);
-        end;
-  finally
-    frm_pesquisa_usuario.Free;
-    frm_pesquisa_usuario:=nil;
-  end;
+ frm_pesq_usuario:=Tfrm_pesq_usuario.Create(self);
+ Frm_pesq_usuario.ShowModal;
+ try
+    if Frm_pesq_usuario.codigo > 0 then
+       begin
+         Q_padrao.Open;
+         Q_padrao.Locate('ID_USUARIO',Frm_pesq_usuario.codigo,[]);
+       end;
+ finally
+  Frm_pesq_usuario.Free;
+  Frm_Pesq_usuario:=nil;
+ end;
+
 
 end;
 

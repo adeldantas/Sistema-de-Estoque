@@ -1,0 +1,41 @@
+unit U_Movimentta_Preco_Padrao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids, Vcl.Buttons;
+
+type
+  TFrm_movimenta_preco_padrao = class(TForm)
+    RGOpcao: TRadioGroup;
+    ed_produto: TEdit;
+    ed_porcentagem: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Q_produto: TFDQuery;
+    Q_movimenta_preco: TFDQuery;
+    ds_produto: TDataSource;
+    ds_movimenta_preco: TDataSource;
+    DBGrid1: TDBGrid;
+    bt_Acao: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_movimenta_preco_padrao: TFrm_movimenta_preco_padrao;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+end.

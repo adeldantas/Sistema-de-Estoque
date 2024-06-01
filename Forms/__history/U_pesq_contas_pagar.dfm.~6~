@@ -1,0 +1,230 @@
+inherited Frm_pesquisa_padrao1: TFrm_pesquisa_padrao1
+  Caption = 'Frm_pesquisa_padrao1'
+  ExplicitWidth = 1138
+  ExplicitHeight = 533
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    inherited lb_inicio: TLabel
+      Visible = False
+    end
+    inherited lb_fim: TLabel
+      Visible = False
+    end
+    inherited cb_chave_pesquisa: TComboBox
+      Items.Strings = (
+        'ID_FORNECEDOR'
+        'NOME'
+        'CNPJ')
+    end
+    inherited ed_nome: TEdit
+      Width = 233
+      ExplicitWidth = 233
+    end
+    inherited mk_inicio: TMaskEdit
+      Visible = False
+    end
+    inherited mk_fim: TMaskEdit
+      Visible = False
+    end
+  end
+  inherited DBGrid1: TDBGrid
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID_COMPRA'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ID_FORNECEDOR'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NOME'
+        Width = 250
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CNPJ'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ID_SEQUENCIA'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VALOR_PARCELA'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DT_VENCIMENTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DT_PAGAMENTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ATRASO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'JUROS'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VL_JUROS'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TOTAL_PAGAR'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'STATUS'
+        Visible = True
+      end>
+  end
+  inherited Panel2: TPanel
+    inherited DBNavigator1: TDBNavigator
+      Hints.Strings = ()
+    end
+  end
+  inherited Q_pesq_padrao: TFDQuery
+    SQL.Strings = (
+      'SELECT'
+      '     A.ID_COMPRA,'
+      '     A.ID_FORNECEDOR,'
+      '     B.NOME,'
+      '     B.CNPJ,'
+      '     C.ID_SEQUENCIA,'
+      '     C.VALOR_PARCELA,'
+      '     C.DT_VENCIMENTO,'
+      '     C.DT_PAGAMENTO,'
+      '     C.ATRASO,'
+      '     C.JUROS,'
+      '     C.VL_JUROS,'
+      '     C.TOTAL_PAGAR,'
+      '     C.STATUS'
+      '  FROM COMPRA A'
+      '  INNER JOIN FORNECEDOR B ON B.ID_FORNECEDOR = A.ID_FORNECEDOR'
+      '  INNER JOIN CONTAS_PAGAR C ON C.ID_COMPRA = A.ID_COMPRA'
+      '  WHERE C.STATUS='#39'EM ABERTO'#39
+      '  ORDER BY A.ID_COMPRA')
+    object Q_pesq_padraoID_COMPRA: TIntegerField
+      FieldName = 'ID_COMPRA'
+      Origin = 'ID_COMPRA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_pesq_padraoID_FORNECEDOR: TIntegerField
+      FieldName = 'ID_FORNECEDOR'
+      Origin = 'ID_FORNECEDOR'
+      Required = True
+    end
+    object Q_pesq_padraoNOME: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 100
+    end
+    object Q_pesq_padraoCNPJ: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'CNPJ'
+      Origin = 'CNPJ'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object Q_pesq_padraoID_SEQUENCIA: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'ID_SEQUENCIA'
+      Origin = 'ID_SEQUENCIA'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object Q_pesq_padraoVALOR_PARCELA: TFMTBCDField
+      AutoGenerateValue = arDefault
+      FieldName = 'VALOR_PARCELA'
+      Origin = 'VALOR_PARCELA'
+      ProviderFlags = []
+      ReadOnly = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_pesq_padraoDT_VENCIMENTO: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'DT_VENCIMENTO'
+      Origin = 'DT_VENCIMENTO'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object Q_pesq_padraoDT_PAGAMENTO: TDateField
+      AutoGenerateValue = arDefault
+      FieldName = 'DT_PAGAMENTO'
+      Origin = 'DT_PAGAMENTO'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object Q_pesq_padraoATRASO: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'ATRASO'
+      Origin = 'ATRASO'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object Q_pesq_padraoJUROS: TFMTBCDField
+      AutoGenerateValue = arDefault
+      FieldName = 'JUROS'
+      Origin = 'JUROS'
+      ProviderFlags = []
+      ReadOnly = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_pesq_padraoVL_JUROS: TFMTBCDField
+      AutoGenerateValue = arDefault
+      FieldName = 'VL_JUROS'
+      Origin = 'VL_JUROS'
+      ProviderFlags = []
+      ReadOnly = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_pesq_padraoTOTAL_PAGAR: TFMTBCDField
+      AutoGenerateValue = arDefault
+      FieldName = 'TOTAL_PAGAR'
+      Origin = 'TOTAL_PAGAR'
+      ProviderFlags = []
+      ReadOnly = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_pesq_padraoSTATUS: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'STATUS'
+      Origin = 'STATUS'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 30
+    end
+  end
+  inherited REL_pesq_padrao: TfrxReport
+    Datasets = <>
+    Variables = <>
+    Style = <>
+  end
+end

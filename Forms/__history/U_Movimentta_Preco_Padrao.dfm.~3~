@@ -1,0 +1,122 @@
+object Frm_movimenta_preco_padrao: TFrm_movimenta_preco_padrao
+  Left = 0
+  Top = 0
+  Caption = 'Frm_movimenta_preco_padrao'
+  ClientHeight = 387
+  ClientWidth = 667
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 288
+    Top = 21
+    Width = 98
+    Height = 19
+    Caption = 'Id_Produto:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 440
+    Top = 21
+    Width = 114
+    Height = 19
+    Caption = 'Porcentagem:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object RGOpcao: TRadioGroup
+    Left = 8
+    Top = 8
+    Width = 257
+    Height = 73
+    Caption = 'Movimenta Pre'#231'o'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+  end
+  object ed_produto: TEdit
+    Left = 288
+    Top = 40
+    Width = 121
+    Height = 27
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+  end
+  object ed_porcentagem: TEdit
+    Left = 432
+    Top = 40
+    Width = 121
+    Height = 27
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 112
+    Width = 651
+    Height = 233
+    TabOrder = 3
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object Q_produto: TFDQuery
+    Connection = DM.conexao
+    SQL.Strings = (
+      'SELECT '
+      '      ID_PRODUTO,'
+      '      PRODUTO_DESCRICAO,'
+      '      VL_CUSTO,'
+      '      VL_VENDA'
+      ' FROM PRODUTO'
+      ' ORDER BY ID_PRODUTO')
+    Left = 632
+    Top = 32
+  end
+  object Q_movimenta_preco: TFDQuery
+    Connection = DM.conexao
+    Left = 584
+    Top = 32
+  end
+  object ds_produto: TDataSource
+    DataSet = Q_produto
+    Left = 624
+    Top = 96
+  end
+  object ds_movimenta_preco: TDataSource
+    DataSet = Q_movimenta_preco
+    Left = 576
+    Top = 88
+  end
+end

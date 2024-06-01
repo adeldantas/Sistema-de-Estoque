@@ -1,0 +1,52 @@
+unit U_Backup;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_backup_restore_padrao, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ExtCtrls, FireDAC.Stan.Def, FireDAC.VCLUI.Wait,
+  FireDAC.Phys.IBWrapper, FireDAC.Stan.Intf, FireDAC.Phys, FireDAC.Phys.IBBase;
+
+type
+  TFm_Backup = class(TFm_Backup_Restore_Padrao)
+    BACKUP: TFDIBBackup;
+    procedure BACKUPProgress(ASender: TFDPhysDriverService;
+      const AMessage: string);
+    procedure BACKUPError(ASender, AInitiator: TObject;
+      var AException: Exception);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fm_Backup: TFm_Backup;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure TFm_Backup.BACKUPError(ASender, AInitiator: TObject;
+  var AException: Exception);
+begin
+  inherited;
+  // CASO OCORRA UMA EXCESSÃO
+   Status.Lines.Add('FALHA NO BACKUP');
+  Status.Lines.Add(AException.Message);
+
+end;
+
+procedure TFm_Backup.BACKUPProgress(ASender: TFDPhysDriverService;
+  const AMessage: string);
+begin
+  inherited;
+  // CASO DE TUDO CERTO
+  Status.Lines.Add('TUDO CERTO');
+  Status.Lines.Add(Amessage);
+  end;
+
+end.

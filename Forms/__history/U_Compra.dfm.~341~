@@ -1,0 +1,2026 @@
+inherited Frm_Compra: TFrm_Compra
+  Caption = 'CADASTRO DE COMPRAS'
+  ExplicitLeft = -79
+  ExplicitWidth = 842
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    inherited bt_Pesquisar: TBitBtn
+      OnClick = bt_PesquisarClick
+    end
+  end
+  inherited Panel2: TPanel
+    inherited DBNavigator1: TDBNavigator
+      Left = 552
+      Hints.Strings = ()
+      ExplicitLeft = 552
+    end
+    inherited bt_item: TBitBtn
+      OnClick = bt_itemClick
+    end
+    inherited bt_confirmar: TBitBtn
+      OnClick = bt_confirmarClick
+    end
+    inherited bt_excluir: TBitBtn
+      OnClick = bt_excluirClick
+    end
+    inherited bt_imprimir: TBitBtn
+      OnClick = bt_imprimirClick
+    end
+  end
+  inherited Panel3: TPanel
+    Height = 136
+    ExplicitHeight = 136
+    object Label1: TLabel
+      Left = 24
+      Top = 8
+      Width = 68
+      Height = 13
+      Caption = 'ID_COMPRA'
+      FocusControl = DBEdit1
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 24
+      Top = 48
+      Width = 92
+      Height = 13
+      Caption = 'ID_FORNECEDOR'
+      FocusControl = db_id_fornecedor
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 24
+      Top = 88
+      Width = 97
+      Height = 13
+      Caption = 'ID_FORMA_PGTO'
+      FocusControl = DB_id_forma_pgto
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 164
+      Top = 48
+      Width = 31
+      Height = 13
+      Caption = 'NOME'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 164
+      Top = 88
+      Width = 64
+      Height = 13
+      Caption = 'DESCRICAO'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 164
+      Top = 8
+      Width = 61
+      Height = 13
+      Caption = 'CADASTRO'
+      FocusControl = db_cadastro
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 304
+      Top = 8
+      Width = 52
+      Height = 13
+      Caption = 'USUARIO'
+      FocusControl = db_usuario
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 552
+      Top = 8
+      Width = 37
+      Height = 13
+      Caption = 'VALOR'
+      FocusControl = DB_valor
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label14: TLabel
+      Left = 527
+      Top = 88
+      Width = 67
+      Height = 13
+      Caption = 'COND_PGTO'
+      FocusControl = db_cond_pgto
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object DBEdit1: TDBEdit
+      Left = 24
+      Top = 24
+      Width = 134
+      Height = 21
+      DataField = 'ID_COMPRA'
+      DataSource = ds_padrao
+      TabOrder = 0
+    end
+    object db_id_fornecedor: TDBEdit
+      Left = 24
+      Top = 67
+      Width = 134
+      Height = 21
+      DataField = 'ID_FORNECEDOR'
+      DataSource = ds_padrao
+      TabOrder = 1
+      OnExit = db_id_fornecedorExit
+    end
+    object DB_id_forma_pgto: TDBEdit
+      Left = 24
+      Top = 105
+      Width = 134
+      Height = 21
+      DataField = 'ID_FORMA_PGTO'
+      DataSource = ds_padrao
+      TabOrder = 2
+      OnExit = DB_id_forma_pgtoExit
+    end
+    object db_cadastro: TDBEdit
+      Left = 164
+      Top = 24
+      Width = 134
+      Height = 21
+      DataField = 'CADASTRO'
+      DataSource = ds_padrao
+      TabOrder = 3
+    end
+    object db_usuario: TDBEdit
+      Left = 304
+      Top = 24
+      Width = 217
+      Height = 21
+      DataField = 'USUARIO'
+      DataSource = ds_padrao
+      TabOrder = 4
+    end
+    object DB_valor: TDBEdit
+      Left = 527
+      Top = 24
+      Width = 161
+      Height = 21
+      DataField = 'VALOR'
+      DataSource = ds_padrao
+      TabOrder = 5
+    end
+    object DBEdit2: TDBEdit
+      Left = 527
+      Top = 24
+      Width = 161
+      Height = 21
+      DataField = 'SUBTOTAL'
+      DataSource = Ds_padrao_item
+      TabOrder = 7
+    end
+    object db_cond_pgto: TDBEdit
+      Left = 527
+      Top = 105
+      Width = 159
+      Height = 21
+      DataField = 'COND_PGTO'
+      DataSource = ds_padrao
+      TabOrder = 6
+    end
+    object Bt_Check_Fornecedor: TBitBtn
+      Left = 694
+      Top = 62
+      Width = 49
+      Height = 25
+      Glyph.Data = {
+        360C0000424D360C000000000000360000002800000020000000200000000100
+        180000000000000C00009D0000009D0000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000004633A64633A64633A64632
+        A500000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000004633A64633A64633A64633A64633
+        A64733A500000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000004633A64633A64633A64633A64633A64633
+        A64633A64734A500000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000004633A64633A64633A64633A64633A64633A64633
+        A64633A64733A74532A500000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000004633A64633A64633A64633A64633A64633A64633A64633
+        A64633A64633A64632A64734A600000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000004633A64633A64633A64633A64633A64633A64633A64633A64633
+        A64633A64633A64633A64633A74733A500000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000004633A64633A64633A64633A64633A64633A64633A64633A64633A64633
+        A64633A64633A64633A64633A64634A64531A700000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        4633A64633A64633A64633A64633A64633A64633A64633A64633A64633A64633
+        A64633A64633A64633A64633A64633A64633A64733A700000000000000000000
+        00000000000000000000000000000000000000000000000000000000004633A6
+        4633A64633A64633A64633A64633A64633A64633A64633A64633A64633A64633
+        A64633A64633A64633A64633A64633A64633A64634A64632A600000000000000
+        00000000000000000000000000000000000000000000000000004633A64633A6
+        4633A64633A64633A64633A64633A64633A64633A64633A60000000000004633
+        A64633A64633A64633A64633A64633A64633A64633A64632A64634A600000000
+        00000000000000000000000000000000000000000000000000004633A64633A6
+        4633A64633A64633A64633A64633A64633A64633A60000000000000000000000
+        004633A64633A64633A64633A64633A64633A64633A64633A64633A64633A600
+        00000000000000000000000000000000000000000000000000004633A64633A6
+        4633A64633A64633A64633A64633A64633A60000000000000000000000000000
+        000000004633A64633A64633A64633A64633A64633A64633A64633A64632A646
+        33A60000000000000000000000000000000000000000000000004633A64633A6
+        4633A64633A64633A64633A64633A60000000000000000000000000000000000
+        000000000000004633A64633A64633A64633A64633A64633A64633A64633A647
+        34A64532A60000000000000000000000000000000000000000004633A64633A6
+        4633A64633A64633A64633A60000000000000000000000000000000000000000
+        000000000000000000004633A64633A64633A64633A64633A64633A64633A646
+        33A64532A64734A5000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000004633A64633A64633A64633A64633A64633A646
+        33A64633A64733A64533A6000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000004633A64633A64633A64633A64633A646
+        33A64633A64633A64633A74633A6000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000004633A64633A64633A64633A646
+        33A64633A64633A64633A64633A64633A6000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000000000004633A64633A64633A646
+        33A64633A64633A64633A64633A64633A54633A7000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000000000000000004633A64633A646
+        33A64633A64633A64633A64633A64633A64633A64633A6000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000000000000000000000004633A646
+        33A64633A64633A64633A64633A64633A64633A64632A64634A6000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000046
+        33A64633A64633A64633A64633A64633A64633A64633A64633A7000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00004633A64633A64633A64633A64633A64633A64633A64633A6000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000004633A64633A64633A64633A64633A64633A64633A6000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000000000004633A64633A64633A64633A64633A64633A6000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000000000000000004633A64633A64633A64633A64633A6000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000}
+      TabOrder = 8
+      OnClick = Bt_Check_FornecedorClick
+    end
+    object bt_busca_forma_pgto: TBitBtn
+      Left = 692
+      Top = 102
+      Width = 50
+      Height = 25
+      Glyph.Data = {
+        360C0000424D360C000000000000360000002800000020000000200000000100
+        180000000000000C00009D0000009D0000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000004633A64633A64633A64632
+        A500000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000004633A64633A64633A64633A64633
+        A64733A500000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000004633A64633A64633A64633A64633A64633
+        A64633A64734A500000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000004633A64633A64633A64633A64633A64633A64633
+        A64633A64733A74532A500000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000004633A64633A64633A64633A64633A64633A64633A64633
+        A64633A64633A64632A64734A600000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000004633A64633A64633A64633A64633A64633A64633A64633A64633
+        A64633A64633A64633A64633A74733A500000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000004633A64633A64633A64633A64633A64633A64633A64633A64633A64633
+        A64633A64633A64633A64633A64634A64531A700000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        4633A64633A64633A64633A64633A64633A64633A64633A64633A64633A64633
+        A64633A64633A64633A64633A64633A64633A64733A700000000000000000000
+        00000000000000000000000000000000000000000000000000000000004633A6
+        4633A64633A64633A64633A64633A64633A64633A64633A64633A64633A64633
+        A64633A64633A64633A64633A64633A64633A64634A64632A600000000000000
+        00000000000000000000000000000000000000000000000000004633A64633A6
+        4633A64633A64633A64633A64633A64633A64633A64633A60000000000004633
+        A64633A64633A64633A64633A64633A64633A64633A64632A64634A600000000
+        00000000000000000000000000000000000000000000000000004633A64633A6
+        4633A64633A64633A64633A64633A64633A64633A60000000000000000000000
+        004633A64633A64633A64633A64633A64633A64633A64633A64633A64633A600
+        00000000000000000000000000000000000000000000000000004633A64633A6
+        4633A64633A64633A64633A64633A64633A60000000000000000000000000000
+        000000004633A64633A64633A64633A64633A64633A64633A64633A64632A646
+        33A60000000000000000000000000000000000000000000000004633A64633A6
+        4633A64633A64633A64633A64633A60000000000000000000000000000000000
+        000000000000004633A64633A64633A64633A64633A64633A64633A64633A647
+        34A64532A60000000000000000000000000000000000000000004633A64633A6
+        4633A64633A64633A64633A60000000000000000000000000000000000000000
+        000000000000000000004633A64633A64633A64633A64633A64633A64633A646
+        33A64532A64734A5000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000004633A64633A64633A64633A64633A64633A646
+        33A64633A64733A64533A6000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000004633A64633A64633A64633A64633A646
+        33A64633A64633A64633A74633A6000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000004633A64633A64633A64633A646
+        33A64633A64633A64633A64633A64633A6000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000000000004633A64633A64633A646
+        33A64633A64633A64633A64633A64633A54633A7000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000000000000000004633A64633A646
+        33A64633A64633A64633A64633A64633A64633A64633A6000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000000000000000000000004633A646
+        33A64633A64633A64633A64633A64633A64633A64632A64634A6000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000046
+        33A64633A64633A64633A64633A64633A64633A64633A64633A7000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00004633A64633A64633A64633A64633A64633A64633A64633A6000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000004633A64633A64633A64633A64633A64633A64633A6000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000000000004633A64633A64633A64633A64633A64633A6000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000000000000000004633A64633A64633A64633A64633A6000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000}
+      TabOrder = 9
+      OnClick = bt_busca_forma_pgtoClick
+    end
+    object db_descricao: TDBLookupComboBox
+      Left = 164
+      Top = 105
+      Width = 357
+      Height = 21
+      DataField = 'DESCRICAO'
+      DataSource = ds_padrao
+      TabOrder = 10
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 164
+      Top = 67
+      Width = 524
+      Height = 21
+      DataField = 'FORNECEDOR'
+      DataSource = ds_padrao
+      TabOrder = 11
+    end
+  end
+  inherited Panel4: TPanel
+    Top = 409
+    Height = 60
+    Font.Style = [fsBold]
+    ParentFont = False
+    ExplicitTop = 409
+    ExplicitHeight = 60
+    object Label9: TLabel
+      Left = 32
+      Top = 16
+      Width = 74
+      Height = 13
+      Caption = 'ID_PRODUTO'
+      FocusControl = db_id_produto
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label10: TLabel
+      Left = 184
+      Top = 16
+      Width = 29
+      Height = 13
+      Caption = 'QTDE'
+      FocusControl = db_qtde
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label11: TLabel
+      Left = 305
+      Top = 16
+      Width = 57
+      Height = 13
+      Caption = 'VL_CUSTO'
+      FocusControl = db_vl_custo
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label12: TLabel
+      Left = 648
+      Top = 16
+      Width = 71
+      Height = 13
+      Caption = 'TOTAL_ITEM'
+      FocusControl = db_total_item
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label13: TLabel
+      Left = 480
+      Top = 16
+      Width = 58
+      Height = 13
+      Caption = 'DESCONTO'
+      FocusControl = db_desconto
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object db_id_produto: TDBEdit
+      Left = 32
+      Top = 32
+      Width = 134
+      Height = 21
+      DataField = 'ID_PRODUTO'
+      DataSource = Ds_padrao_item
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnExit = db_id_produtoExit
+    end
+    object db_qtde: TDBEdit
+      Left = 184
+      Top = 33
+      Width = 96
+      Height = 21
+      DataField = 'QTDE'
+      DataSource = Ds_padrao_item
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      OnClick = db_qtdeClick
+      OnExit = db_qtdeExit
+    end
+    object db_vl_custo: TDBEdit
+      Left = 304
+      Top = 33
+      Width = 153
+      Height = 21
+      DataField = 'VL_CUSTO'
+      DataSource = Ds_padrao_item
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+    end
+    object db_total_item: TDBEdit
+      Left = 648
+      Top = 33
+      Width = 180
+      Height = 21
+      DataField = 'TOTAL_ITEM'
+      DataSource = Ds_padrao_item
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+      OnExit = db_total_itemExit
+    end
+    object db_desconto: TDBEdit
+      Left = 480
+      Top = 33
+      Width = 162
+      Height = 21
+      DataField = 'DESCONTO'
+      DataSource = Ds_padrao_item
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 3
+      OnClick = db_descontoClick
+      OnExit = db_descontoExit
+    end
+  end
+  inherited PageControl1: TPageControl
+    Top = 185
+    Height = 224
+    ActivePage = Item_Compra
+    ExplicitTop = 185
+    ExplicitHeight = 224
+    inherited Item_Compra: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 828
+      ExplicitHeight = 196
+      inherited DBGrid1: TDBGrid
+        Height = 196
+        Columns = <
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'ID_SEQUENCIA'
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'ID_COMPRA'
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'ID_PRODUTO'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DESCRICAO'
+            Width = 230
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'QTDE'
+            Width = 45
+            Visible = True
+          end
+          item
+            Alignment = taLeftJustify
+            Expanded = False
+            FieldName = 'VL_CUSTO'
+            Width = 100
+            Visible = True
+          end
+          item
+            Alignment = taLeftJustify
+            Expanded = False
+            FieldName = 'DESCONTO'
+            Width = 100
+            Visible = True
+          end
+          item
+            Alignment = taLeftJustify
+            Expanded = False
+            FieldName = 'TOTAL_ITEM'
+            Width = 115
+            Visible = True
+          end>
+      end
+    end
+    inherited Contas_Pagar: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 828
+      ExplicitHeight = 196
+      inherited DBGrid2: TDBGrid
+        Height = 196
+        DataSource = ds_conta_pagar
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'ID_SEQUENCIA'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ID_COMPRA'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'VALOR_PARCELA'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DT_VENCIMENTO'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DT_PAGAMENTO'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ATRASO'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'JUROS'
+            Width = 100
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'VL_JUROS'
+            Width = 100
+            Visible = True
+          end
+          item
+            Alignment = taLeftJustify
+            Expanded = False
+            FieldName = 'TOTAL_PAGAR'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'STATUS'
+            Visible = True
+          end>
+      end
+    end
+  end
+  inherited Q_padrao: TFDQuery
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_ID_COMPRA'
+    UpdateOptions.AutoIncFields = 'ID_COMPRA'
+    SQL.Strings = (
+      'SELECT A.ID_COMPRA,'
+      '       A.ID_FORNECEDOR,'
+      '       B.NOME,'
+      '       A.ID_FORMA_PGTO,'
+      '       C.DESCRICAO,'
+      '       A.COND_PGTO,'
+      '       A.USUARIO,'
+      '       A.VALOR,'
+      '       A.CADASTRO      '
+      'FROM COMPRA A,FORNECEDOR B, FORMA_PGTO C'
+      'WHERE A.ID_FORNECEDOR=B.ID_FORNECEDOR'
+      'AND C.ID_FORMA_PGTO=A.ID_FORMA_PGTO'
+      'ORDER BY A.ID_COMPRA')
+    Top = 72
+    object Q_padraoID_COMPRA: TFDAutoIncField
+      FieldName = 'ID_COMPRA'
+      Origin = 'ID_COMPRA'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
+    end
+    object Q_padraoID_FORNECEDOR: TIntegerField
+      FieldName = 'ID_FORNECEDOR'
+      Origin = 'ID_FORNECEDOR'
+      Required = True
+    end
+    object Q_padraoID_FORMA_PGTO: TIntegerField
+      FieldName = 'ID_FORMA_PGTO'
+      Origin = 'ID_FORMA_PGTO'
+      Required = True
+    end
+    object Q_padraoUSUARIO: TStringField
+      FieldName = 'USUARIO'
+      Origin = 'USUARIO'
+      Required = True
+      Size = 100
+    end
+    object Q_padraoVALOR: TFMTBCDField
+      FieldName = 'VALOR'
+      Origin = 'VALOR'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_padraoCADASTRO: TDateField
+      FieldName = 'CADASTRO'
+      Origin = 'CADASTRO'
+      Required = True
+    end
+    object Q_padraoCOND_PGTO: TIntegerField
+      FieldName = 'COND_PGTO'
+      Origin = 'COND_PGTO'
+    end
+    object Q_padraoFORNECEDOR: TStringField
+      FieldKind = fkLookup
+      FieldName = 'FORNECEDOR'
+      LookupDataSet = Q_fornecedor
+      LookupKeyFields = 'ID_FORNECEDOR'
+      LookupResultField = 'NOME'
+      KeyFields = 'ID_FORNECEDOR'
+      Size = 100
+      Lookup = True
+    end
+    object Q_padraoDESCRICAO: TStringField
+      FieldKind = fkLookup
+      FieldName = 'DESCRICAO'
+      LookupDataSet = Q_forma_pgto
+      LookupKeyFields = 'ID_FORMA_PGTO'
+      LookupResultField = 'DESCRICAO'
+      KeyFields = 'ID_FORMA_PGTO'
+      Size = 100
+      Lookup = True
+    end
+    object Q_padraoNOME: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 100
+    end
+  end
+  inherited ds_padrao: TDataSource
+    Top = 128
+  end
+  inherited Q_padrao_item: TFDQuery
+    IndexFieldNames = 'ID_COMPRA'
+    AggregatesActive = True
+    MasterFields = 'ID_COMPRA'
+    DetailFields = 'ID_COMPRA'
+    Connection = DM.conexao
+    UpdateOptions.KeyFields = 'ID_SEQUENCIA;ID_COMPRA'
+    SQL.Strings = (
+      'SELECT '
+      '      ID_SEQUENCIA,'
+      '      ID_COMPRA,'
+      '      ID_PRODUTO,'
+      '      QTDE,'
+      '      VL_CUSTO,'
+      '      DESCONTO,'
+      '      TOTAL_ITEM'
+      'FROM ITEM_COMPRA'
+      'WHERE ID_COMPRA=:ID_COMPRA')
+    Left = 768
+    Top = 192
+    ParamData = <
+      item
+        Name = 'ID_COMPRA'
+        DataType = ftAutoInc
+        ParamType = ptInput
+        Value = 1
+      end>
+    object Q_padrao_itemID_SEQUENCIA: TIntegerField
+      FieldName = 'ID_SEQUENCIA'
+      Origin = 'ID_SEQUENCIA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_padrao_itemID_COMPRA: TIntegerField
+      FieldName = 'ID_COMPRA'
+      Origin = 'ID_COMPRA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_padrao_itemID_PRODUTO: TIntegerField
+      FieldName = 'ID_PRODUTO'
+      Origin = 'ID_PRODUTO'
+      Required = True
+    end
+    object Q_padrao_itemQTDE: TFMTBCDField
+      FieldName = 'QTDE'
+      Origin = 'QTDE'
+      Required = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_padrao_itemVL_CUSTO: TFMTBCDField
+      FieldName = 'VL_CUSTO'
+      Origin = 'VL_CUSTO'
+      Required = True
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_padrao_itemDESCONTO: TFMTBCDField
+      FieldName = 'DESCONTO'
+      Origin = 'DESCONTO'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_padrao_itemTOTAL_ITEM: TFMTBCDField
+      FieldName = 'TOTAL_ITEM'
+      Origin = 'TOTAL_ITEM'
+      Required = True
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_padrao_itemDESCRICAO: TStringField
+      FieldKind = fkLookup
+      FieldName = 'DESCRICAO'
+      LookupDataSet = Q_produto
+      LookupKeyFields = 'ID_PRODUTO'
+      LookupResultField = 'PRODUTO_DESCRICAO'
+      KeyFields = 'ID_PRODUTO'
+      Size = 100
+      Lookup = True
+    end
+    object Q_padrao_itemSUBTOTAL: TAggregateField
+      FieldName = 'SUBTOTAL'
+      Active = True
+      currency = True
+      DisplayName = ''
+      Expression = 'SUM(TOTAL_ITEM)'
+    end
+  end
+  inherited Ds_padrao_item: TDataSource
+    AutoEdit = False
+    Left = 768
+    Top = 248
+  end
+  object Q_fornecedor: TFDQuery
+    Connection = DM.conexao
+    SQL.Strings = (
+      'SELECT ID_FORNECEDOR,NOME'
+      'FROM FORNECEDOR'
+      'ORDER BY ID_FORNECEDOR')
+    Left = 352
+    Top = 248
+  end
+  object Q_forma_pgto: TFDQuery
+    Active = True
+    Connection = DM.conexao
+    SQL.Strings = (
+      'SELECT ID_FORMA_PGTO,DESCRICAO'
+      'FROM FORMA_PGTO'
+      'ORDER BY ID_FORMA_PGTO')
+    Left = 352
+    Top = 312
+  end
+  object Q_produto: TFDQuery
+    Connection = DM.conexao
+    SQL.Strings = (
+      'SELECT ID_PRODUTO,'
+      '       PRODUTO_DESCRICAO,'
+      '       ESTOQUE,'
+      '       ESTOQUE_MIN,'
+      '       VL_CUSTO'
+      'FROM PRODUTO'
+      'ORDER BY ID_PRODUTO')
+    Left = 688
+    Top = 192
+  end
+  object Rel_Recibo_Compra: TfrxReport
+    Version = '6.2.1'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Padr'#227'o'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 43967.778427500000000000
+    ReportOptions.LastChange = 44298.882913611100000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 456
+    Top = 205
+    Datasets = <
+      item
+        DataSet = frxDBD_EMPRESA
+        DataSetName = 'frxDBD_EMPRESA'
+      end
+      item
+        DataSet = frxDBD_padrao_item
+        DataSetName = 'frxDBD_Padrao_item'
+      end
+      item
+        DataSet = frxDBD_Q_padrao
+        DataSetName = 'frxDBDRecibo_Compra'
+      end>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      DataSet = frxDBD_Q_padrao
+      DataSetName = 'frxDBDRecibo_Compra'
+      Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+      object ReportTitle1: TfrxReportTitle
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 132.283550000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        object frxDBD_EMPRESAN_FANTASIA: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 249.448980000000000000
+          Top = 7.559060000000000000
+          Width = 400.630180000000000000
+          Height = 18.897650000000000000
+          DataField = 'N_FANTASIA'
+          DataSet = frxDBD_EMPRESA
+          DataSetName = 'frxDBD_EMPRESA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBD_EMPRESA."N_FANTASIA"]')
+          ParentFont = False
+        end
+        object frxDBD_EMPRESAENDERECO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 249.448980000000000000
+          Top = 26.456710000000000000
+          Width = 294.803340000000000000
+          Height = 18.897650000000000000
+          DataField = 'ENDERECO'
+          DataSet = frxDBD_EMPRESA
+          DataSetName = 'frxDBD_EMPRESA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBD_EMPRESA."ENDERECO"]')
+          ParentFont = False
+        end
+        object frxDBD_EMPRESANUMERO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 582.047620000000000000
+          Top = 26.456710000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          DataField = 'NUMERO'
+          DataSet = frxDBD_EMPRESA
+          DataSetName = 'frxDBD_EMPRESA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBD_EMPRESA."NUMERO"]')
+          ParentFont = False
+        end
+        object frxDBD_EMPRESABAIRRO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 249.448980000000000000
+          Top = 45.354360000000000000
+          Width = 400.630180000000000000
+          Height = 18.897650000000000000
+          DataField = 'BAIRRO'
+          DataSet = frxDBD_EMPRESA
+          DataSetName = 'frxDBD_EMPRESA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBD_EMPRESA."BAIRRO"]')
+          ParentFont = False
+        end
+        object frxDBD_EMPRESACIDADE: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 249.448980000000000000
+          Top = 64.252010000000000000
+          Width = 309.921460000000000000
+          Height = 18.897650000000000000
+          DataField = 'CIDADE'
+          DataSet = frxDBD_EMPRESA
+          DataSetName = 'frxDBD_EMPRESA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBD_EMPRESA."CIDADE"]')
+          ParentFont = False
+        end
+        object frxDBD_EMPRESAUF: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 650.079160000000000000
+          Top = 81.370130000000000000
+          Width = 15.118120000000000000
+          Height = 18.897650000000000000
+          DataField = 'UF'
+          DataSet = frxDBD_EMPRESA
+          DataSetName = 'frxDBD_EMPRESA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBD_EMPRESA."UF"]')
+          ParentFont = False
+        end
+        object frxDBD_EMPRESACEP: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 249.448980000000000000
+          Top = 83.149660000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          DataField = 'CEP'
+          DataSet = frxDBD_EMPRESA
+          DataSetName = 'frxDBD_EMPRESA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBD_EMPRESA."CEP"]')
+          ParentFont = False
+        end
+        object frxDBD_EMPRESATELEFONE: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 453.543600000000000000
+          Top = 83.149660000000000000
+          Width = 120.944960000000000000
+          Height = 18.897650000000000000
+          DataField = 'TELEFONE'
+          DataSet = frxDBD_EMPRESA
+          DataSetName = 'frxDBD_EMPRESA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBD_EMPRESA."TELEFONE"]')
+          ParentFont = False
+        end
+        object frxDBD_EMPRESAEMAIL: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 249.448980000000000000
+          Top = 102.047310000000000000
+          Width = 400.630180000000000000
+          Height = 18.897650000000000000
+          DataField = 'EMAIL'
+          DataSet = frxDBD_EMPRESA
+          DataSetName = 'frxDBD_EMPRESA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBD_EMPRESA."EMAIL"]')
+          ParentFont = False
+        end
+        object Picture1: TfrxPictureView
+          AllowVectorExport = True
+          Width = 718.110700000000000000
+          Height = 132.283550000000000000
+          DataField = 'LOGO'
+          DataSet = frxDBD_EMPRESA
+          DataSetName = 'frxDBD_EMPRESA'
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HightQuality = False
+          Transparent = False
+          TransparentColor = clWhite
+        end
+        object Memo1: TfrxMemoView
+          AllowVectorExport = True
+          Left = 170.078850000000000000
+          Top = 3.779530000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Empresa:')
+          ParentFont = False
+        end
+        object Memo2: TfrxMemoView
+          AllowVectorExport = True
+          Left = 170.078850000000000000
+          Top = 26.456710000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Endere'#231'o:')
+          ParentFont = False
+        end
+        object Memo3: TfrxMemoView
+          AllowVectorExport = True
+          Left = 185.196970000000000000
+          Top = 45.354360000000000000
+          Width = 56.692950000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Bairro:')
+          ParentFont = False
+        end
+        object Memo4: TfrxMemoView
+          AllowVectorExport = True
+          Left = 192.756030000000000000
+          Top = 64.252010000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Cidade:')
+          ParentFont = False
+        end
+        object Memo5: TfrxMemoView
+          AllowVectorExport = True
+          Left = 200.315090000000000000
+          Top = 83.149660000000000000
+          Width = 45.354360000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Cep:')
+          ParentFont = False
+        end
+        object Memo6: TfrxMemoView
+          AllowVectorExport = True
+          Left = 173.858380000000000000
+          Top = 102.047310000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'E-mail:')
+          ParentFont = False
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 548.031850000000000000
+          Top = 26.456710000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'N'#186':')
+          ParentFont = False
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 616.063390000000000000
+          Top = 83.149660000000000000
+          Width = 30.236240000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'UF:')
+          ParentFont = False
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 377.953000000000000000
+          Top = 83.149660000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Telefone:')
+          ParentFont = False
+        end
+      end
+      object Mestre: TfrxMasterData
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 18.897650000000000000
+        Top = 260.787570000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDBD_Q_padrao
+        DataSetName = 'frxDBDRecibo_Compra'
+        RowCount = 0
+        object frxDBDRecibo_CompraID_COMPRA: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          DataField = 'ID_COMPRA'
+          DataSet = frxDBD_Q_padrao
+          DataSetName = 'frxDBDRecibo_Compra'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[frxDBDRecibo_Compra."ID_COMPRA"]')
+          ParentFont = False
+        end
+        object frxDBDRecibo_CompraNOME: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 559.370317950000000000
+          Width = 158.740382050000000000
+          Height = 18.897650000000000000
+          DataField = 'CADASTRO'
+          DataSet = frxDBD_Q_padrao
+          DataSetName = 'frxDBDRecibo_Compra'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[frxDBDRecibo_Compra."CADASTRO"]')
+          ParentFont = False
+        end
+        object frxDBDRecibo_CompraVALOR: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 370.393940000000000000
+          Width = 188.976377950000000000
+          Height = 18.897650000000000000
+          DataField = 'VALOR'
+          DataSet = frxDBD_Q_padrao
+          DataSetName = 'frxDBDRecibo_Compra'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[frxDBDRecibo_Compra."VALOR"]')
+          ParentFont = False
+        end
+        object frxDBDRecibo_CompraNOME1: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 98.267780000000000000
+          Width = 272.126160000000000000
+          Height = 18.897650000000000000
+          DataField = 'NOME'
+          DataSet = frxDBD_Q_padrao
+          DataSetName = 'frxDBDRecibo_Compra'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[frxDBDRecibo_Compra."NOME"]')
+          ParentFont = False
+        end
+      end
+      object PageHeader1: TfrxPageHeader
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 26.456710000000000000
+        Top = 173.858380000000000000
+        Width = 718.110700000000000000
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 3.779530000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'C'#243'digo:')
+          ParentFont = False
+        end
+        object Memo12: TfrxMemoView
+          AllowVectorExport = True
+          Left = 374.173470000000000000
+          Top = 3.779530000000000000
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Valor compra:')
+          ParentFont = False
+        end
+        object Memo13: TfrxMemoView
+          AllowVectorExport = True
+          Left = 597.165740000000000000
+          Top = 3.779530000000000000
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Data:')
+          ParentFont = False
+        end
+        object frxDBDRecibo_CompraFORNECEDOR: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 109.606370000000000000
+          Top = 3.779530000000000000
+          Width = 253.228510000000000000
+          Height = 18.897650000000000000
+          DataField = 'NOME'
+          DataSet = frxDBD_Q_padrao
+          DataSetName = 'frxDBDRecibo_Compra'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDRecibo_Compra."NOME"]')
+        end
+      end
+      object DetailData1: TfrxDetailData
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 22.677180000000000000
+        Top = 377.953000000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDBD_padrao_item
+        DataSetName = 'frxDBD_Padrao_item'
+        RowCount = 0
+        object frxDBD_Padrao_itemID_SEQUENCIA: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          DataField = 'ID_SEQUENCIA'
+          DataSet = frxDBD_padrao_item
+          DataSetName = 'frxDBD_Padrao_item'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[frxDBD_Padrao_item."ID_SEQUENCIA"]')
+          ParentFont = False
+        end
+        object frxDBD_Padrao_itemID_PRODUTO: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 79.370130000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          DataField = 'ID_PRODUTO'
+          DataSet = frxDBD_padrao_item
+          DataSetName = 'frxDBD_Padrao_item'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[frxDBD_Padrao_item."ID_PRODUTO"]')
+          ParentFont = False
+        end
+        object frxDBD_Padrao_itemDESCRICAO: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 173.858380000000000000
+          Width = 204.094620000000000000
+          Height = 18.897650000000000000
+          DataField = 'DESCRICAO'
+          DataSet = frxDBD_padrao_item
+          DataSetName = 'frxDBD_Padrao_item'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            '[frxDBD_Padrao_item."DESCRICAO"]')
+          ParentFont = False
+        end
+        object frxDBD_Padrao_itemQTDE: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 377.953000000000000000
+          Width = 64.252010000000000000
+          Height = 18.897650000000000000
+          DataField = 'QTDE'
+          DataSet = frxDBD_padrao_item
+          DataSetName = 'frxDBD_Padrao_item'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[frxDBD_Padrao_item."QTDE"]')
+          ParentFont = False
+        end
+        object frxDBD_Padrao_itemVL_CUSTO: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 442.205010000000000000
+          Width = 124.724490000000000000
+          Height = 18.897650000000000000
+          DataField = 'VL_CUSTO'
+          DataSet = frxDBD_padrao_item
+          DataSetName = 'frxDBD_Padrao_item'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[frxDBD_Padrao_item."VL_CUSTO"]')
+          ParentFont = False
+        end
+        object frxDBD_Padrao_itemTOTAL_ITEM: TfrxMemoView
+          IndexTag = 1
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 566.929500000000000000
+          Width = 151.181200000000000000
+          Height = 18.897650000000000000
+          DataField = 'TOTAL_ITEM'
+          DataSet = frxDBD_padrao_item
+          DataSetName = 'frxDBD_Padrao_item'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          HAlign = haCenter
+          Memo.UTF8W = (
+            '[frxDBD_Padrao_item."TOTAL_ITEM"]')
+          ParentFont = False
+        end
+      end
+      object Header1: TfrxHeader
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 52.913420000000000000
+        Top = 302.362400000000000000
+        Width = 718.110700000000000000
+        object Memo16: TfrxMemoView
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 173.858380000000000000
+          Top = 34.015770000000000000
+          Width = 204.094620000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            'Descri'#231#227'o:')
+          ParentFont = False
+        end
+        object Memo15: TfrxMemoView
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 79.370130000000000000
+          Top = 34.015770000000000000
+          Width = 94.488250000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            'C'#243'digo prod:')
+          ParentFont = False
+        end
+        object Memo14: TfrxMemoView
+          Align = baWidth
+          AllowVectorExport = True
+          Top = 34.015770000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            'Seq:')
+          ParentFont = False
+        end
+        object Memo17: TfrxMemoView
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 377.953000000000000000
+          Top = 34.015770000000000000
+          Width = 64.252010000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            'QTDE:')
+          ParentFont = False
+        end
+        object Memo18: TfrxMemoView
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 442.205010000000000000
+          Top = 34.015770000000000000
+          Width = 124.724490000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            'Valor:')
+          ParentFont = False
+        end
+        object Memo19: TfrxMemoView
+          Align = baWidth
+          AllowVectorExport = True
+          Left = 566.929500000000000000
+          Top = 34.015770000000000000
+          Width = 151.181200000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Memo.UTF8W = (
+            'Valor Item:')
+          ParentFont = False
+        end
+        object Memo20: TfrxMemoView
+          Align = baWidth
+          AllowVectorExport = True
+          Top = 11.338590000000000000
+          Width = 718.110700000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'Produtos:')
+          ParentFont = False
+        end
+      end
+    end
+  end
+  object frxDBD_Q_padrao: TfrxDBDataset
+    UserName = 'frxDBDRecibo_Compra'
+    CloseDataSource = False
+    FieldAliases.Strings = (
+      'ID_COMPRA=ID_COMPRA'
+      'ID_FORNECEDOR=ID_FORNECEDOR'
+      'ID_FORMA_PGTO=ID_FORMA_PGTO'
+      'USUARIO=USUARIO'
+      'VALOR=VALOR'
+      'CADASTRO=CADASTRO'
+      'COND_PGTO=COND_PGTO'
+      'FORNECEDOR=FORNECEDOR'
+      'DESCRICAO=DESCRICAO'
+      'NOME=NOME')
+    DataSet = Q_padrao
+    BCDToCurrency = False
+    Left = 600
+    Top = 253
+  end
+  object Fd_empresa: TFDQuery
+    Active = True
+    Connection = DM.conexao
+    SQL.Strings = (
+      'SELECT  ID_EMPRESA,'
+      '        RAZAO_SOCIAL,'
+      '        N_FANTASIA,'
+      '        ENDERECO,'
+      '        NUMERO,'
+      '        BAIRRO,'
+      '        CIDADE,'
+      '        UF,'
+      '        CEP,'
+      '        TELEFONE,'
+      '        CNPJ,'
+      '        EMAIL,'
+      '        LOGO,'
+      '        CADASTRO'
+      ' FROM EMPRESA')
+    Left = 776
+    Top = 296
+    object Fd_empresaID_EMPRESA: TIntegerField
+      FieldName = 'ID_EMPRESA'
+      Origin = 'ID_EMPRESA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Fd_empresaRAZAO_SOCIAL: TStringField
+      FieldName = 'RAZAO_SOCIAL'
+      Origin = 'RAZAO_SOCIAL'
+      Required = True
+      Size = 100
+    end
+    object Fd_empresaN_FANTASIA: TStringField
+      FieldName = 'N_FANTASIA'
+      Origin = 'N_FANTASIA'
+      Required = True
+      Size = 100
+    end
+    object Fd_empresaENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Origin = 'ENDERECO'
+      Required = True
+      Size = 100
+    end
+    object Fd_empresaNUMERO: TIntegerField
+      FieldName = 'NUMERO'
+      Origin = 'NUMERO'
+      Required = True
+    end
+    object Fd_empresaBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Origin = 'BAIRRO'
+      Required = True
+      Size = 100
+    end
+    object Fd_empresaCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Origin = 'CIDADE'
+      Required = True
+      Size = 100
+    end
+    object Fd_empresaUF: TStringField
+      FieldName = 'UF'
+      Origin = 'UF'
+      Required = True
+      FixedChar = True
+      Size = 2
+    end
+    object Fd_empresaCEP: TStringField
+      FieldName = 'CEP'
+      Origin = 'CEP'
+      Required = True
+      Size = 14
+    end
+    object Fd_empresaTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Origin = 'TELEFONE'
+      Required = True
+      Size = 15
+    end
+    object Fd_empresaCNPJ: TStringField
+      FieldName = 'CNPJ'
+      Origin = 'CNPJ'
+      Required = True
+    end
+    object Fd_empresaEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Origin = 'EMAIL'
+      Required = True
+      Size = 100
+    end
+    object Fd_empresaLOGO: TBlobField
+      FieldName = 'LOGO'
+      Origin = 'LOGO'
+    end
+    object Fd_empresaCADASTRO: TDateField
+      FieldName = 'CADASTRO'
+      Origin = 'CADASTRO'
+      Required = True
+    end
+  end
+  object Ds_empresa: TDataSource
+    DataSet = Fd_empresa
+    Left = 784
+    Top = 352
+  end
+  object frxDBD_EMPRESA: TfrxDBDataset
+    UserName = 'frxDBD_EMPRESA'
+    CloseDataSource = False
+    DataSet = Fd_empresa
+    BCDToCurrency = False
+    Left = 608
+    Top = 305
+  end
+  object frxDBD_padrao_item: TfrxDBDataset
+    UserName = 'frxDBD_Padrao_item'
+    CloseDataSource = False
+    DataSet = Q_padrao_item
+    BCDToCurrency = False
+    Left = 600
+    Top = 197
+  end
+  object Q_conta_pagar: TFDQuery
+    IndexFieldNames = 'ID_COMPRA'
+    MasterSource = ds_padrao
+    MasterFields = 'ID_COMPRA'
+    DetailFields = 'ID_COMPRA'
+    Connection = DM.conexao
+    SQL.Strings = (
+      'SELECT '
+      '      ID_SEQUENCIA,'
+      '      ID_COMPRA,'
+      '      VALOR_PARCELA,'
+      '      DT_VENCIMENTO,'
+      '      DT_PAGAMENTO,'
+      '      ATRASO,'
+      '      JUROS,'
+      '      VL_JUROS,'
+      '      TOTAL_PAGAR,'
+      '      STATUS   '
+      'FROM CONTAS_PAGAR'
+      'WHERE ID_COMPRA=:ID_COMPRA'
+      'ORDER BY ID_SEQUENCIA')
+    Left = 464
+    Top = 264
+    ParamData = <
+      item
+        Name = 'ID_COMPRA'
+        DataType = ftAutoInc
+        ParamType = ptInput
+        Value = 1
+      end>
+    object Q_conta_pagarID_SEQUENCIA: TIntegerField
+      FieldName = 'ID_SEQUENCIA'
+      Origin = 'ID_SEQUENCIA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_conta_pagarID_COMPRA: TIntegerField
+      FieldName = 'ID_COMPRA'
+      Origin = 'ID_COMPRA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_conta_pagarVALOR_PARCELA: TFMTBCDField
+      FieldName = 'VALOR_PARCELA'
+      Origin = 'VALOR_PARCELA'
+      Required = True
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_conta_pagarDT_VENCIMENTO: TDateField
+      FieldName = 'DT_VENCIMENTO'
+      Origin = 'DT_VENCIMENTO'
+      Required = True
+    end
+    object Q_conta_pagarDT_PAGAMENTO: TDateField
+      FieldName = 'DT_PAGAMENTO'
+      Origin = 'DT_PAGAMENTO'
+    end
+    object Q_conta_pagarATRASO: TIntegerField
+      FieldName = 'ATRASO'
+      Origin = 'ATRASO'
+    end
+    object Q_conta_pagarJUROS: TFMTBCDField
+      FieldName = 'JUROS'
+      Origin = 'JUROS'
+      Precision = 18
+      Size = 2
+    end
+    object Q_conta_pagarVL_JUROS: TFMTBCDField
+      FieldName = 'VL_JUROS'
+      Origin = 'VL_JUROS'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_conta_pagarTOTAL_PAGAR: TFMTBCDField
+      FieldName = 'TOTAL_PAGAR'
+      Origin = 'TOTAL_PAGAR'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_conta_pagarSTATUS: TStringField
+      FieldName = 'STATUS'
+      Origin = 'STATUS'
+      Size = 30
+    end
+  end
+  object ds_conta_pagar: TDataSource
+    DataSet = Q_conta_pagar
+    Left = 464
+    Top = 312
+  end
+end

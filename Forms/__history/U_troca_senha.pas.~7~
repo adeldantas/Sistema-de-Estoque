@@ -1,0 +1,113 @@
+unit U_troca_senha;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TFrm_Troca_senha = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    ed_nome: TEdit;
+    ed_senha: TEdit;
+    Panel1: TPanel;
+    bt_Cancelar: TBitBtn;
+    bt_troca_senha: TBitBtn;
+    Label3: TLabel;
+    ed_nova_senha: TEdit;
+    ed_confirmar_senha: TEdit;
+    Label4: TLabel;
+    Image1: TImage;
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure bt_CancelarClick(Sender: TObject);
+    procedure bt_troca_senhaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Troca_senha: TFrm_Troca_senha;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM, U_login;
+
+procedure TFrm_Troca_senha.bt_CancelarClick(Sender: TObject);
+begin
+ close; // fecha a tela
+end;
+
+procedure TFrm_Troca_senha.bt_troca_senhaClick(Sender: TObject);
+begin
+ if ed_nome.Text='' then
+    begin
+      Messagedlg('O campo nome está vazio!',mtInformation,[mbOk],0);
+      ed_nome.SetFocus;
+      abort;
+    end
+ else
+ if ed_senha.Text='' then
+    begin
+      Messagedlg('O campo senha está vazio!',mtInformation,[mbOk],0);
+      ed_senha.SetFocus;
+      abort;
+    end
+ else
+ if ed_nova_senha.Text='' then
+    begin
+      Messagedlg('O campo nova senha está vazio!',mtInformation,[mbOk],0);
+      ed_nova_senha.SetFocus;
+      abort;
+    end
+ else
+ if ed_confirmar_senha.Text='' then
+    begin
+      Messagedlg('O campo confirmar senha está vazio!',mtInformation,[mbOk],0);
+      ed_confirmar_senha.SetFocus;
+      abort;
+    end
+ else
+//  A BUSCA DO USUARIO
+ dm.Q_login.Close;
+ dm.Q_login.SQL.Add('');
+ dm.Q_login.SQL.Clear;
+ dm.Q_login.Params.Clear;
+ dm.Q_login.SQL.Add('SELECT * FROM USUARIO');
+ dm.Q_login.SQL.Add('WHERE NOME =:PNOME AND SENHA =:PSENHA');
+ dm.Q_login.ParamByName('PNOME').AsString:=ed_nome.Text;
+ dm.Q_login.ParamByName('PSENHA').AsString:=ed_senha.Text;
+ dm.Q_login.Open;
+
+ // SE  RETORNAR
+ if dm.Q_login.RecordCount>0 then
+    begin
+     // SE FOR LOCALIZADO
+       dm.Q_login.Edit;
+       dm.Q_login.FieldByName('senha').AsString:=ed_confirmar_senha.Text;
+       dm.Q_login.Refresh;
+       Messagedlg('Senha atualizada com sucesso!',MtInformation,[mbOk],0);
+       Frm_troca_senha.Close;
+       frm_login.ed_nome.SetFocus;
+
+    end
+ else
+      Messagedlg('Nome ou senha incorretos,verifique!',mtInformation,[mbOk],0);
+      ed_nome.setfocus;
+end;
+
+procedure TFrm_Troca_senha.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+ if key=#13 then
+    begin
+      Key:=#0;
+      Perform(wm_nextdlgCtl,0,0);
+    end;
+end;
+
+end.

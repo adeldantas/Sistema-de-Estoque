@@ -1,34 +1,18 @@
-unit U_FORNECEDOR;
+unit U_Fornecedor;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_PADRAO, FireDAC.Stan.Intf,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_padrao, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
-  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinBlack,
-  dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom,
-  dxSkinDarkSide, dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
-  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
-  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
-  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
-  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
-  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
-  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
-  dxSkinOffice2013White, dxSkinOffice2016Colorful, dxSkinOffice2016Dark,
-  dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus,
-  dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
-  dxSkinTheAsphaltWorld, dxSkinsDefaultPainters, dxSkinValentine,
-  dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
-  dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
-  dxSkinXmas2008Blue, cxTextEdit, cxDBEdit;
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
 
 type
   TFrm_Fornecedor = class(TFrm_padrao)
-    Q_padraoID_FORNECEDOR: TIntegerField;
+    Q_padraoID_FORNECEDOR: TFDAutoIncField;
     Q_padraoNOME: TStringField;
     Q_padraoENDERECO: TStringField;
     Q_padraoNUMERO: TIntegerField;
@@ -38,11 +22,12 @@ type
     Q_padraoCEP: TStringField;
     Q_padraoTELEFONE: TStringField;
     Q_padraoCNPJ: TStringField;
+    Q_padraoEMAIL: TStringField;
     Q_padraoCADASTRO: TDateField;
     Label1: TLabel;
-    DBEdit1: TDBEdit;
+    dbDb_id_fornecedor: TDBEdit;
     Label2: TLabel;
-    db_nome: TDBEdit;
+    Db_Nome: TDBEdit;
     Label3: TLabel;
     DBEdit3: TDBEdit;
     Label4: TLabel;
@@ -52,6 +37,7 @@ type
     Label6: TLabel;
     DBEdit6: TDBEdit;
     Label7: TLabel;
+    DBEdit7: TDBEdit;
     Label8: TLabel;
     DBEdit8: TDBEdit;
     Label9: TLabel;
@@ -59,11 +45,9 @@ type
     Label10: TLabel;
     DBEdit10: TDBEdit;
     Label11: TLabel;
-    DB_cadastro: TDBEdit;
-    DBEdit7: TDBComboBox;
-    Q_padraoEMAIL: TStringField;
+    DBEdit11: TDBEdit;
     Label12: TLabel;
-    cxDBTextEdit1: TcxDBTextEdit;
+    db_cadastro: TDBEdit;
     procedure bt_novoClick(Sender: TObject);
     procedure bt_PesquisarClick(Sender: TObject);
   private
@@ -79,29 +63,29 @@ implementation
 
 {$R *.dfm}
 
-uses U_PESQUISA_FORNECEDOR;
+uses U_pesq_fornecedor;
 
 procedure TFrm_Fornecedor.bt_novoClick(Sender: TObject);
 begin
   inherited;
-  db_cadastro.Text:=datetostr(now);
-  db_NOME.SetFocus;
+  Db_cadastro.Text:=dateTostr(Now);
+  Db_nome.setfocus;
 end;
 
 procedure TFrm_Fornecedor.bt_PesquisarClick(Sender: TObject);
 begin
-  Frm_Pesquisa_FORNECEDOR:=Tfrm_Pesquisa_FORNECEDOR.Create(self);
-  Frm_Pesquisa_FORNECEDOR.showmodal;
-    try
-      if frm_pesquisa_FORNECEDOR.codigo > 0 then
-        begin
-          q_padrao.Open;
-          q_padrao.Locate('ID_FORNECEDOR',frm_pesquisa_FORNECEDOR.codigo,[]);
-        end;
-    finally
-      Frm_Pesquisa_FORNECEDOR.Free;
-      Frm_Pesquisa_FORNECEDOR:=nil;
-    end;
+  Frm_pesq_fornecedor:=Tfrm_pesq_fornecedor.create(self);
+  Frm_pesq_fornecedor.showmodal;
+  try
+    if Frm_pesq_fornecedor.codigo > 0 then
+       begin
+         Q_padrao.Open;
+         Q_padrao.Locate('ID_FORNECEDOR',Frm_pesq_fornecedor.codigo,[]);
+       end;
+  finally
+  Frm_pesq_fornecedor.free;
+  Frm_pesq_fornecedor:=nil;
+  end;
 
 end;
 

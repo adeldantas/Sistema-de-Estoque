@@ -73,31 +73,62 @@ type
     QReceberSTATUS: TStringField;
     QReceberTAXA_CARTAO: TFMTBCDField;
     StatusBar1: TStatusBar;
+    procedure Timer1Timer(Sender: TObject);
     procedure bt_fecharClick(Sender: TObject);
     procedure bt_UsuarioClick(Sender: TObject);
-    procedure Abre_tela_usuario();
-    procedure bt_empresaClick(Sender: TObject);
-    procedure  Abre_tela_empresa();
-    procedure Menu_empresaClick(Sender: TObject);
+    procedure Abre_Tela_Usuario();
     procedure Menu_UsuarioClick(Sender: TObject);
-    procedure Fechar1Click(Sender: TObject);
-    procedure Timer1Timer(Sender: TObject);
+    procedure bt_empresaClick(Sender: TObject);
+    procedure  Abre_Tela_empresa();
+    procedure Menu_empresaClick(Sender: TObject);
     procedure bt_clienteClick(Sender: TObject);
-    procedure abre_tela_cliente();
+    procedure Abre_Tela_Cliente();
     procedure menu_clienteClick(Sender: TObject);
     procedure bt_fornecedorClick(Sender: TObject);
-    procedure abre_tela_fornecedor();
+    procedure Abre_Tela_Fornecedor();
     procedure menu_FornecedorClick(Sender: TObject);
     procedure bt_produtoClick(Sender: TObject);
-    procedure abre_tela_produto();
+    procedure Abre_tela_Produto();
     procedure Menu_ProdutoClick(Sender: TObject);
     procedure bt_forma_pgtoClick(Sender: TObject);
-    procedure abre_tela_forma_pgto();
+    procedure Abre_Tela_Forma_Pgto();
     procedure Menu_Forma_pgtoClick(Sender: TObject);
-    procedure abre_tela_movimento_compra();
     procedure bt_compraClick(Sender: TObject);
+    procedure Abre_tela_compra();
+    procedure ListaUsuarioClick(Sender: TObject);
+    procedure ListaFornecedoresClick(Sender: TObject);
+    procedure ListaClientesClick(Sender: TObject);
+    procedure ListaProdutosClick(Sender: TObject);
+    procedure ListaComprasClick(Sender: TObject);
     procedure Compras1Click(Sender: TObject);
-
+    procedure About1Click(Sender: TObject);
+    procedure bt_troca_userClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure bt_vendaClick(Sender: TObject);
+    procedure  Abre_Tela_Venda();
+    procedure menu_vendasClick(Sender: TObject);
+    procedure Abre_Tela_vendas();
+    procedure Abre_Pesq_Venda();
+    procedure ListaVendas1Click(Sender: TObject);
+    procedure Fechar1Click(Sender: TObject);
+    procedure ComprasFormasdePagamento1Click(Sender: TObject);
+    procedure VendasFormasdepagamento1Click(Sender: TObject);
+    procedure RelatrioGeralporMs1Click(Sender: TObject);
+    procedure bt_Contas_pagarClick(Sender: TObject);
+    procedure  Abre_tela_contas_pagar();
+    procedure ContasPagar1Click(Sender: TObject);
+    procedure ListaContasaPagar1Click(Sender: TObject);
+    procedure bt_Conta_ReceberClick(Sender: TObject);
+    procedure  Abre_tela_recebimento_parcela();
+    procedure ContasaReceber1Click(Sender: TObject);
+    procedure ListaContasaReceber1Click(Sender: TObject);
+    procedure MovimentaPreos1Click(Sender: TObject);
+    procedure Backup1Click(Sender: TObject);
+    procedure Restore1Click(Sender: TObject);
+    procedure StatusBar1DrawPanel(StatusBar: TStatusBar; Panel: TStatusPanel;
+      const Rect: TRect);
+    //procedure StatusBar1DrawPanel(StatusBar: TStatusBar; Panel: TStatusPanel;
+     // const Rect: TRect);
 
 
 
@@ -114,18 +145,15 @@ implementation
 
 {$R *.dfm}
 
-uses U_Usuario, U_Empresa, U_CLIENTE, U_FORNECEDOR, U_PRODUTO, U_FORMA_PGTO,
-  U_MOVIMENTO_COMPRA;
-
-{uses U_usuario, U_EMPRESA, U_CLIENTE, U_Fornecedor, U_produto, U_forma_pgto,
+uses U_usuario, U_EMPRESA, U_CLIENTE, U_Fornecedor, U_produto, U_forma_pgto,
   U_Compra, U_pesq_usuario, U_pesq_fornecedor, U_Pesq_Cliente, U_PESQ_COMPRA,
   U_pesq_produto, U_movimento_padrao, u_ABOUT, U_DM, U_login, U_venda,
   U_pesq_venda, U_pesq_compra_Forma_pgto, U_pesq_venda_forma_pgto,
   U_pesq_geral_mes, U_contas_pagar, U_pesq_parcela_pagar, U_contas_Receber,
-  U_pesq_Contas_Receber, U_altera_preco, U_Backup, U_Restore;  }
+  U_pesq_Contas_Receber, U_altera_preco, U_Backup, U_Restore;
 
 
-{
+
 procedure TFrm_Principal.bt_clienteClick(Sender: TObject);
 begin
 //ABRE A TELA DE CLIENTES
@@ -220,7 +248,7 @@ begin // Abre a tela de contas a receber
   Frm_conta_Receber.free;
   Frm_conta_receber:=nil;
  end;
-end;
+end; }
 
 procedure TFrm_Principal.Abre_Pesq_Venda;
 begin
@@ -715,189 +743,6 @@ procedure TFrm_Principal.Menu_UsuarioClick(Sender: TObject);
 begin
 // ABRE A TELA DE USUARIO
   Abre_tela_Usuario;
-end; }
-
-procedure TFrm_Principal.abre_tela_cliente;
-begin
-      // Abre tela de cliente
- frm_cliente:=Tfrm_cliente.Create(self);
- Frm_cliente.ShowModal;
- try
-
- finally
-  frm_cliente.Free;
-  frm_cliente:=nil;
-end;
-end;
-
-procedure TFrm_Principal.Abre_tela_empresa;
-begin
-    // Abre tela de empresa
- frm_empresa:=Tfrm_empresa.Create(self);
- Frm_empresa.ShowModal;
- try
-
- finally
-  frm_empresa.Free;
-  frm_empresa:=nil;
-end;
-end;
-
-procedure TFrm_Principal.abre_tela_forma_pgto;
-begin
-      // Abre tela de Formas de Pagamento
- frm_Forma_PGTO:=Tfrm_Forma_PGTO.Create(self);
- Frm_Forma_PGTO.ShowModal;
- try
-
- finally
-  frm_Forma_PGTO.Free;
-  frm_Forma_PGTO:=nil;
- end;
-end;
-
-procedure TFrm_Principal.abre_tela_fornecedor;
-begin
-    // Abre tela de Fornecedores
- frm_Fornecedor:=Tfrm_Fornecedor.Create(self);
- Frm_Fornecedor.ShowModal;
- try
-
- finally
-  frm_Fornecedor.Free;
-  frm_Fornecedor:=nil;
- end;
-end;
-
-procedure TFrm_Principal.abre_tela_movimento_compra;
-begin
-  frm_MOVIMENTO_COMPRA:=Tfrm_MOVIMENTO_COMPRA.Create(self);
-  Frm_MOVIMENTO_COMPRA.ShowModal;
-  try
-
- finally
-  frm_MOVIMENTO_COMPRA.Free;
-  frm_MOVIMENTO_COMPRA:=nil;
- end;
-end;
-
-procedure TFrm_Principal.abre_tela_produto;
-begin
-   // Abre tela de Produtos
- frm_Produto:=Tfrm_Produto.Create(self);
- Frm_Produto.ShowModal;
- try
-
- finally
-  frm_Produto.Free;
-  frm_Produto:=nil;
- end;
-end;
-
-procedure TFrm_Principal.Abre_tela_usuario;
-begin
-  // Abre tela de Usuários
- frm_Usuario:=Tfrm_usuario.Create(self);
- Frm_Usuario.ShowModal;
- try
-
- finally
-  frm_usuario.Free;
-  frm_usuario:=nil;
- end;
-end;
-
-procedure TFrm_Principal.bt_clienteClick(Sender: TObject);
-begin
-  abre_tela_cliente;
-end;
-
-procedure TFrm_Principal.bt_compraClick(Sender: TObject);
-begin
- abre_tela_movimento_compra()
-end;
-
-procedure TFrm_Principal.bt_empresaClick(Sender: TObject);
-begin
-  Abre_tela_empresa();
-end;
-
-procedure TFrm_Principal.bt_fecharClick(Sender: TObject);
-begin
- // Fecha a aplicação
-  if Messagedlg('Deseja sair do sistema?',mtConfirmation,[mbOk,mbNo],0)=mrOk then
-     begin
-      application.Terminate;
-     end
-     else
-     abort;
-end;
-
-procedure TFrm_Principal.bt_forma_pgtoClick(Sender: TObject);
-begin
-  abre_tela_forma_pgto;
-end;
-
-procedure TFrm_Principal.bt_fornecedorClick(Sender: TObject);
-begin
-  abre_tela_fornecedor;
-end;
-
-procedure TFrm_Principal.bt_produtoClick(Sender: TObject);
-begin
-  abre_tela_produto;
-end;
-
-procedure TFrm_Principal.bt_UsuarioClick(Sender: TObject);
-begin
- Abre_tela_Usuario();
-end;
-
-procedure TFrm_Principal.Compras1Click(Sender: TObject);
-begin
-  abre_tela_movimento_compra()
-end;
-
-procedure TFrm_Principal.Fechar1Click(Sender: TObject);
-begin
-  close;
-end;
-
-procedure TFrm_Principal.menu_clienteClick(Sender: TObject);
-begin
-  abre_tela_cliente;
-end;
-
-procedure TFrm_Principal.Menu_empresaClick(Sender: TObject);
-begin
-    abre_tela_empresa;
-end;
-
-procedure TFrm_Principal.Menu_Forma_pgtoClick(Sender: TObject);
-begin
-  abre_tela_Forma_PGTO;
-end;
-
-procedure TFrm_Principal.menu_FornecedorClick(Sender: TObject);
-begin
-  abre_tela_fornecedor;
-end;
-
-procedure TFrm_Principal.Menu_ProdutoClick(Sender: TObject);
-begin
-  abre_tela_produto;
-end;
-
-procedure TFrm_Principal.Menu_UsuarioClick(Sender: TObject);
-begin
-  abre_tela_usuario;
-end;
-
-procedure TFrm_Principal.Timer1Timer(Sender: TObject);
-begin
-  statusbar1.panels[0].text:=datetostr(now);
-  statusbar1.panels[1].text:=timetostr(now);
-  statusbar1.panels[2].text:='SEJA BEM VINDO AO SISTEMA!';
 end;
 
 end.

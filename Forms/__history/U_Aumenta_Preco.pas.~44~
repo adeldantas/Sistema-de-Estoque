@@ -1,0 +1,106 @@
+unit U_Aumenta_Preco;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, FireDAC.UI.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
+  FireDAC.Phys, FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait,
+  Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls, Data.FMTBcd, Data.SqlExpr;
+
+type
+  TFrm_aumenta_preco = class(TForm)
+    ed_produto: TEdit;
+    ed_porcentagem: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    BitBtn1: TBitBtn;
+    DataSource1: TDataSource;
+    Q_Aumento: TFDQuery;
+    DataSource2: TDataSource;
+    DBGrid1: TDBGrid;
+    produto: TFDQuery;
+    RGOpcao: TRadioGroup;
+    produtoID_PRODUTO: TIntegerField;
+    produtoVL_CUSTO: TFMTBCDField;
+    produtoVL_VENDA: TFMTBCDField;
+    Sp_Aumento: TFDStoredProc;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_aumenta_preco: TFrm_aumenta_preco;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure TFrm_aumenta_preco.BitBtn1Click(Sender: TObject);
+begin
+//EXECUTA A PROCEDURE SP_AUMENTA_VALOR_VENDA
+case rgopcao.ItemIndex of
+  0:begin // AUMENTA VALOR DE PRODUTO ESPECIFICO
+   sp_Aumento.Close;
+   sp_aumento.Prepare;
+   //sp_Aumento.SQL.Clear;
+   //sp_Aumento.SQL.Add('EXECUTE PROCEDURE SP_AUMENTA_VALOR_VENDA :P_ID_PRODUTO,:P_PORCENTAGEM');
+   sp_Aumento.ParamByName('P_ID_PRODUTO').AsInteger:=strtoint(ed_produto.Text);
+   sp_Aumento.ParamByName('P_PORCENTAGEM').AsFloat:=StrToFloat(ed_PORCENTAGEM.Text);
+   sp_Aumento.ExecProc;
+  end;
+
+  1:begin // AUMENTA VALOR DE TODOS OS PRODUTOS
+   Q_Aumento.Close;
+   Q_Aumento.SQL.Clear;
+   Q_Aumento.SQL.Add('EXECUTE PROCEDURE SP_AUMENTA_VALOR_VENDA_TODOS :P_PORCENTAGEM');
+   Q_Aumento.Params.ParamByName('P_PORCENTAGEM').AsInteger:=strtoint(ed_PORCENTAGEM.Text);
+   Q_Aumento.ExecSQL;
+  end;
+
+  2:begin // DIMINUI OS VALORES DE VENDA DE PRODUTO ESPECIFICO
+   Q_Aumento.Close;
+   Q_Aumento.SQL.Clear;
+   Q_Aumento.SQL.Add('EXECUTE PROCEDURE SP_DIMINUI_VALOR_VENDA :P_ID_PRODUTO,:P_PORCENTAGEM');
+   Q_Aumento.Params.ParamByName('P_ID_PRODUTO').AsInteger:=strtoint(ed_produto.Text);
+   Q_Aumento.Params.ParamByName('P_PORCENTAGEM').AsInteger:=strtoint(ed_PORCENTAGEM.Text);
+   Q_Aumento.ExecSQL;
+  end;
+
+  3:begin // DIMINUI O VALOR DE TODOS OS PRODUTOS
+   Q_Aumento.Close;
+   Q_Aumento.SQL.Clear;
+   Q_Aumento.SQL.Add('EXECUTE PROCEDURE SP_DIMINUI_VALOR_VENDA_TODOS :P_PORCENTAGEM');
+   Q_Aumento.Params.ParamByName('P_PORCENTAGEM').AsInteger:=strtoint(ed_PORCENTAGEM.Text);
+   Q_Aumento.ExecSQL;
+  end;
+end;
+
+  Messagedlg('Ação realizada com sucesso!',mtInformation,[mbOk],0);
+  produto.close;
+  produto.open;
+
+end;
+
+
+procedure TFrm_aumenta_preco.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+ if KEY=#13 then
+    BEGIN
+      kEY:=#0;
+      Perform(wm_nextdlgCtl,0,0);
+    END;
+end;
+
+end.

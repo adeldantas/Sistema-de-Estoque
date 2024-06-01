@@ -1,0 +1,149 @@
+inherited Frm_Forma_pgto: TFrm_Forma_pgto
+  Caption = 'CADASTRO DE FORMAS DE PAGAMENTO'
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel [0]
+    Left = 106
+    Top = 101
+    Width = 97
+    Height = 13
+    Caption = 'ID_FORMA_PGTO'
+    FocusControl = DB_ID_FORMA_PGTO
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel [1]
+    Left = 106
+    Top = 144
+    Width = 64
+    Height = 13
+    Caption = 'DESCRICAO'
+    FocusControl = DB_DESCRICAO
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel [2]
+    Left = 258
+    Top = 104
+    Width = 61
+    Height = 13
+    Caption = 'CADASTRO'
+    FocusControl = DB_CADASTRO
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel [3]
+    Left = 543
+    Top = 144
+    Width = 83
+    Height = 13
+    Caption = 'TAXA_CARTAO'
+    FocusControl = DBEdit1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  inherited Panel1: TPanel
+    inherited bt_Pesquisar: TBitBtn
+      OnClick = bt_PesquisarClick
+    end
+  end
+  inherited Panel2: TPanel
+    inherited DBNavigator1: TDBNavigator
+      Hints.Strings = ()
+    end
+  end
+  object DB_ID_FORMA_PGTO: TDBEdit [6]
+    Left = 106
+    Top = 120
+    Width = 134
+    Height = 21
+    DataField = 'ID_FORMA_PGTO'
+    DataSource = ds_padrao
+    TabOrder = 2
+  end
+  object DB_DESCRICAO: TDBEdit [7]
+    Left = 106
+    Top = 160
+    Width = 431
+    Height = 21
+    DataField = 'DESCRICAO'
+    DataSource = ds_padrao
+    TabOrder = 3
+  end
+  object DB_CADASTRO: TDBEdit [8]
+    Left = 258
+    Top = 120
+    Width = 134
+    Height = 21
+    DataField = 'CADASTRO'
+    DataSource = ds_padrao
+    Enabled = False
+    TabOrder = 4
+  end
+  object DBEdit1: TDBEdit [9]
+    Left = 543
+    Top = 160
+    Width = 100
+    Height = 21
+    DataField = 'TAXA_CARTAO'
+    DataSource = ds_padrao
+    TabOrder = 5
+  end
+  inherited Q_padrao: TFDQuery
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_ID_FORMA_PGTO'
+    UpdateOptions.AutoIncFields = 'ID_FORMA_PGTO'
+    SQL.Strings = (
+      'SELECT ID_FORMA_PGTO,'
+      '       DESCRICAO,'
+      '       TAXA_CARTAO,'
+      '       CADASTRO'
+      '      FROM FORMA_PGTO'
+      '      ORDER BY ID_FORMA_PGTO')
+    Left = 728
+    object Q_padraoID_FORMA_PGTO: TIntegerField
+      AutoGenerateValue = arAutoInc
+      FieldName = 'ID_FORMA_PGTO'
+      Origin = 'ID_FORMA_PGTO'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object Q_padraoDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Required = True
+      Size = 100
+    end
+    object Q_padraoTAXA_CARTAO: TFMTBCDField
+      FieldName = 'TAXA_CARTAO'
+      Origin = 'TAXA_CARTAO'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_padraoCADASTRO: TDateField
+      FieldName = 'CADASTRO'
+      Origin = 'CADASTRO'
+      Required = True
+    end
+  end
+  inherited ds_padrao: TDataSource
+    Left = 728
+  end
+end

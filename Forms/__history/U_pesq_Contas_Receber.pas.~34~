@@ -1,0 +1,214 @@
+unit U_pesq_Contas_Receber;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_Form_pesquisa_padrao, Data.DB,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, frxClass, frxExportBaseDialog, frxExportPDF,
+  frxDBSet, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls, frCoreClasses;
+
+type
+  TFrm_pesq_Parcela_Receber = class(TFrm_pesquisa_padrao)
+    Q_pesq_padraoID_VENDA: TIntegerField;
+    Q_pesq_padraoID_CLIENTE: TIntegerField;
+    Q_pesq_padraoNOME: TStringField;
+    Q_pesq_padraoCPF: TStringField;
+    Q_pesq_padraoID_SEQUENCIA: TIntegerField;
+    Q_pesq_padraoVALOR_PARCELA: TFMTBCDField;
+    Q_pesq_padraoDT_VENCIMENTO: TDateField;
+    Q_pesq_padraoDT_PAGAMENTO: TDateField;
+    Q_pesq_padraoATRASO: TIntegerField;
+    Q_pesq_padraoJUROS: TFMTBCDField;
+    Q_pesq_padraoVL_JUROS: TFMTBCDField;
+    Q_pesq_padraoTOTAL_PAGAR: TFMTBCDField;
+    Q_pesq_padraoSTATUS: TStringField;
+    Lb_Informacao: TLabel;
+    procedure cb_chave_pesquisaClick(Sender: TObject);
+    procedure bt_PesquisaClick(Sender: TObject);
+    procedure bt_TransferirClick(Sender: TObject);
+    procedure cb_chave_pesquisaChange(Sender: TObject);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure bt_ImprimirClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    data:Tdate;
+    sequencia:Integer;
+  end;
+
+var
+  Frm_pesq_Parcela_Receber: TFrm_pesq_Parcela_Receber;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure TFrm_pesq_Parcela_Receber.bt_ImprimirClick(Sender: TObject);
+var caminho:String;
+begin
+ //ABRE rELATORIO
+ caminho:=ExtractFilepath(Application.ExeName);
+ if Frm_pesq_parcela_Receber.rel_pesq_padrao.LoadFromFile(caminho +
+ 'rel_lista_Receber.fr3') then
+    begin
+      rel_pesq_padrao.clear;//limpa relatorio
+      rel_pesq_padrao.LoadFromFile(extractfilepath(application.ExeName) +
+      'rel_lista_Receber.fr3');
+      rel_pesq_padrao.Variables['Nome']:=QuotedStr(dm.usuario);
+      rel_pesq_padrao.PrepareReport(true);
+      rel_pesq_padrao.ShowPreparedReport;
+      frm_pesq_parcela_Receber.Close;
+    end
+    else
+    Messagedlg('Relatorio não encontrado',mtError,[mbOk],0);
+
+
+end;
+
+procedure TFrm_pesq_Parcela_Receber.bt_PesquisaClick(Sender: TObject);
+var receber:Real;
+begin
+ Q_pesq_padrao.Close; // fecha
+ Q_pesq_padrao.SQL.Add(''); // limpa
+ Q_pesq_padrao.Params.Clear;  //limpamos os parametros
+ Q_pesq_padrao.SQL.Clear;  // limPa o sql
+ Q_pesq_padrao.SQL.Add('SELECT                                                     '
+                       +'A.ID_VENDA,                                               '
+                       +'A.ID_CLIENTE,                                             '
+                       +'B.NOME,                                                   '
+                       +'B.CPF,                                                    '
+                       +'C.ID_SEQUENCIA,                                           '
+                       +'C.VALOR_PARCELA,                                          '
+                       +'C.DT_VENCIMENTO,                                          '
+                       +'C.DT_PAGAMENTO,                                           '
+                       +'C.ATRASO,                                                 '
+                       +'C.JUROS,                                                  '
+                       +'C.VL_JUROS,                                               '
+                       +'C.TOTAL_PAGAR,                                            '
+                       +'C.STATUS                                                  '
+                       +'FROM VENDA A                                             ');
+Q_pesq_padrao.SQL.Add('INNER JOIN CLIENTE B ON B.ID_CLIENTE = A.ID_CLIENTE');
+Q_pesq_padrao.SQL.Add('INNER JOIN CONTAS_RECEBER C ON C.ID_VENDA = A.ID_VENDA      ');
+
+case cb_chave_pesquisa.ItemIndex of
+ 0:begin
+     Q_pesq_padrao.SQL.Add('WHERE A.ID_CLIENTE =:PID_CLIENTE');
+     Q_pesq_padrao.ParamByName('PID_CLIENTE').AsString:=ed_nome.Text;
+     Q_pesq_padrao.SQL.Add('AND C.STATUS= ''EM ABERTO''');
+   end;
+
+  1:begin
+     Q_pesq_padrao.SQL.Add('WHERE B.NOME LIKE :PNOME');
+     Q_pesq_padrao.ParamByName('PNOME').AsString:='%' +ed_nome.Text +'%';
+     Q_pesq_padrao.SQL.Add('AND C.STATUS= ''EM ABERTO''');
+
+   end;
+
+  2:begin
+     Q_pesq_padrao.SQL.Add('WHERE B.CPF =:PCPF');
+     Q_pesq_padrao.ParamByName('PCPF').AsString:=ed_nome.Text;
+     Q_pesq_padrao.SQL.Add('AND C.STATUS= ''EM ABERTO''');
+
+   end;
+
+   3:begin
+     Q_pesq_padrao.SQL.Add('AND C.STATUS= ''EM ABERTO''');
+     Q_pesq_padrao.SQL.Add('ORDER BY A.ID_VENDA');
+
+
+   end;
+
+end;
+  Q_pesq_padrao.Open;
+
+  lb_resultado.Caption:='Registros localizados..:' +InttoStr(Q_pesq_padrao.RecordCount);
+
+  // Mpostra o quanto tem a receber
+  Q_pesq_padrao.First;
+  while not Q_pesq_padrao.eof do
+    begin
+      Receber:=Receber + Q_pesq_padraoTOTAL_PAGAR.AsFloat;
+      Q_pesq_padrao.Next;
+    end;
+
+    // Mostra o resultado
+    lb_informacao.Caption:=Formatfloat('R$ ##,##0.00',receber);
+
+   if q_pesq_padrao.IsEmpty then
+       begin
+         Messagedlg('Nenhum registro encontrado!',mtInformation,[mbOk],0);
+       end
+   else
+   // Move para o primeiro registro para garantir que o RecordCount seja preciso
+    Q_pesq_padrao.First;
+    // Mostra a quantidade de registros encontrados
+   lb_Resultado.Caption := 'Total de Registros Localizados: ' +
+    IntToStr(Q_pesq_padrao.RecordCount);
+
+end;
+
+procedure TFrm_pesq_Parcela_Receber.bt_TransferirClick(Sender: TObject);
+begin
+  inherited;
+    if Q_pesq_padrao.RecordCount > 0 then
+     begin
+       codigo:=Q_pesq_padraoID_VENDA.AsInteger;
+       data:=Q_pesq_padraoDT_VENCIMENTO.AsDateTime;
+       sequencia:=Q_pesq_padraoID_SEQUENCIA.AsInteger;
+     end
+     else
+     abort;
+end;
+
+procedure TFrm_pesq_Parcela_Receber.cb_chave_pesquisaChange(Sender: TObject);
+begin
+ // inherited;
+
+end;
+
+procedure TFrm_pesq_Parcela_Receber.cb_chave_pesquisaClick(Sender: TObject);
+begin
+  ////inherited;
+  ed_nome.Clear;
+  ed_nome.SetFocus;
+end;
+
+procedure TFrm_pesq_Parcela_Receber.DBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+ // se tiver sido recibido
+ if (Q_pesq_padraoDT_PAGAMENTO.Value <> 0) and
+    (Q_pesq_padraoSTATUS.AsString='RECEBIDO') then
+      begin
+        dbgrid1.Canvas.Brush.Color:=clGreen;
+        dbgrid1.Canvas.Font.Color:=clWhite;
+      end
+    else
+    // se estiver ha vencer
+     if (Q_pesq_padraoDT_VENCIMENTO.AsDateTime > date) and
+        (Q_pesq_padraoSTATUS.AsString='EM ABERTO') then
+      begin
+        dbgrid1.Canvas.Brush.Color:=clYellow;
+        dbgrid1.Canvas.Font.Color:=clblue;
+      end
+    else // se estiver vencido semm pagamento
+     if (Q_pesq_padraoDT_VENCIMENTO.AsDateTime<=date) and
+        (Q_pesq_padraoDT_PAGAMENTO.IsNull) then
+      begin
+        dbgrid1.Canvas.Brush.Color:=clred;
+        dbgrid1.Canvas.Font.Color:=clWhite;
+      end;
+
+      dbgrid1.DefaultDrawColumnCell(rect,datacol,column,state);
+
+end;
+
+end.

@@ -1,0 +1,25 @@
+unit U_Movimentta_Preco_Padrao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TFrm_movimenta_preco_padrao = class(TForm)
+    RGOpcao: TRadioGroup;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_movimenta_preco_padrao: TFrm_movimenta_preco_padrao;
+
+implementation
+
+{$R *.dfm}
+
+end.

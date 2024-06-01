@@ -1,5 +1,0 @@
-inherited Frm_Pesquisa_Usuario: TFrm_Pesquisa_Usuario
-  Caption = 'Pesquisa de Usu'#225'rios'
-  PixelsPerInch = 96
-  TextHeight = 13
-end

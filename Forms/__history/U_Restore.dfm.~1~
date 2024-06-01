@@ -1,0 +1,5 @@
+inherited Fm_Restore: TFm_Restore
+  Caption = 'Fm_Restore'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

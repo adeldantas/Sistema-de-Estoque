@@ -1,0 +1,25 @@
+unit U_Restore;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_backup_restore_padrao, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TFm_Restore = class(TFm_Backup_Restore_Padrao)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fm_Restore: TFm_Restore;
+
+implementation
+
+{$R *.dfm}
+
+end.

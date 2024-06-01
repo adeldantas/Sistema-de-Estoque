@@ -1,0 +1,160 @@
+unit U_contas_Receber;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_padrao, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.Mask,DateUtils,
+  frxClass, frxDBSet;
+
+type
+  TFrm_Conta_Receber = class(TFrm_padrao)
+    Q_receber: TFDQuery;
+    ds_Receber: TDataSource;
+    Q_receberID_SEQUENCIA: TIntegerField;
+    Q_receberID_VENDA: TIntegerField;
+    Q_receberVALOR_PARCELA: TFMTBCDField;
+    Q_receberDT_VENCIMENTO: TDateField;
+    Q_receberDT_PAGAMENTO: TDateField;
+    Q_receberATRASO: TIntegerField;
+    Q_receberJUROS: TFMTBCDField;
+    Q_receberVL_JUROS: TFMTBCDField;
+    Q_receberTOTAL_PAGAR: TFMTBCDField;
+    Q_receberSTATUS: TStringField;
+    bt_Imprimir: TBitBtn;
+    RadioGroup1: TRadioGroup;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    Label4: TLabel;
+    DBEdit4: TDBEdit;
+    RadioGroup2: TRadioGroup;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit9: TDBEdit;
+    DBEdit10: TDBEdit;
+    DBEdit11: TDBEdit;
+    DBEdit12: TDBEdit;
+    DBEdit13: TDBEdit;
+    Q_padraoID_VENDA: TIntegerField;
+    Q_padraoID_CLIENTE: TIntegerField;
+    Q_padraoNOME: TStringField;
+    Q_padraoCPF: TStringField;
+    procedure bt_PesquisarClick(Sender: TObject);
+    procedure bt_EditarClick(Sender: TObject);
+    procedure bt_CancelarClick(Sender: TObject);
+    procedure bt_AtualizarClick(Sender: TObject);
+    procedure DBEdit8Exit(Sender: TObject);
+    procedure DBEdit10Exit(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Conta_Receber: TFrm_Conta_Receber;
+
+implementation
+
+{$R *.dfm}
+
+uses U_pesq_Contas_Receber, U_EMPRESA;
+
+
+procedure TFrm_Conta_Receber.bt_AtualizarClick(Sender: TObject);
+begin
+Q_receber.post;
+inherited;
+
+end;
+
+procedure TFrm_Conta_Receber.bt_CancelarClick(Sender: TObject);
+begin
+  inherited;
+ Q_receber.CancelUpdates;
+
+end;
+
+procedure TFrm_Conta_Receber.bt_EditarClick(Sender: TObject);
+begin
+Q_receber.edit;
+dbedit8.SetFocus;
+ inherited;
+
+
+
+end;
+
+procedure TFrm_Conta_Receber.bt_PesquisarClick(Sender: TObject);
+begin
+ q_PADRAO.Close;
+ Frm_pesq_parcela_Receber:=Tfrm_pesq_parcela_Receber.create(self);
+ Frm_pesq_parcela_Receber.ShowModal;
+ try
+   if  Frm_pesq_parcela_Receber.codigo > 0 then
+       begin
+         Q_padrao.Open;
+         Q_Receber.Open;
+         Q_padrao.Locate('ID_VENDA', Frm_pesq_parcela_Receber.codigo,[]);
+         Q_Receber.Locate('DT_VENCIMENTO', Frm_pesq_parcela_Receber.data,[]);
+         Q_Receber.Locate('ID_SEQUENCIA', Frm_pesq_parcela_Receber.sequencia,[]);
+
+       end;
+ finally
+ Frm_pesq_parcela_Receber.Free;
+ Frm_pesq_parcela_Receber:=nil;
+ end;
+
+
+end;
+
+procedure TFrm_Conta_Receber.DBEdit10Exit(Sender: TObject);
+begin
+  //Valida os dias em atraso
+ if Q_ReceberATRASO.AsInteger > 0 then
+    begin
+      Q_ReceberVL_JUROS.AsFloat:=
+      (Q_ReceberATRASO.AsInteger *
+      Q_ReceberJUROS.AsFloat *
+      Q_ReceberVALOR_PARCELA.AsFloat/100);
+      // Insere o valor total a pagar
+      Q_ReceberTOTAL_PAGAR.AsFloat:=Q_ReceberVL_JUROS.AsFloat + Q_ReceberVALOR_PARCELA.AsFloat;
+      Q_ReceberSTATUS.AsString:='RECEBIDO';
+    end
+
+end;
+
+procedure TFrm_Conta_Receber.DBEdit8Exit(Sender: TObject);
+begin
+  if Q_ReceberDT_PAGAMENTO.AsDateTime > Q_ReceberDT_VENCIMENTO.AsDateTime then
+ begin
+   Q_ReceberATRASO.Value:=Daysbetween(Q_ReceberDT_PAGAMENTO.AsDateTime,Q_ReceberDT_VENCIMENTO.AsDateTime);
+   dbedit10.SetFocus;
+ end
+ else
+ Q_ReceberATRASO.AsInteger:=0;
+ Q_ReceberSTATUS.AsString:='RECEBIDO';
+ Q_ReceberTOTAL_PAGAR.AsFloat:=Q_ReceberVALOR_PARCELA.AsFloat;
+
+end;
+
+end.

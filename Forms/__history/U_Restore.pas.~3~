@@ -1,0 +1,52 @@
+unit U_Restore;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_backup_restore_padrao, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ExtCtrls, FireDAC.Stan.Def, FireDAC.VCLUI.Wait,
+  FireDAC.Phys.IBWrapper, FireDAC.Stan.Intf, FireDAC.Phys, FireDAC.Phys.IBBase;
+
+type
+  TFm_Restore = class(TFm_Backup_Restore_Padrao)
+    Restore: TFDIBRestore;
+    procedure bt_backup_restoreClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fm_Restore: TFm_Restore;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure TFm_Restore.bt_backup_restoreClick(Sender: TObject);
+begin
+  inherited;
+ try
+  // EXECUTA A CÓPIA DE SEGURANÇA BACKUP
+  Restore.DriverLink:=DM.FDPhysFBDriverLink1;
+  Restore.UserName:='SYSDBA';
+  Restore.Password:='masterkey';
+  Restore.Host:='servidor';
+  Restore.Protocol:=iplocal;
+  Restore.Database:=ed_origem.Text;
+  Restore.BackupFiles.Clear;
+  Restore.BackupFiles.Add(ed_destino.Text);
+  Restore.Restore;
+  messagedlg('Restauração criada com sucesso!',mtInformation,[mbOk],0);
+
+ except
+  messagedlg('Falha ao criar a Restauração!',mtError,[mbOk],0);
+
+ end;
+end;
+
+end.

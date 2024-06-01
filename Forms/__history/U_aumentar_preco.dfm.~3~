@@ -1,0 +1,10 @@
+inherited Frm_Aumentar_Preco: TFrm_Aumentar_Preco
+  Caption = 'FORMUL'#193'RIO PARA AUMENTAR PRE'#199'OS'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited RGOpcao: TRadioGroup
+    Height = 97
+    Caption = 'Aumentar pre'#231'os'
+    ExplicitHeight = 97
+  end
+end

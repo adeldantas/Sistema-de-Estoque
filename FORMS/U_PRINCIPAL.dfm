@@ -4,7 +4,7 @@ object Frm_Principal: TFrm_Principal
   Caption = 'SISTEMA DE CONTROLE  DE ESTOQUE'
   ClientHeight = 467
   ClientWidth = 1370
-  Color = clWindowFrame
+  Color = clSilver
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -13,6 +13,7 @@ object Frm_Principal: TFrm_Principal
   Menu = MainMenu1
   OldCreateOrder = True
   WindowState = wsMaximized
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -34,7 +35,7 @@ object Frm_Principal: TFrm_Principal
     Width = 1370
     Height = 90
     Align = alTop
-    Color = clSilver
+    Color = clMedGray
     ParentBackground = False
     TabOrder = 0
     object bt_Usuario: TSpeedButton
@@ -572,7 +573,7 @@ object Frm_Principal: TFrm_Principal
       OnClick = bt_UsuarioClick
     end
     object bt_empresa: TSpeedButton
-      Left = 122
+      Left = 114
       Top = 0
       Width = 100
       Height = 90
@@ -4307,6 +4308,7 @@ object Frm_Principal: TFrm_Principal
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = bt_vendaClick
     end
     object bt_troca_user: TSpeedButton
       Left = 1142
@@ -4840,6 +4842,7 @@ object Frm_Principal: TFrm_Principal
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = bt_troca_userClick
     end
     object bt_fechar: TSpeedButton
       Left = 1248
@@ -5907,6 +5910,7 @@ object Frm_Principal: TFrm_Principal
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = bt_Contas_pagarClick
     end
     object bt_Conta_Receber: TSpeedButton
       Left = 1028
@@ -6440,6 +6444,7 @@ object Frm_Principal: TFrm_Principal
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
+      OnClick = bt_Conta_ReceberClick
     end
   end
   object StatusBar1: TStatusBar
@@ -6449,10 +6454,16 @@ object Frm_Principal: TFrm_Principal
     Height = 19
     Panels = <
       item
-        Width = 150
+        Width = 10
       end
       item
-        Width = 150
+        Width = 300
+      end
+      item
+        Width = 300
+      end
+      item
+        Width = 300
       end
       item
         Width = 50
@@ -10733,6 +10744,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = '&Vendas'
         ShortCut = 16457
+        OnClick = menu_vendasClick
       end
       object ContasPagar1: TMenuItem
         Bitmap.Data = {
@@ -11252,6 +11264,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Contas_Pagar'
         ShortCut = 16458
+        OnClick = ContasPagar1Click
       end
       object ContasaReceber1: TMenuItem
         Bitmap.Data = {
@@ -11771,6 +11784,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Contas a Receber'
         ShortCut = 16459
+        OnClick = ContasaReceber1Click
       end
       object MovimentaPreos1: TMenuItem
         Bitmap.Data = {
@@ -11905,6 +11919,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Movimenta Pre'#231'os'
+        OnClick = MovimentaPreos1Click
       end
     end
     object Relatorios1: TMenuItem
@@ -12427,6 +12442,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Lista Usu'#225'rios'
         ShortCut = 16458
+        OnClick = ListaUsuarioClick
       end
       object ListaFornecedores: TMenuItem
         Bitmap.Data = {
@@ -12946,6 +12962,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Lista Fornecedores'
         ShortCut = 16459
+        OnClick = ListaFornecedoresClick
       end
       object ListaClientes: TMenuItem
         Bitmap.Data = {
@@ -13465,6 +13482,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Lista Clientes'
         ShortCut = 16460
+        OnClick = ListaClientesClick
       end
       object ListaProdutos: TMenuItem
         Bitmap.Data = {
@@ -13568,6 +13586,7 @@ object Frm_Principal: TFrm_Principal
           0000212121000000000000000000000000000000000000000000}
         Caption = 'Lista Produtos'
         ShortCut = 16466
+        OnClick = ListaProdutosClick
       end
       object ListaCompras: TMenuItem
         Bitmap.Data = {
@@ -14087,6 +14106,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Lista Compras'
         ShortCut = 16462
+        OnClick = ListaComprasClick
       end
       object ListaVendas1: TMenuItem
         Bitmap.Data = {
@@ -14606,6 +14626,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Lista Vendas'
         ShortCut = 16463
+        OnClick = ListaVendas1Click
       end
       object ListaContasaPagar1: TMenuItem
         Bitmap.Data = {
@@ -15125,6 +15146,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Lista Contas a Pagar'
         ShortCut = 16464
+        OnClick = ListaContasaPagar1Click
       end
       object ListaContasaReceber1: TMenuItem
         Bitmap.Data = {
@@ -15644,6 +15666,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Lista Contas a Receber'
         ShortCut = 16469
+        OnClick = ListaContasaReceber1Click
       end
       object ComprasFormasdePagamento1: TMenuItem
         Bitmap.Data = {
@@ -16163,6 +16186,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Compras/ Formas de Pagamento'
         ShortCut = 16466
+        OnClick = ComprasFormasdePagamento1Click
       end
       object VendasFormasdepagamento1: TMenuItem
         Bitmap.Data = {
@@ -16682,6 +16706,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Vendas/Formas de pagamento'
         ShortCut = 16467
+        OnClick = VendasFormasdepagamento1Click
       end
       object RelatrioGeralporMs1: TMenuItem
         Bitmap.Data = {
@@ -17201,6 +17226,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Relat'#243'rio Geral por M'#234's'
         ShortCut = 16468
+        OnClick = RelatrioGeralporMs1Click
       end
     end
     object Sobreosistema1: TMenuItem
@@ -17724,6 +17750,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000}
         Caption = 'Informa'#231#245'es'
         ShortCut = 16464
+        OnClick = About1Click
       end
     end
     object BAckupeRestore1: TMenuItem
@@ -17861,6 +17888,7 @@ object Frm_Principal: TFrm_Principal
           6C9FE0B86C9FE0B86C9FE0B86C9FDEB36587DDB1620C00000000000000000000
           0000000000000000000000000000000000000000000000000000}
         Caption = '&Backup'
+        OnClick = Backup1Click
       end
       object Restore1: TMenuItem
         Bitmap.Data = {
@@ -17995,6 +18023,7 @@ object Frm_Principal: TFrm_Principal
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000}
         Caption = '&Restore'
+        OnClick = Restore1Click
       end
     end
   end

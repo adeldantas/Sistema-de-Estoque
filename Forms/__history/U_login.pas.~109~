@@ -1,0 +1,150 @@
+unit U_login;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls,
+  Vcl.ComCtrls,inifiles,Comobj, Vcl.DBCtrls, Vcl.Imaging.pngimage;
+
+type
+  TFrm_login = class(TForm)
+    StatusBar1: TStatusBar;
+    Panel1: TPanel;
+    bt_Ok: TBitBtn;
+    bt_Cancelar: TBitBtn;
+    bt_troca_senha: TBitBtn;
+    RadioGroup1: TRadioGroup;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    ed_nome: TEdit;
+    ed_senha: TEdit;
+    cb_tipo: TComboBox;
+    RadioGroup2: TRadioGroup;
+    Image1: TImage;
+    Bevel1: TBevel;
+    cb_banco: TComboBox;
+    Label4: TLabel;
+    procedure bt_CancelarClick(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormShow(Sender: TObject);
+    procedure bt_OkClick(Sender: TObject);
+    procedure bt_troca_senhaClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure escolhebanco();
+    procedure cb_bancoChange(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_login: TFrm_login;
+  contagem:integer;
+  Cservidor,tipo_banco,cdatabase:string;
+
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM, U_Principal, U_troca_senha;
+
+
+procedure TFrm_login.bt_CancelarClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure TFrm_login.bt_OkClick(Sender: TObject);
+//var voz :olevariant;
+begin
+// voz := CreateOLEObject('SAPI.SpVoice');
+   dm.conexao.Connected:=true;
+  inc(contagem);
+  //  A BUSCA DO USUARIO
+   dm.Q_login.Close;
+   dm.Q_login.SQL.Add('');
+   dm.Q_login.SQL.Clear;
+   dm.Q_login.Params.Clear;
+   dm.Q_login.SQL.Add('SELECT * FROM USUARIO');
+   dm.Q_login.SQL.Add('WHERE NOME =:PNOME AND SENHA =:PSENHA AND TIPO=:PTIPO');
+   dm.Q_login.ParamByName('PNOME').AsString:=ed_nome.Text;
+   dm.Q_login.ParamByName('PSENHA').AsString:=ed_senha.Text;
+   dm.Q_login.ParamByName('PTIPO').AsString:=cb_tipo.Text;
+   dm.Q_login.Open;
+
+   // SE  RETORNAR
+   if dm.Q_login.RecordCount>0 then
+      begin
+       // SE FOR LOCALIZADO
+         showMessage('Seja bem vindo  Sr. ' + ed_nome.Text + '');
+         dm.usuario:=ed_nome.Text; //PEGA O NOME DO USUARIO
+         dm.tipo_usuario:=cb_tipo.Text; //PEGA O TIPO DE USUARIO
+         Frm_principal:=TFrm_principal.Create(self); //ABRE O FORM PRINCIPAL
+         Frm_principal.Show;
+         contagem:=0;
+
+      end
+   else
+        Messagedlg('Nome ou senha incorretos,verifique!',mtInformation,[mbOk],0);
+        ed_nome.setfocus;
+
+        //Encerra a aplicação
+   if contagem >=3 then
+       begin
+         Messagedlg('Você ultrapassou o limite de tentativas,Fechando a aplicação!',MtInformation,[mbOk],0);
+         application.Terminate;
+       end;
+
+       statusbar1.Panels[0].Text:= 'Tentativas.....:   ' + inttostr(contagem) + '/3';
+end;
+
+
+procedure TFrm_login.bt_troca_senhaClick(Sender: TObject);
+begin
+  // Chama a tela de troca de senha
+   Frm_troca_senha:=Tfrm_troca_senha.Create(self);
+   Frm_troca_senha.ShowModal;
+   try
+
+   finally
+   Frm_troca_senha.Free;
+   Frm_troca_senha:=nil;
+   end;
+
+end;
+
+
+procedure TFrm_login.cb_bancoChange(Sender: TObject);
+begin
+// ESCOLHE O BANCO A SER UTILIZADO
+
+end;
+
+procedure TFrm_login.FormCreate(Sender: TObject);var Iniconfig:Tinifile;
+begin
+end;
+
+procedure TFrm_login.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+   // enter ter a função da tecla tab
+    if Key=#13 then
+       begin
+         key:=#0;
+         Perform(wm_nextdlgCtl,0,0);
+       end;
+end;
+
+procedure TFrm_login.FormShow(Sender: TObject);
+begin
+  // coloca o foco no campo ednome
+  ed_nome.SetFocus;
+  statusbar1.Panels[0].Text:= 'Tentativas.....:   ' + inttostr(contagem) + '/3';
+
+end;
+
+end.

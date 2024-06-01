@@ -1,0 +1,81 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 208
+  Width = 564
+  object conexao: TFDConnection
+    Params.Strings = (
+      'Database=C:\Estoque\EXE\Banco\ESTOQUE.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Protocol=TCPIP'
+      'Server=192.168.1.34'
+      'Port=3050'
+      'CharacterSet=WIN1252'
+      'DriverID=FB')
+    LoginPrompt = False
+    Left = 48
+    Top = 16
+  end
+  object transacao: TFDTransaction
+    Connection = conexao
+    Left = 120
+    Top = 16
+  end
+  object Q_login: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      'SELECT '
+      '      ID_USUARIO,'
+      '      NOME,'
+      '      SENHA,'
+      '      TIPO  '
+      ' FROM USUARIO'
+      'ORDER BY ID_USUARIO')
+    Left = 48
+    Top = 72
+    object Q_loginID_USUARIO: TIntegerField
+      FieldName = 'ID_USUARIO'
+      Origin = 'ID_USUARIO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_loginNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Required = True
+      Size = 100
+    end
+    object Q_loginSENHA: TStringField
+      FieldName = 'SENHA'
+      Origin = 'SENHA'
+      Required = True
+      Size = 30
+    end
+    object Q_loginTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      Required = True
+      Size = 30
+    end
+  end
+  object Ds_login: TDataSource
+    DataSet = Q_login
+    Left = 48
+    Top = 136
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    VendorLib = 'C:\Windows\System32\FBCLIENT.DLL'
+    Left = 224
+    Top = 16
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 336
+    Top = 16
+  end
+  object FDMoniRemoteClientLink1: TFDMoniRemoteClientLink
+    Port = 3050
+    Left = 456
+    Top = 16
+  end
+end

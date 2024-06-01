@@ -1,0 +1,32 @@
+unit U_pesq_compra_venda_periodo;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask,
+  Vcl.ExtCtrls;
+
+type
+  TFrm_Pesq_Compras_Venda_Periodo = class(TForm)
+    Panel1: TPanel;
+    lb_inicio: TLabel;
+    lb_fim: TLabel;
+    mk_inicio: TMaskEdit;
+    mk_fim: TMaskEdit;
+    bt_Pesquisa: TBitBtn;
+    bt_Imprimir: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Pesq_Compras_Venda_Periodo: TFrm_Pesq_Compras_Venda_Periodo;
+
+implementation
+
+{$R *.dfm}
+
+end.

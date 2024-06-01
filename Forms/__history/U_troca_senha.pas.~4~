@@ -1,0 +1,51 @@
+unit U_troca_senha;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TFrm_Troca_senha = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    ed_nome: TEdit;
+    ed_senha: TEdit;
+    Panel1: TPanel;
+    bt_Cancelar: TBitBtn;
+    bt_troca_senha: TBitBtn;
+    Label3: TLabel;
+    ed_nova_senha: TEdit;
+    ed_confirmar_senha: TEdit;
+    Label4: TLabel;
+    Image1: TImage;
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure bt_CancelarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Troca_senha: TFrm_Troca_senha;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrm_Troca_senha.bt_CancelarClick(Sender: TObject);
+close; // fecha a tela
+end;
+
+procedure TFrm_Troca_senha.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+ if key=#13 then
+    begin
+      Key:=#0;
+      Perform(wm_nextdlgCtl,0,0);
+    end;
+end;
+
+end.

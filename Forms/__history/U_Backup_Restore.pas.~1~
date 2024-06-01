@@ -1,0 +1,28 @@
+unit U_Backup_Restore;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TFm_Bachup_Restore = class(TForm)
+    Memo1: TMemo;
+    Memo2: TMemo;
+    bt_backup: TBitBtn;
+    bt_Restore: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fm_Bachup_Restore: TFm_Bachup_Restore;
+
+implementation
+
+{$R *.dfm}
+
+end.

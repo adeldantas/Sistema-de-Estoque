@@ -1,0 +1,92 @@
+inherited Frm_Aumentar_Preco: TFrm_Aumentar_Preco
+  Caption = 'FORMUL'#193'RIO PARA AUMENTAR PRE'#199'OS'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited RGOpcao: TRadioGroup
+    Height = 81
+    Caption = 'Aumentar pre'#231'os'
+    ExplicitHeight = 81
+  end
+  inherited DBGrid1: TDBGrid
+    Top = 104
+    Width = 745
+    Height = 249
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID_PRODUTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PRODUTO_DESCRICAO'
+        Width = 286
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VL_CUSTO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VL_VENDA'
+        Visible = True
+      end>
+  end
+  inherited bt_Acao: TBitBtn
+    OnClick = bt_AcaoClick
+  end
+  inherited Q_produto: TFDQuery
+    object Q_produtoID_PRODUTO: TIntegerField
+      FieldName = 'ID_PRODUTO'
+      Origin = 'ID_PRODUTO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_produtoPRODUTO_DESCRICAO: TStringField
+      FieldName = 'PRODUTO_DESCRICAO'
+      Origin = 'PRODUTO_DESCRICAO'
+      Required = True
+      Size = 100
+    end
+    object Q_produtoVL_CUSTO: TFMTBCDField
+      FieldName = 'VL_CUSTO'
+      Origin = 'VL_CUSTO'
+      Required = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_produtoVL_VENDA: TFMTBCDField
+      FieldName = 'VL_VENDA'
+      Origin = 'VL_VENDA'
+      Required = True
+      Precision = 18
+      Size = 2
+    end
+  end
+  inherited Q_movimenta_preco: TFDQuery
+    SQL.Strings = (
+      
+        'EXECUTE PROCEDURE SP_AUMENTA_VALOR_VENDA :P_ID_PRODUTO,:P_PORCEN' +
+        'TAGEM')
+    Left = 712
+    Top = 64
+    ParamData = <
+      item
+        Name = 'P_ID_PRODUTO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end
+      item
+        Name = 'P_PORCENTAGEM'
+        DataType = ftFloat
+        ParamType = ptInput
+      end>
+  end
+  inherited ds_movimenta_preco: TDataSource
+    Left = 712
+    Top = 8
+  end
+end

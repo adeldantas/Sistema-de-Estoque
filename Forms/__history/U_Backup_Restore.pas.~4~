@@ -1,0 +1,55 @@
+unit U_Backup_Restore;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TFm_Bachup_Restore = class(TForm)
+    Memo1: TMemo;
+    Memo2: TMemo;
+    bt_backup: TBitBtn;
+    bt_Restore: TBitBtn;
+    procedure bt_backupClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fm_Bachup_Restore: TFm_Bachup_Restore;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure TFm_Bachup_Restore.bt_backupClick(Sender: TObject);
+begin
+try
+dm.FDPhysFBDriverLink1.driverId:='FB';
+dm.FDPhysFBDriverLink1.vendorLib:='fbclient.dll';
+
+dm.conexao.connected:=false;
+dm.backup.Username:=dm.conexao.Params.values['User_Name'];
+dm.backup.Password:=dm.conexao.Params.values['Password'];
+dm.backup.database:=Uppercase(dm.conexao.params.values['database']);
+dm.backup.protocol:=iplocal;
+dm.backup.verbose:=true;
+dm.backup.host:=localhost;
+dm.backup.backupFiles.clear;
+dm.backup.BackupFiles.add('C:\BACKUP\DESTINO\BACKUP.FDK');
+dm.backup.backup;
+dm.messagedlg('realizado com sucesso!',mtInformation,[mbOk],0);
+except on E: Exception do
+  begin
+    Messagedlg('Erro',mtInformation,[mbOk],0);
+end;
+end;
+end;
+
+end.

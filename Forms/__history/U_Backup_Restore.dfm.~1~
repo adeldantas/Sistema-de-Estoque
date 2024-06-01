@@ -1,0 +1,50 @@
+object Fm_Bachup_Restore: TFm_Bachup_Restore
+  Left = 0
+  Top = 0
+  Caption = 'FORMUL'#193'RIO PARA BACKUP E RRESTAURA'#199#195'O'
+  ClientHeight = 501
+  ClientWidth = 756
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Memo1: TMemo
+    Left = 8
+    Top = 56
+    Width = 337
+    Height = 385
+    Lines.Strings = (
+      'Memo1')
+    TabOrder = 0
+  end
+  object Memo2: TMemo
+    Left = 392
+    Top = 56
+    Width = 337
+    Height = 385
+    Lines.Strings = (
+      'Memo1')
+    TabOrder = 1
+  end
+  object bt_backup: TBitBtn
+    Left = 72
+    Top = 456
+    Width = 75
+    Height = 25
+    Caption = 'Backup'
+    TabOrder = 2
+  end
+  object bt_Restore: TBitBtn
+    Left = 472
+    Top = 456
+    Width = 75
+    Height = 25
+    Caption = '&Restore'
+    TabOrder = 3
+  end
+end

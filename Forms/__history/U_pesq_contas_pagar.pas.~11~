@@ -1,0 +1,134 @@
+unit U_pesq_contas_pagar;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_Form_pesquisa_padrao, Data.DB,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, frxClass, frxExportBaseDialog, frxExportPDF,
+  frxDBSet, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls;
+
+type
+  TFrm_pesq_contas_pagar = class(TFrm_pesquisa_padrao)
+    Q_pesq_padraoID_COMPRA: TIntegerField;
+    Q_pesq_padraoID_FORNECEDOR: TIntegerField;
+    Q_pesq_padraoNOME: TStringField;
+    Q_pesq_padraoCNPJ: TStringField;
+    Q_pesq_padraoID_SEQUENCIA: TIntegerField;
+    Q_pesq_padraoVALOR_PARCELA: TFMTBCDField;
+    Q_pesq_padraoDT_VENCIMENTO: TDateField;
+    Q_pesq_padraoDT_PAGAMENTO: TDateField;
+    Q_pesq_padraoATRASO: TIntegerField;
+    Q_pesq_padraoJUROS: TFMTBCDField;
+    Q_pesq_padraoVL_JUROS: TFMTBCDField;
+    Q_pesq_padraoTOTAL_PAGAR: TFMTBCDField;
+    Q_pesq_padraoSTATUS: TStringField;
+    procedure cb_chave_pesquisaChange(Sender: TObject);
+    procedure bt_PesquisaClick(Sender: TObject);
+    procedure bt_TransferirClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    data :Tdate;
+  end;
+
+var
+  Frm_pesq_contas_pagar: TFrm_pesq_contas_pagar;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrm_pesq_contas_pagar.bt_PesquisaClick(Sender: TObject);
+begin
+   Q_pesq_padrao.Close; // fecha
+ Q_pesq_padrao.SQL.Add(''); // limpa
+ Q_pesq_padrao.Params.Clear;  //limpamos os parametros
+ Q_pesq_padrao.SQL.Clear;  // limPa o sql
+ Q_pesq_padrao.SQL.Add('SELECT  '
+                        +'A.ID_COMPRA,           '
+                        +'A.ID_FORNECEDOR,       '
+                        +'B.NOME,                '
+                        +'B.CNPJ,                '
+                        +'C.ID_SEQUENCIA,        '
+                        +'C.VALOR_PARCELA,       '
+                        +'C.DT_VENCIMENTO,       '
+                        +'C.DT_PAGAMENTO,        '
+                        +'C.ATRASO,              '
+                        +'C.JUROS,               '
+                        +'C.VL_JUROS,            '
+                        +'C.TOTAL_PAGAR,         '
+                        +'C.STATUS               '
+                        +'FROM COMPRA A');
+  Q_pesq_padrao.SQL.Add('INNER JOIN FORNECEDOR B ON B.ID_FORNECEDOR = A.ID_FORNECEDOR');
+  Q_pesq_padrao.SQL.Add('INNER JOIN CONTAS_PAGAR C ON C.ID_COMPRA = A.ID_COMPRA');
+  //Q_pesq_padrao.SQL.Add('WHERE C.STATUS =''EM ABERTO''');
+  //Q_pesq_padrao.SQL.Add('ORDER BY A.ID_COMPRA');
+
+   //OPÇÕES DE PESQUISA
+ case cb_chave_pesquisa.ItemIndex of
+   0:begin// pesquisa por c
+      Q_pesq_padrao.SQL.Add('WHERE A.ID_FORNECEDOR =:P_ID_FORNECEDOR'); // criamos o parametro
+      Q_pesq_padrao.ParamByName('P_ID_FORNECEDOR').AsString:=ed_nome.Text; // aponta para o campo do parametro
+
+     end;
+
+    1:begin // pesquisa por nome
+      Q_pesq_padrao.SQL.Add('WHERE B.NOME LIKE =:P_NOME'); // criamos o parametro
+      Q_pesq_padrao.ParamByName('P_NOME').AsString:= '%' +ed_nome.Text + '%'; // aponta para o campo do parametro
+
+      end;
+
+    2:begin
+      Q_pesq_padrao.SQL.Add('WHERE B.CNPJ =:P_CNPJ'); // criamos o parametro
+      Q_pesq_padrao.ParamByName('P_CNPJ').AsString:=ed_nome.Text;
+
+     end;
+
+ end;
+      Q_pesq_padrao.Open;
+      if Q_pesq_padrao.IsEmpty then
+         begin
+           Messagedlg('Nenhum registro encontrado!',mtInformation,[MBoK],0);
+         end;
+
+end;
+
+procedure TFrm_pesq_contas_pagar.bt_TransferirClick(Sender: TObject);
+begin
+  inherited;
+ if Q_pesq_padrao.RecordCount > 0 then
+     begin
+       codigo:=Q_pesq_padraoID_SEQUENCIA.AsInteger;
+     end
+     else
+     abort;
+end;
+
+procedure TFrm_pesq_contas_pagar.cb_chave_pesquisaChange(Sender: TObject);
+begin
+  //inherited;
+  case cb_chave_pesquisa.ItemIndex of
+   0:begin
+     lb_nome.Caption:='DIGITE O CÓDIGO';
+     ed_nome.SetFocus;
+   end;
+
+     1:begin
+     lb_nome.Caption:='DIGITE O NOME';
+     ed_nome.SetFocus;
+   end;
+
+     2:begin
+     lb_nome.Caption:='DIGITE O CNPJ';
+     ed_nome.SetFocus;
+   end;
+  end;
+
+end;
+
+end.

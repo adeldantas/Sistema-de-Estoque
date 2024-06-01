@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<inherited Version="2022.2.10" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="167935" PreviewOptions.Zoom="1" PrintOptions.Printer="Padrão" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="43958,6755274305" ReportOptions.Description.Text="" ReportOptions.LastChange="44851,815146794" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end.">
+  <Datasets>
+    <item DataSet="DatSET_pesq_padrao" DataSetName="frxDBDataset1"/>
+  </Datasets>
+  <TfrxDataPage Name="Data" HGuides.Text="" VGuides.Text="" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" HGuides.Text="" VGuides.Text="" PaperWidth="50" PaperHeight="45" PaperSize="256" LeftMargin="2" RightMargin="2" TopMargin="2" BottomMargin="2" ColumnWidth="0" ColumnPositions.Text="" Frame.Typ="0" MirrorMode="0">
+    <TfrxMasterData Name="MasterData1" FillType="ftBrush" FillGap.Top="0" FillGap.Left="0" FillGap.Bottom="0" FillGap.Right="0" Frame.Typ="0" Height="134,06308" Left="0" Top="18,89765" Width="173,85838" Columns="1" ColumnWidth="188,976377952756" ColumnGap="11,3385826771654" DataSet="DatSET_pesq_padrao" DataSetName="frxDBDataset1" RowCount="0">
+      <TfrxMemoView Name="frxDBDataset1VL_VENDA" IndexTag="1" AllowVectorExport="True" Left="7,55906" Top="45,13389" Width="158,74026" Height="18,89765" DataField="VL_VENDA" DataSet="DatSET_pesq_padrao" DataSetName="frxDBDataset1" DisplayFormat.DecimalSeparator="," DisplayFormat.FormatStr="%2.2m" DisplayFormat.Kind="fkNumeric" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" Frame.Typ="0" HAlign="haCenter" ParentFont="False" Text="[frxDBDataset1.&#34;VL_VENDA&#34;]"/>
+      <TfrxBarCodeView Name="BarCode1" AllowVectorExport="True" Left="22,67718" Top="66,03154" Width="105" Height="37,7953" BarType="bcCodeEAN13" DataField="ID_PRODUTO" DataSet="DatSET_pesq_padrao" DataSetName="frxDBDataset1" Frame.Typ="0" Rotation="0" TestLine="False" Text="12345678" WideBarRatio="2" Zoom="1" Font.Charset="1" Font.Color="0" Font.Height="-12" Font.Name="Arial" Font.Style="0" ColorBar="0"/>
+      <TfrxMemoView Name="frxDBDataset1PRODUTO_DESCRICAO" IndexTag="1" AllowVectorExport="True" Left="3,77953" Top="18,89765" Width="166,29932" Height="109,60637" DataField="PRODUTO_DESCRICAO" DataSet="DatSET_pesq_padrao" DataSetName="frxDBDataset1" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" Frame.Typ="15" HAlign="haCenter" ParentFont="False" Text="[frxDBDataset1.&#34;PRODUTO_DESCRICAO&#34;]"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+</inherited>

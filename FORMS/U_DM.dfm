@@ -1,35 +1,81 @@
 object DM: TDM
   OldCreateOrder = False
-  Height = 316
-  Width = 575
+  Height = 208
+  Width = 564
   object conexao: TFDConnection
     Params.Strings = (
-      'Database=C:\Sistema_de_Estoque\EXE\BANCO\ESTOQUE.FDB'
+      'Database=C:\Sistema_de_Estoque\EXE\Banco\TREINA.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Protocol=TCPIP'
-      'Port=3050'
+      'Server=localhost'
+      'Port=3060'
       'CharacterSet=WIN1252'
       'DriverID=FB')
-    Connected = True
     LoginPrompt = False
-    Transaction = transacao
-    Left = 40
-    Top = 32
+    Left = 48
+    Top = 16
   end
   object transacao: TFDTransaction
     Connection = conexao
-    Left = 368
-    Top = 48
+    Left = 104
+    Top = 16
+  end
+  object Q_login: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      'SELECT '
+      '      ID_USUARIO,'
+      '      NOME,'
+      '      SENHA,'
+      '      TIPO  '
+      ' FROM USUARIO'
+      'ORDER BY ID_USUARIO')
+    Left = 48
+    Top = 72
+    object Q_loginID_USUARIO: TIntegerField
+      FieldName = 'ID_USUARIO'
+      Origin = 'ID_USUARIO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_loginNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Required = True
+      Size = 100
+    end
+    object Q_loginSENHA: TStringField
+      FieldName = 'SENHA'
+      Origin = 'SENHA'
+      Required = True
+      Size = 30
+    end
+    object Q_loginTIPO: TStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPO'
+      Required = True
+      Size = 30
+    end
+  end
+  object Ds_login: TDataSource
+    DataSet = Q_login
+    Left = 48
+    Top = 136
   end
   object FDPhysFBDriverLink1: TFDPhysFBDriverLink
-    DriverID = 'FB'
-    Left = 136
-    Top = 48
+    VendorLib = 'C:\Program Files (x86)\Firebird\Firebird_3_0\fbclient.dll'
+    Left = 168
+    Top = 16
   end
   object FDGUIxWaitCursor1: TFDGUIxWaitCursor
     Provider = 'Forms'
     Left = 264
-    Top = 48
+    Top = 16
+  end
+  object FDMoniRemoteClientLink1: TFDMoniRemoteClientLink
+    Port = 3050
+    Left = 384
+    Top = 16
   end
 end

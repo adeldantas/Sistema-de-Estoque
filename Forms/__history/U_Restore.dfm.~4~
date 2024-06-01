@@ -1,0 +1,31 @@
+inherited Fm_Restore: TFm_Restore
+  Caption = 'FORMUL'#193'RIO DE RESTAURA'#199#195'O DO BACKUP DO BANCO DE DADOS'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Label1: TLabel
+    Width = 356
+    Caption = 'LOCAL ONDE SER'#193' SALVO A RESTAURA'#199#195'O DO BANCO DE DADOS:'
+    ExplicitWidth = 356
+  end
+  inherited Label3: TLabel
+    Width = 189
+    Caption = 'LOCAL ONDE FOI SALVO O BACKUP:'
+    ExplicitWidth = 189
+  end
+  inherited Panel1: TPanel
+    inherited bt_backup_restore: TBitBtn
+      OnClick = bt_backup_restoreClick
+    end
+  end
+  inherited OpenDialog1: TOpenDialog
+    Top = 40
+  end
+  object Restore: TFDIBRestore
+    OnError = RestoreError
+    DriverLink = DM.FDPhysFBDriverLink1
+    OnProgress = RestoreProgress
+    Verbose = True
+    Left = 552
+    Top = 144
+  end
+end

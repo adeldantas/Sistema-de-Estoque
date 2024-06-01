@@ -2,36 +2,50 @@ program Controle_estoque;
 
 uses
   Vcl.Forms,
-  U_PRINCIPAL in '..\FORMS\U_PRINCIPAL.pas' {Form1},
-  U_DM in '..\FORMS\U_DM.pas' {DM: TDataModule},
-  U_PADRAO in '..\FORMS\U_PADRAO.pas' {Frm_padrao},
-  U_Empresa in '..\FORMS\U_Empresa.pas' {Frm_Empresa},
-  U_CLIENTE in '..\FORMS\U_CLIENTE.pas' {Frm_Cliente},
-  U_FORNECEDOR in '..\FORMS\U_FORNECEDOR.pas' {Frm_Fornecedor},
-  U_PRODUTO in '..\FORMS\U_PRODUTO.pas' {Frm_Produto},
-  U_FORMA_PGTO in '..\FORMS\U_FORMA_PGTO.pas' {Frm_Forma_Pgto},
-  Vcl.Themes,
-  Vcl.Styles,
-  U_PESQUISA_PADRAO in '..\FORMS\U_PESQUISA_PADRAO.pas' {Frm_Pesquisa_Padrao},
-  U_PESQUISA_USUARIO in '..\FORMS\U_PESQUISA_USUARIO.pas' {Frm_Pesquisa_Usuario},
-  U_USUARIO in '..\FORMS\U_USUARIO.pas' {frm_usuario},
-  U_PESQUISA_CLIENTE in '..\FORMS\U_PESQUISA_CLIENTE.pas' {Frm_Pesquisa_Cliente},
-  U_PESQUISA_FORNECEDOR in '..\FORMS\U_PESQUISA_FORNECEDOR.pas' {Frm_Pesquisa_Fornecedor},
-  U_PESQUISA_PRODUTO in '..\FORMS\U_PESQUISA_PRODUTO.pas' {Frm_Pesquisa_Produto},
-  U_MOVIMENTO_PADRAO in '..\FORMS\U_MOVIMENTO_PADRAO.pas' {Frm_movimento_padrao},
-  U_MOVIMENTO_COMPRA in '..\FORMS\U_MOVIMENTO_COMPRA.pas' {Frm_movimento_compra};
+  U_Principal in '..\Forms\U_Principal.pas' {Frm_Principal},
+  U_DM in '..\Forms\U_DM.pas' {DM: TDataModule},
+  U_padrao in '..\Forms\U_padrao.pas' {Frm_padrao},
+  U_usuario in '..\Forms\U_usuario.pas' {Frm_usuario},
+  U_EMPRESA in '..\Forms\U_EMPRESA.pas' {Frm_empresa},
+  U_CLIENTE in '..\Forms\U_CLIENTE.pas' {Frm_Cliente},
+  U_Fornecedor in '..\Forms\U_Fornecedor.pas' {Frm_Fornecedor},
+  U_produto in '..\Forms\U_produto.pas' {Frm_Produto},
+  U_forma_pgto in '..\Forms\U_forma_pgto.pas' {Frm_Forma_pgto},
+  U_Form_pesquisa_padrao in '..\Forms\U_Form_pesquisa_padrao.pas' {Frm_pesquisa_padrao},
+  U_pesq_usuario in '..\Forms\U_pesq_usuario.pas' {Frm_Pesq_usuario},
+  U_Pesq_Cliente in '..\Forms\U_Pesq_Cliente.pas' {Frm_pesq_Cliente},
+  U_pesq_fornecedor in '..\Forms\U_pesq_fornecedor.pas' {Frm_pesq_Fornecedor},
+  U_pesq_produto in '..\Forms\U_pesq_produto.pas' {Frm_pesq_produto},
+  U_movimento_padrao in '..\Forms\U_movimento_padrao.pas' {Frm_padrao_movimento},
+  U_Compra in '..\Forms\U_Compra.pas' {Frm_Compra},
+  U_PESQ_COMPRA in '..\Forms\U_PESQ_COMPRA.pas' {Frm_pesq_compra},
+  u_ABOUT in '..\Forms\u_ABOUT.pas' {Frm_AboutBox},
+  U_login in '..\Forms\U_login.pas' {Frm_login},
+  U_troca_senha in '..\Forms\U_troca_senha.pas' {Frm_Troca_senha},
+  U_venda in '..\Forms\U_venda.pas' {Frm_Venda},
+  U_pesq_venda in '..\Forms\U_pesq_venda.pas' {Frm_pesq_venda},
+  U_Pesq_Formas_pgto in '..\Forms\U_Pesq_Formas_pgto.pas' {Frm_pesq_forma_pgto},
+  U_Recebimento_venda in '..\Forms\U_Recebimento_venda.pas' {Frm_Recebimento_Venda},
+  U_pesq_compra_Forma_pgto in '..\Forms\U_pesq_compra_Forma_pgto.pas' {Frm_pesq_Compra_Forma_Pgto},
+  U_pesq_venda_forma_pgto in '..\Forms\U_pesq_venda_forma_pgto.pas' {Frm_pesq_Venda_Forma_pgto},
+  U_pesq_geral_mes in '..\Forms\U_pesq_geral_mes.pas' {Frm_Pesq_geral_Mes},
+  U_contas_pagar in '..\Forms\U_contas_pagar.pas' {Frm_Contas_Pagar},
+  U_pesq_parcela_pagar in '..\Forms\U_pesq_parcela_pagar.pas' {Frm_pesq_Parcela_pagar},
+  U_contas_Receber in '..\Forms\U_contas_Receber.pas' {Frm_Conta_Receber},
+  U_pesq_Contas_Receber in '..\Forms\U_pesq_Contas_Receber.pas' {Frm_pesq_Parcela_Receber},
+  U_altera_preco in '..\Forms\U_altera_preco.pas' {Frm_altera_Preco},
+  U_padrao_backup_Restore in '..\Forms\U_padrao_backup_Restore.pas' {Fm_padrao_backup_Restore},
+  U_Backup in '..\Forms\U_Backup.pas' {Fm_Backup},
+  U_Restore in '..\Forms\U_Restore.pas' {Fm_Restore};
 
-// U_EMPRESA in '..\FORMS\U_EMPRESA.pas' {Frm_padrao1};
+//U_pesq_compra_Forma_pgto in '..\Forms\U_pesq_compra_Forma_pgto.pas' {Frm_pesq_Compra_Forma_Pgto};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TFrm_Principal, Frm_Principal);
+  Application.CreateForm(TFrm_login, Frm_login);
   Application.CreateForm(TDM, DM);
-  Application.CreateForm(TFrm_movimento_padrao, Frm_movimento_padrao);
-  Application.CreateForm(TFrm_movimento_compra, Frm_movimento_compra);
-  // Application.CreateForm(TFrm_padrao1, Frm_padrao1);
   Application.Run;
 end.

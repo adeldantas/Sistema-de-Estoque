@@ -1,0 +1,133 @@
+unit U_produto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_padrao, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask;
+
+type
+  TFrm_Produto = class(TFrm_padrao)
+    Q_padraoPRODUTO_DESCRICAO: TStringField;
+    Q_padraoVL_CUSTO: TFMTBCDField;
+    Q_padraoVL_VENDA: TFMTBCDField;
+    Q_padraoESTOQUE: TFMTBCDField;
+    Q_padraoESTOQUE_MIN: TFMTBCDField;
+    Q_padraoUNIDADE: TStringField;
+    Q_padraoCADASTRO: TDateField;
+    Q_padraoID_FORNECEDOR: TIntegerField;
+    Label1: TLabel;
+    db_id_produto: TDBEdit;
+    Label2: TLabel;
+    db_descricao: TDBEdit;
+    Label3: TLabel;
+    db_vl_custo: TDBEdit;
+    Label4: TLabel;
+    db_vl_venda: TDBEdit;
+    Label5: TLabel;
+    db_estoque: TDBEdit;
+    Label6: TLabel;
+    db_estoque_min: TDBEdit;
+    Label7: TLabel;
+    Label8: TLabel;
+    Db_cadastro: TDBEdit;
+    Label9: TLabel;
+    db_id_fornecedor: TDBEdit;
+    Label10: TLabel;
+    db_nome: TDBEdit;
+    dbc_unidade: TDBComboBox;
+    Q_padraoID_PRODUTO: TIntegerField;
+    Bt_Check_Fornecedor: TBitBtn;
+    Q_fornecedor: TFDQuery;
+    ds_fornecedor: TDataSource;
+    Q_fornecedorID_FORNECEDOR: TIntegerField;
+    Q_fornecedorNOME: TStringField;
+    Q_padraoNOME: TStringField;
+    procedure bt_novoClick(Sender: TObject);
+    procedure bt_GravarClick(Sender: TObject);
+    procedure bt_PesquisarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Bt_Check_FornecedorClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Produto: TFrm_Produto;
+
+implementation
+
+{$R *.dfm}
+
+uses U_Fornecedor, U_pesq_produto, U_pesq_fornecedor;
+
+procedure TFrm_Produto.Bt_Check_FornecedorClick(Sender: TObject);
+begin
+ if q_PADRAO.State IN [dsinsert,dsedit] then
+    begin
+     //Busca os fornecedores
+     Frm_pesq_Fornecedor:=Tfrm_Pesq_Fornecedor.create(self);
+     Frm_pesq_Fornecedor.showModal;
+      try
+      // Insere o codigo do fornecedor localizado
+       if Frm_pesq_fornecedor.codigo > 0 then
+         begin
+           Q_padraoID_FORNECEDOR.AsInteger:=Frm_pesq_Fornecedor.codigo;
+         end
+       else
+        abort;
+      finally
+        Frm_pesq_Fornecedor.free;
+        Frm_pesq_Fornecedor:=nil;
+      end;
+    end
+    else
+    abort;
+end;
+
+procedure TFrm_Produto.bt_GravarClick(Sender: TObject);
+begin
+  inherited;
+  Q_padrao.Refresh;
+end;
+
+procedure TFrm_Produto.bt_novoClick(Sender: TObject);
+begin
+  inherited;
+ Q_padrao.Open;
+ db_cadastro.Text:=DateTostr(now);
+ db_id_Produto.SetFocus;
+end;
+
+procedure TFrm_Produto.bt_PesquisarClick(Sender: TObject);
+begin
+ Frm_pesq_produto:=Tfrm_pesq_produto.Create(self);
+ Frm_pesq_produto.ShowModal;
+ try
+  if Frm_pesq_produto.codigo > 0 then
+       begin
+         Q_padrao.Open;
+         Q_padrao.Locate('ID_PRODUTO',Frm_pesq_produto.codigo,[]);
+       end;
+
+ finally
+ Frm_pesq_produto.Free;
+ Frm_pesq_produto:=nil;
+ end;
+
+end;
+
+procedure TFrm_Produto.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+Q_padrao.Close;
+end;
+
+end.

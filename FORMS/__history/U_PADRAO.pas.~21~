@@ -1,49 +1,32 @@
-unit U_PADRAO;
+unit U_padrao;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.ExtCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.DBCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Vcl.Mask;
+  FireDAC.Comp.Client;
 
 type
   TFrm_padrao = class(TForm)
     Panel1: TPanel;
     Panel2: TPanel;
-    bt_Novo: TBitBtn;
+    bt_novo: TBitBtn;
     bt_Deletar: TBitBtn;
     bt_Editar: TBitBtn;
     bt_Gravar: TBitBtn;
     bt_Cancelar: TBitBtn;
     bt_Atualizar: TBitBtn;
-    DBNavigator1: TDBNavigator;
     bt_Pesquisar: TBitBtn;
     Q_padrao: TFDQuery;
-    DS_padrao: TDataSource;
-    Q_padraoID_USUARIO: TIntegerField;
-    Q_padraoNOME: TStringField;
-    Q_padraoSENHA: TStringField;
-    Q_padraoTIPO: TStringField;
-    Q_padraoCADASTRO: TDateField;
-    Label1: TLabel;
-    DB_id_usuario: TDBEdit;
-    Label2: TLabel;
-    DB_nome: TDBEdit;
-    Label3: TLabel;
-    Label5: TLabel;
-    Label4: TLabel;
-    DB_senha: TDBEdit;
-    Label6: TLabel;
-    Label7: TLabel;
-    DB_cadastro: TDBEdit;
-    DB_tipo: TDBComboBox;
+    ds_padrao: TDataSource;
     bt_Sair: TBitBtn;
+    DBNavigator1: TDBNavigator;
     procedure FormKeyPress(Sender: TObject; var Key: Char);
-    procedure bt_NovoClick(Sender: TObject);
+    procedure bt_novoClick(Sender: TObject);
     procedure bt_DeletarClick(Sender: TObject);
     procedure bt_EditarClick(Sender: TObject);
     procedure bt_GravarClick(Sender: TObject);
@@ -71,92 +54,84 @@ begin
  // atualiza o registro
  Tratabotoes;
  Q_padrao.Refresh;
- Messagedlg('Registro atualizado com sucesso!', mtInformation, [mbOk],0);
+ Messagedlg('Registro atualizado com sucesso!',mtInformation,[mbOk],0);
 end;
 
 procedure TFrm_padrao.bt_CancelarClick(Sender: TObject);
 begin
- // cancela a ação
+// cancela a ação
  Tratabotoes;
  Q_padrao.Cancel;
- Messagedlg('Ação cancelada pelo usuário!', mtInformation, [mbOk], 0);
+ Messagedlg('Ação cancelada pelo usuário!',mtInformation,[mbOk],0);
 end;
+
 procedure TFrm_padrao.bt_DeletarClick(Sender: TObject);
 begin
- // deleta o registro
- Tratabotoes;
- if Messagedlg('Deseja deletar esse registro?', mtConfirmation, [mbOk, mbNo],0)=mrOk then
+//deleta o reigstro
+Tratabotoes;
+ if messagedlg('Deseja deletar este registro?',mtConfirmation,[mbOk,mbNo],0)=mrOk then
     begin
       Q_padrao.Delete;
-      Messagedlg('Registro deletado com sucesso!', mtInformation, [mbOk], 0);
+      Messagedlg('Registro deletado com sucesso!',mtInformation,[mbOk],0);
       Tratabotoes;
     end
- else
+    else
     Tratabotoes;
     abort;
 end;
 
 procedure TFrm_padrao.bt_EditarClick(Sender: TObject);
 begin
- // edita um registro
- Tratabotoes;
- if Messagedlg('Deseja editar esse registro?', mtConfirmation, [mbOk, mbNo],0)=mrOk then
+// abri para edição
+Tratabotoes;
+ if messagedlg('Deseja editar este registro?',mtConfirmation,[mbOk,mbNo],0)=mrOk then
     begin
-      Q_padrao.Edit;
+      Q_padrao.edit;
     end
- else
+    else
     Tratabotoes;
     abort;
 end;
 
 procedure TFrm_padrao.bt_GravarClick(Sender: TObject);
 begin
- // salva o registro
- Tratabotoes;
+//salava o registro
  Q_padrao.Post;
- Messagedlg('Registro salvo com sucesso!', mtInformation, [mbOk], 0);
+ Messagedlg('Registro salvo com sucesso!',mtInformation,[mbOk],0);
+  Tratabotoes;
 end;
-procedure TFrm_padrao.bt_NovoClick(Sender: TObject);
+
+procedure TFrm_padrao.bt_novoClick(Sender: TObject);
 begin
- // cria um novo registro
- q_padrao.Open();
- Tratabotoes;
- q_padrao.Append;
+//cria um nmovo registro
+Tratabotoes;
+Q_padrao.Open;
+q_padrao.Append;
 end;
 
 procedure TFrm_padrao.bt_SairClick(Sender: TObject);
 begin
- if messagedlg('Deseja sair do sistema?', mtConfirmation, [mbOk, mbNo],0)=mrOk then
-    begin
-      Application.Terminate;
-    end
-    else
-    abort;
-
- close;
+  close;
 end;
 
 procedure TFrm_padrao.FormKeyPress(Sender: TObject; var Key: Char);
 begin
-  // Faz a função da tecla TAB
- if Key=#13 then
+ // faz a função da tecla da tab
+ if key=#13 then
    begin
      Key:=#0;
      Perform(wm_nextDlgCtl,0,0);
    end;
-
 end;
 
 procedure TFrm_padrao.Tratabotoes;
 begin
- // habilita e desabilita botões
- bt_Novo.Enabled:=Not bt_Novo.Enabled;
- bt_deletar.Enabled:=Not bt_deletar.Enabled;
- bt_editar.Enabled:=Not bt_editar.Enabled;
- bt_gravar.Enabled:=Not bt_gravar.Enabled;
- bt_atualizar.Enabled:=Not bt_atualizar.Enabled;
-
+//Habilita e desabilita os botoes
+ bt_novo.Enabled:=not bt_novo.Enabled;
+ bt_deletar.Enabled:=not bt_deletar.Enabled;
+ bt_editar.Enabled:=not bt_editar.Enabled;
+ bt_gravar.Enabled:=not bt_gravar.Enabled;
+ bt_atualizar.Enabled:=not bt_atualizar.Enabled;
 end;
 
 end.
-

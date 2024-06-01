@@ -3,9 +3,9 @@ object Frm_padrao: TFrm_padrao
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Formul'#225'rio padr'#227'o'
-  ClientHeight = 488
+  ClientHeight = 332
   ClientWidth = 836
-  Color = clWindowFrame
+  Color = clSilver
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -24,7 +24,7 @@ object Frm_padrao: TFrm_padrao
     Width = 836
     Height = 49
     Align = alTop
-    Color = clSilver
+    Color = clMedGray
     ParentBackground = False
     TabOrder = 0
     object bt_novo: TBitBtn
@@ -1151,11 +1151,11 @@ object Frm_padrao: TFrm_padrao
   end
   object Panel2: TPanel
     Left = 0
-    Top = 436
+    Top = 280
     Width = 836
     Height = 52
     Align = alBottom
-    Color = clSilver
+    Color = clMedGray
     ParentBackground = False
     TabOrder = 1
     object DBNavigator1: TDBNavigator

@@ -1,0 +1,492 @@
+inherited Frm_Contas_Pagar: TFrm_Contas_Pagar
+  Caption = 'PAGAMENTOS DE CONTAS'
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel [0]
+    Left = 24
+    Top = 64
+    Width = 68
+    Height = 13
+    Caption = 'ID_COMPRA'
+    FocusControl = DBEdit1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel [1]
+    Left = 24
+    Top = 104
+    Width = 92
+    Height = 13
+    Caption = 'ID_FORNECEDOR'
+    FocusControl = DBEdit2
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel [2]
+    Left = 164
+    Top = 107
+    Width = 31
+    Height = 13
+    Caption = 'NOME'
+    FocusControl = DBEdit3
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel [3]
+    Left = 596
+    Top = 104
+    Width = 27
+    Height = 13
+    Caption = 'CNPJ'
+    FocusControl = DBEdit4
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label5: TLabel [4]
+    Left = 22
+    Top = 152
+    Width = 82
+    Height = 13
+    Caption = 'ID_SEQUENCIA'
+    FocusControl = DBEdit5
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label6: TLabel [5]
+    Left = 162
+    Top = 152
+    Width = 94
+    Height = 13
+    Caption = 'VALOR_PARCELA'
+    FocusControl = DBEdit6
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label7: TLabel [6]
+    Left = 356
+    Top = 152
+    Width = 92
+    Height = 13
+    Caption = 'DT_VENCIMENTO'
+    FocusControl = DBEdit7
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label8: TLabel [7]
+    Left = 496
+    Top = 152
+    Width = 91
+    Height = 13
+    Caption = 'DT_PAGAMENTO'
+    FocusControl = DBEdit8
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label9: TLabel [8]
+    Left = 636
+    Top = 152
+    Width = 46
+    Height = 13
+    Caption = 'ATRASO'
+    FocusControl = DBEdit9
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label10: TLabel [9]
+    Left = 19
+    Top = 197
+    Width = 37
+    Height = 13
+    Caption = 'JUROS'
+    FocusControl = DBEdit10
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label11: TLabel [10]
+    Left = 162
+    Top = 197
+    Width = 57
+    Height = 13
+    Caption = 'VL_JUROS'
+    FocusControl = DBEdit11
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label12: TLabel [11]
+    Left = 356
+    Top = 197
+    Width = 82
+    Height = 13
+    Caption = 'TOTAL_PAGAR'
+    FocusControl = DBEdit12
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label13: TLabel [12]
+    Left = 635
+    Top = 197
+    Width = 44
+    Height = 13
+    Caption = 'STATUS'
+    FocusControl = DBEdit13
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  inherited Panel1: TPanel
+    inherited bt_novo: TBitBtn
+      Left = 32
+      Visible = False
+      ExplicitLeft = 32
+    end
+    inherited bt_Deletar: TBitBtn
+      Left = 130
+      Visible = False
+      ExplicitLeft = 130
+    end
+    inherited bt_Editar: TBitBtn
+      Left = 199
+      ExplicitLeft = 199
+    end
+    inherited bt_Gravar: TBitBtn
+      Left = 328
+      Visible = False
+      ExplicitLeft = 328
+    end
+    inherited bt_Cancelar: TBitBtn
+      Left = 300
+      ExplicitLeft = 300
+    end
+    inherited bt_Atualizar: TBitBtn
+      Left = 398
+      ExplicitLeft = 398
+    end
+    inherited bt_Pesquisar: TBitBtn
+      Left = 497
+      OnClick = bt_PesquisarClick
+      ExplicitLeft = 497
+    end
+    inherited bt_Sair: TBitBtn
+      Left = 596
+      ExplicitLeft = 596
+    end
+  end
+  inherited Panel2: TPanel
+    inherited DBNavigator1: TDBNavigator
+      Hints.Strings = ()
+    end
+  end
+  object DBEdit1: TDBEdit [15]
+    Left = 24
+    Top = 80
+    Width = 134
+    Height = 21
+    DataField = 'ID_COMPRA'
+    DataSource = ds_padrao
+    TabOrder = 2
+  end
+  object DBEdit2: TDBEdit [16]
+    Left = 24
+    Top = 120
+    Width = 134
+    Height = 21
+    DataField = 'ID_FORNECEDOR'
+    DataSource = ds_padrao
+    TabOrder = 3
+  end
+  object DBEdit3: TDBEdit [17]
+    Left = 164
+    Top = 120
+    Width = 426
+    Height = 21
+    DataField = 'NOME'
+    DataSource = ds_padrao
+    TabOrder = 4
+  end
+  object DBEdit4: TDBEdit [18]
+    Left = 596
+    Top = 120
+    Width = 174
+    Height = 21
+    DataField = 'CNPJ'
+    DataSource = ds_padrao
+    TabOrder = 5
+  end
+  object DBEdit5: TDBEdit [19]
+    Left = 22
+    Top = 168
+    Width = 134
+    Height = 21
+    DataField = 'ID_SEQUENCIA'
+    DataSource = ds_pagar
+    TabOrder = 6
+  end
+  object DBEdit6: TDBEdit [20]
+    Left = 162
+    Top = 168
+    Width = 181
+    Height = 21
+    DataField = 'VALOR_PARCELA'
+    DataSource = ds_pagar
+    TabOrder = 7
+  end
+  object DBEdit7: TDBEdit [21]
+    Left = 356
+    Top = 168
+    Width = 134
+    Height = 21
+    DataField = 'DT_VENCIMENTO'
+    DataSource = ds_pagar
+    TabOrder = 8
+  end
+  object DBEdit8: TDBEdit [22]
+    Left = 496
+    Top = 168
+    Width = 134
+    Height = 21
+    DataField = 'DT_PAGAMENTO'
+    DataSource = ds_pagar
+    TabOrder = 9
+    OnExit = DBEdit8Exit
+  end
+  object DBEdit9: TDBEdit [23]
+    Left = 636
+    Top = 168
+    Width = 134
+    Height = 21
+    DataField = 'ATRASO'
+    DataSource = ds_pagar
+    TabOrder = 10
+  end
+  object DBEdit10: TDBEdit [24]
+    Left = 22
+    Top = 213
+    Width = 134
+    Height = 21
+    DataField = 'JUROS'
+    DataSource = ds_pagar
+    TabOrder = 11
+    OnExit = DBEdit10Exit
+  end
+  object DBEdit11: TDBEdit [25]
+    Left = 162
+    Top = 213
+    Width = 181
+    Height = 21
+    DataField = 'VL_JUROS'
+    DataSource = ds_pagar
+    TabOrder = 12
+  end
+  object DBEdit12: TDBEdit [26]
+    Left = 356
+    Top = 213
+    Width = 273
+    Height = 21
+    DataField = 'TOTAL_PAGAR'
+    DataSource = ds_pagar
+    TabOrder = 13
+  end
+  object DBEdit13: TDBEdit [27]
+    Left = 635
+    Top = 213
+    Width = 135
+    Height = 21
+    DataField = 'STATUS'
+    DataSource = ds_pagar
+    TabOrder = 14
+  end
+  inherited Q_padrao: TFDQuery
+    UpdateOptions.AssignedValues = [uvUpdateChngFields, uvUpdateMode, uvLockMode, uvLockPoint, uvLockWait, uvRefreshMode, uvFetchGeneratorsPoint, uvCheckRequired, uvCheckReadOnly, uvCheckUpdatable]
+    UpdateOptions.UpdateChangedFields = False
+    UpdateOptions.LockWait = True
+    UpdateOptions.RefreshMode = rmManual
+    UpdateOptions.FetchGeneratorsPoint = gpNone
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.CheckReadOnly = False
+    UpdateOptions.CheckUpdatable = False
+    SQL.Strings = (
+      'SELECT'
+      '     A.ID_COMPRA,'
+      '     A.ID_FORNECEDOR,'
+      '     B.NOME,'
+      '     B.CNPJ'
+      '  FROM COMPRA A'
+      '  INNER JOIN FORNECEDOR B ON B.ID_FORNECEDOR = A.ID_FORNECEDOR'
+      '  ORDER BY A.ID_COMPRA')
+    Left = 784
+    Top = 64
+    object Q_padraoID_COMPRA: TIntegerField
+      FieldName = 'ID_COMPRA'
+      Origin = 'ID_COMPRA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_padraoID_FORNECEDOR: TIntegerField
+      FieldName = 'ID_FORNECEDOR'
+      Origin = 'ID_FORNECEDOR'
+      Required = True
+    end
+    object Q_padraoNOME: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      ProviderFlags = []
+      Size = 100
+    end
+    object Q_padraoCNPJ: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'CNPJ'
+      Origin = 'CNPJ'
+      ProviderFlags = []
+    end
+  end
+  inherited ds_padrao: TDataSource
+    Left = 784
+    Top = 128
+  end
+  object Q_pagar: TFDQuery
+    IndexFieldNames = 'ID_COMPRA'
+    MasterSource = ds_padrao
+    MasterFields = 'ID_COMPRA'
+    DetailFields = 'ID_COMPRA'
+    Connection = DM.conexao
+    SQL.Strings = (
+      'SELECT '
+      ' ID_SEQUENCIA,'
+      ' ID_COMPRA,'
+      ' VALOR_PARCELA,'
+      ' DT_VENCIMENTO,'
+      ' DT_PAGAMENTO,'
+      ' ATRASO,'
+      ' JUROS,'
+      ' VL_JUROS,'
+      ' TOTAL_PAGAR, '
+      ' STATUS'
+      'FROM CONTAS_PAGAR'
+      'WHERE ID_COMPRA=:ID_COMPRA'
+      'ORDER BY ID_COMPRA')
+    Left = 608
+    Top = 56
+    ParamData = <
+      item
+        Name = 'ID_COMPRA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object Q_pagarID_SEQUENCIA: TIntegerField
+      FieldName = 'ID_SEQUENCIA'
+      Origin = 'ID_SEQUENCIA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_pagarID_COMPRA: TIntegerField
+      FieldName = 'ID_COMPRA'
+      Origin = 'ID_COMPRA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_pagarVALOR_PARCELA: TFMTBCDField
+      FieldName = 'VALOR_PARCELA'
+      Origin = 'VALOR_PARCELA'
+      Required = True
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_pagarDT_VENCIMENTO: TDateField
+      FieldName = 'DT_VENCIMENTO'
+      Origin = 'DT_VENCIMENTO'
+      Required = True
+    end
+    object Q_pagarDT_PAGAMENTO: TDateField
+      FieldName = 'DT_PAGAMENTO'
+      Origin = 'DT_PAGAMENTO'
+    end
+    object Q_pagarATRASO: TIntegerField
+      FieldName = 'ATRASO'
+      Origin = 'ATRASO'
+    end
+    object Q_pagarJUROS: TFMTBCDField
+      FieldName = 'JUROS'
+      Origin = 'JUROS'
+      Precision = 18
+      Size = 2
+    end
+    object Q_pagarVL_JUROS: TFMTBCDField
+      FieldName = 'VL_JUROS'
+      Origin = 'VL_JUROS'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_pagarTOTAL_PAGAR: TFMTBCDField
+      FieldName = 'TOTAL_PAGAR'
+      Origin = 'TOTAL_PAGAR'
+      currency = True
+      Precision = 18
+      Size = 2
+    end
+    object Q_pagarSTATUS: TStringField
+      FieldName = 'STATUS'
+      Origin = 'STATUS'
+      Size = 30
+    end
+  end
+  object ds_pagar: TDataSource
+    DataSet = Q_pagar
+    Left = 688
+    Top = 56
+  end
+end

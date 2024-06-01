@@ -1,0 +1,117 @@
+unit U_pesq_venda_forma_pgto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_Form_pesquisa_padrao, Data.DB,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, frxClass, frxExportPDF,
+  frxDBSet, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls;
+
+type
+  TFrm_pesq_Venda_Forma_pgto = class(TFrm_pesquisa_padrao)
+    Q_pesq_padraoQTDE_VENDA: TLargeintField;
+    Q_pesq_padraoVALOR_VENDA: TFMTBCDField;
+    Q_pesq_padraoID_FORMA_PGTO: TIntegerField;
+    Q_pesq_padraoDESCRICAO: TStringField;
+    Lb_Valor_Venda: TLabel;
+    procedure bt_PesquisaClick(Sender: TObject);
+    procedure soma_venda();
+    procedure bt_ImprimirClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_pesq_Venda_Forma_pgto: TFrm_pesq_Venda_Forma_pgto;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure TFrm_pesq_Venda_Forma_pgto.bt_ImprimirClick(Sender: TObject);
+var caminho: string;
+begin
+ //ABRE rELATORIO
+ caminho:=ExtractFilepath(Application.ExeName);
+ if Frm_pesq_Venda_Forma_Pgto.rel_pesq_padrao.LoadFromFile(caminho +
+ 'rel_Venda_forma_pgto.fr3') then
+    begin
+     rel_pesq_padrao.clear;//limpa relatorio
+     Rel_pesq_padrao.LoadFromFile(extractfilepath(application.ExeName) +
+     'rel_Venda_forma_pgto.fr3');
+     Rel_pesq_padrao.Variables['Data_ini']:=QuotedStr(Mk_inicio.text);
+     rel_pesq_padrao.Variables['Data_fim']:=Quotedstr(Mk_fim.Text);
+     Rel_pesq_padrao.Variables['Qtde']:=Quotedstr(lb_resultado.Caption);
+     Rel_pesq_padrao.Variables['Valor_venda']:=Quotedstr(lb_valor_venda.Caption);
+     Rel_pesq_padrao.Variables['nome']:=Quotedstr(dm.usuario);
+     rel_pesq_padrao.PrepareReport(true);
+     rel_pesq_padrao.ShowPreparedReport;
+    end
+    else
+    Messagedlg('Relatorio não encontrado',mtError,[mbOk],0);
+
+end;
+
+procedure TFrm_pesq_Venda_Forma_pgto.bt_PesquisaClick(Sender: TObject);
+begin
+Q_pesq_padrao.Close; // fecha
+ Q_pesq_padrao.SQL.Add(''); // limpa
+ Q_pesq_padrao.Params.Clear;  //limpamos os parametros
+ Q_pesq_padrao.SQL.Clear;  // limPa o sql
+ Q_pesq_padrao.SQL.Add('SELECT COUNT(A.ID_VENDA) AS QTDE_VENDA, '
+                      +'SUM(A.VALOR) AS VALOR_VENDA,             '
+                      +'A.ID_FORMA_PGTO,                          '
+                      +'B.DESCRICAO                               '
+                      +'FROM VENDA A');
+ Q_pesq_padrao.SQL.Add('INNER JOIN FORMA_PGTO B ON B.ID_FORMA_PGTO = A.ID_FORMA_PGTO');
+ Q_pesq_padrao.SQL.Add('WHERE A.CADASTRO BETWEEN :PDATA_INI AND :PDATA_FIM');
+ Q_pesq_padrao.ParamByName('PDATA_INI').AsDate:=StrTodate(mk_inicio.Text);
+ Q_pesq_padrao.ParamByName('PDATA_FIM').AsDate:=StrTodate(mk_fim.Text);
+ Q_pesq_padrao.SQL.Add('GROUP BY A.ID_FORMA_PGTO, B.DESCRICAO');
+ Q_pesq_padrao.SQL.Add('ORDER BY A.ID_FORMA_PGTO, B.DESCRICAO');
+
+   Q_pesq_padrao.Open;
+  // Mostra a quantidade de registros encontrados
+    lb_Resultado.Caption:='Total de Registros :   ' +
+    IntTostr(Q_pesq_padrao.recordcount);
+   // chama a procedure soma_compra
+    Soma_venda;
+
+ if Q_pesq_padrao.IsEmpty then
+    begin
+      Messagedlg('Nenhum rtegisrtro encontrado!',mtInformation,[mbOk],0);
+    end;
+end;
+
+procedure TFrm_pesq_Venda_Forma_pgto.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  inherited;
+  Q_pesq_padrao.Close;
+end;
+
+procedure TFrm_pesq_Venda_Forma_pgto.soma_venda;
+ var soma: Currency;
+begin
+Soma:=0;
+ // soma a quantidade de compras
+ Q_pesq_padrao.First;
+ while not Q_pesq_padrao.Eof do
+   begin
+     Soma:=soma + Q_pesq_padraoVALOR_VENDA.AsCurrency;
+     Q_pesq_padrao.Next;
+   end;
+   lb_valor_venda.Caption:=' Valores em Vendas:  ' +
+   FormatFloat(' R$ ##,##0.00',(soma));
+end;
+
+end.

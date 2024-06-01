@@ -1,0 +1,69 @@
+unit U_pesq_compra_fornecedor;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.DBCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+
+type
+  Tfrm_pesq_compra_fornecedor = class(TForm)
+    Panel1: TPanel;
+    lb_inicio: TLabel;
+    lb_fim: TLabel;
+    mk_inicio: TMaskEdit;
+    mk_fim: TMaskEdit;
+    bt_Pesquisa: TBitBtn;
+    bt_Imprimir: TBitBtn;
+    DBGrid1: TDBGrid;
+    Panel2: TPanel;
+    lb_Resultado: TLabel;
+    lb_Valor_Compra: TLabel;
+    DBNavigator1: TDBNavigator;
+    Q_pesq_padrao: TFDQuery;
+    ds_padrao: TDataSource;
+    Q_pesq_padraoQTDE_COMPRA: TLargeintField;
+    Q_pesq_padraoVALOR_COMPRA: TFMTBCDField;
+    Q_pesq_padraoID_FORNECEDOR: TIntegerField;
+    Q_pesq_padraoNOME: TStringField;
+    procedure bt_PesquisaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_pesq_compra_fornecedor: Tfrm_pesq_compra_fornecedor;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure Tfrm_pesq_compra_fornecedor.bt_PesquisaClick(Sender: TObject);
+begin
+ Q_pesq_padrao.Close; // fecha
+ Q_pesq_padrao.SQL.Add(''); // limpa
+ Q_pesq_padrao.Params.Clear;  //limpamos os parametros
+ Q_pesq_padrao.SQL.Clear;  // limPa o sql
+ Q_pesq_padrao.SQL.Add('SELECT COUNT(A.ID_COMPRA)as Qtde_Compras, '
+ +'SUM(A.VALOR)As Valor_Compra,'
+ +'A.ID_FORNECEDOR, '
+ +'B.NOME          '
+ +'FROM COMPRA A    '
+ +'INNER JOIN FORNECEDOR B ON B.ID_FORNECEDOR = A.ID_FORNECEDOR');
+ Q_pesq_padrao.SQL.Add('WHERE A.CADASTRO BETWEEN :pdataini AND :pdatafim');
+ Q_pesq_padrao.ParamByName('pdataini').AsDate:=strTodate(mk_inicio.Text);
+ Q_pesq_padrao.ParamByName('pdatafim').AsDate:=strTodate(mk_fim.Text);
+ Q_pesq_padrao.SQL.Add('GROUP BY A.ID_FORNECEDOR,B.NOME');
+ Q_pesq_padrao.Open();
+
+end;
+
+end.

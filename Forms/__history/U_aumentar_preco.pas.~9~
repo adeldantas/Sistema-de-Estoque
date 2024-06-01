@@ -1,0 +1,60 @@
+unit U_aumentar_preco;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_Movimentta_Preco_Padrao, Data.DB,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls;
+
+type
+  TFrm_Aumentar_Preco = class(TFrm_movimenta_preco_padrao)
+    procedure bt_AcaoClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Aumentar_Preco: TFrm_Aumentar_Preco;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrm_Aumentar_Preco.bt_AcaoClick(Sender: TObject);
+begin
+ case rgopcao.ItemIndex of
+  0:begin // aumenta o valor de um produto
+    Q_movimenta_preco.Close;
+    Q_movimenta_preco.SQL.Clear;
+    Q_movimenta_preco.Prepare;
+    Q_movimenta_preco.SQL.Add('EXECUTE PROCEDURE SP_AUMENTA_VALOR_VENDA :P_ID_PRODUTO,:P_PORCENTAGEM');
+    Q_movimenta_preco.ParamByName('P_ID_PRODUTO').AsString:=ed_produto.Text;
+    Q_movimenta_preco.ParamByName('P_PORCENTAGEM').AsFloat:=strtofloat(ed_porcentagem.Text);
+    Q_movimenta_preco.ExecSQL;
+
+  end;
+
+  1:begin
+    // aumenta o valor de todos os produtos
+    Q_movimenta_preco.Close;
+    Q_movimenta_preco.SQL.Clear;
+    Q_movimenta_preco.Prepare;
+    Q_movimenta_preco.SQL.Add('EXECUTE PROCEDURE SP_AUMENTA_VALOR_TODOS :P_PORCENTAGEM');
+    Q_movimenta_preco.ParamByName('P_PORCENTAGEM').AsFloat:=strtofloat(ed_porcentagem.Text);
+     Q_movimenta_preco.ExecSQL;
+  end;
+  end;
+  Q_movimenta_preco.Open;
+  Q_produto.Close;
+  Q_produto.Open;
+  messagedlg('Ação realiza com sucesso!',mtInformation,[mboK],0);
+
+end;
+
+end.

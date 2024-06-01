@@ -1,0 +1,116 @@
+object Fm_Backup_Restore_Padrao: TFm_Backup_Restore_Padrao
+  Left = 0
+  Top = 0
+  BorderStyle = bsDialog
+  Caption = 'Fm_Backup_Restore_Padrao'
+  ClientHeight = 471
+  ClientWidth = 674
+  Color = clTeal
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 160
+    Top = 13
+    Width = 221
+    Height = 13
+    Caption = 'LOCAL DE ORIGEM DO BANCO DE DADOS:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 328
+    Top = 248
+    Width = 31
+    Height = 13
+    Caption = 'Label2'
+  end
+  object Label3: TLabel
+    Left = 160
+    Top = 61
+    Width = 199
+    Height = 13
+    Caption = 'LOCAL ONDE SER'#193' SALVO O BACKUP:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Status: TMemo
+    Left = 151
+    Top = 120
+    Width = 410
+    Height = 343
+    TabOrder = 0
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 145
+    Height = 471
+    Align = alLeft
+    Color = clActiveCaption
+    ParentBackground = False
+    TabOrder = 1
+    ExplicitTop = -8
+    object bt_origem: TBitBtn
+      Left = 24
+      Top = 32
+      Width = 90
+      Height = 45
+      Caption = '&Origem'
+      TabOrder = 0
+    end
+    object bt_destino: TBitBtn
+      Left = 24
+      Top = 83
+      Width = 90
+      Height = 45
+      Caption = '&Destino'
+      TabOrder = 1
+    end
+    object bt_backup_restore: TBitBtn
+      Left = 24
+      Top = 134
+      Width = 90
+      Height = 45
+      Caption = '&Backup'
+      TabOrder = 2
+    end
+    object bt_sair: TBitBtn
+      Left = 24
+      Top = 185
+      Width = 90
+      Height = 45
+      Caption = '&Sair'
+      TabOrder = 3
+    end
+  end
+  object Edit1: TEdit
+    Left = 160
+    Top = 32
+    Width = 401
+    Height = 21
+    TabOrder = 2
+    Text = 'Edit1'
+  end
+  object Edit2: TEdit
+    Left = 160
+    Top = 80
+    Width = 401
+    Height = 21
+    TabOrder = 3
+    Text = 'Edit1'
+  end
+end

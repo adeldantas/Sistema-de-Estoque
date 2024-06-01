@@ -1,0 +1,16 @@
+inherited Fm_Backup: TFm_Backup
+  Caption = 'FORMUL'#193'RIO DE BACKUP DO BANCO DE DADOS'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited OpenDialog1: TOpenDialog
+    Top = 208
+  end
+  object BACKUP: TFDIBBackup
+    OnError = BACKUPError
+    DriverLink = DM.FDPhysFBDriverLink1
+    OnProgress = BACKUPProgress
+    Verbose = True
+    Left = 544
+    Top = 152
+  end
+end

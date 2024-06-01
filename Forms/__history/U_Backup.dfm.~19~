@@ -1,0 +1,5 @@
+inherited Fm_Backup: TFm_Backup
+  Caption = 'FORMUL'#193'RIO DE BACKUP DO BANCO DE DADOS'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

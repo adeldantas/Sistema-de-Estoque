@@ -1,4 +1,4 @@
-unit U_Empresa;
+unit U_EMPRESA;
 
 interface
 
@@ -7,29 +7,15 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_padrao, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Mask, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Vcl.Buttons, Vcl.ExtCtrls;
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask, Vcl.ExtDlgs;
 
 type
-  TFrm_Empresa = class(TFrm_padrao)
-    Q_padraoID_EMPRESA: TIntegerField;
-    Q_padraoRAZAO_SOCIAL: TStringField;
-    Q_padraoN_FANTASIA: TStringField;
-    Q_padraoENDERECO: TStringField;
-    Q_padraoNUMERO: TIntegerField;
-    Q_padraoBAIRRO: TStringField;
-    Q_padraoCIDADE: TStringField;
-    Q_padraoUF: TStringField;
-    Q_padraoTELEFONE: TStringField;
-    Q_padraoCNPJ: TStringField;
-    Q_padraoEMAIL: TStringField;
-    Q_padraoCADASTRO: TDateField;
-    Q_padraoCEP: TStringField;
-    Q_padraoLOGO: TBlobField;
+  TFrm_empresa = class(TFrm_padrao)
     Label1: TLabel;
     DBEdit1: TDBEdit;
     Label2: TLabel;
-    DB_razao_social: TDBEdit;
+    db_razao_social: TDBEdit;
     Label3: TLabel;
     DBEdit3: TDBEdit;
     Label4: TLabel;
@@ -41,6 +27,7 @@ type
     Label7: TLabel;
     DBEdit7: TDBEdit;
     Label8: TLabel;
+    DBEdit8: TDBEdit;
     Label9: TLabel;
     DBEdit9: TDBEdit;
     Label10: TLabel;
@@ -48,19 +35,32 @@ type
     Label11: TLabel;
     DBEdit11: TDBEdit;
     Label12: TLabel;
-    DB_cadastro: TDBEdit;
+    DBEdit12: TDBEdit;
     Label13: TLabel;
-    DBEdit13: TDBEdit;
-    Label14: TLabel;
     DBImage1: TDBImage;
-    BT_foto: TBitBtn;
+    Label14: TLabel;
+    DB_cadastro: TDBEdit;
+    bt_Foto: TBitBtn;
     bt_clear: TBitBtn;
     OpenDialog1: TOpenDialog;
-    DBEdit8: TDBComboBox;
-    DBEdit2: TDBEdit;
-    procedure BT_fotoClick(Sender: TObject);
-    procedure bt_clearClick(Sender: TObject);
+    Q_padraoID_EMPRESA: TFDAutoIncField;
+    Q_padraoRAZAO_SOCIAL: TStringField;
+    Q_padraoN_FANTASIA: TStringField;
+    Q_padraoENDERECO: TStringField;
+    Q_padraoNUMERO: TIntegerField;
+    Q_padraoBAIRRO: TStringField;
+    Q_padraoCIDADE: TStringField;
+    Q_padraoUF: TStringField;
+    Q_padraoCEP: TStringField;
+    Q_padraoTELEFONE: TStringField;
+    Q_padraoCNPJ: TStringField;
+    Q_padraoEMAIL: TStringField;
+    Q_padraoLOGO: TBlobField;
+    Q_padraoCADASTRO: TDateField;
+    Carregar_Imagem: TOpenPictureDialog;
     procedure bt_novoClick(Sender: TObject);
+    procedure bt_FotoClick(Sender: TObject);
+    procedure bt_clearClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,37 +68,43 @@ type
   end;
 
 var
-  Frm_Empresa: TFrm_Empresa;
+  Frm_empresa: TFrm_empresa;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFrm_Empresa.bt_clearClick(Sender: TObject);
+procedure TFrm_empresa.bt_clearClick(Sender: TObject);
 begin
-  // limpa a imagem
-  Q_padrao.Edit;
-  Q_padraoLOGO.AsVariant:=Null;
-  Q_padrao.Refresh;
-  Messagedlg('Imagem deletada com sucesso!', mtinformation, [mbok], 0);
+ // Lima a imagem
+ Q_padrao.Edit;
+ Q_padraoLOGO.AsVariant:=null;
+ Q_padrao.Refresh;
+ Messagedlg('Imagem deletada com sucesso!',mtInformation,[mbOk],0);
 
 end;
 
-procedure TFrm_Empresa.BT_fotoClick(Sender: TObject);
+procedure TFrm_empresa.bt_FotoClick(Sender: TObject);
 begin
-  // insere uma foto
+ // insere foto
   Q_padrao.Edit;
-  opendialog1.execute;
-  dbimage1.Picture.LoadFromFile(opendialog1.FileName);
-  Q_padrao.refresh;
-  Messagedlg('Imagem inserida com sucesso!', mtinformation, [mbok], 0);
+  if carregar_Imagem.Execute then // EXECUTA O OPENDIALOG
+    begin
+     dbimage1.Picture.LoadFromFile(Carregar_Imagem.FileName); // RECEBE A IMAGEM SELECIONADA
+     Q_padrao.Refresh;  // ATUALIZA A q_QUERY
+     Messagedlg('Imagem inserida com sucesso!',mtInformation,[mbOk],0);  //MSG
+    end
+  else
+   abort;
+
 end;
 
-procedure TFrm_Empresa.bt_novoClick(Sender: TObject);
+procedure TFrm_empresa.bt_novoClick(Sender: TObject);
 begin
-  inherited;
-  db_cadastro.Text:=datetostr(now);
-  db_razao_social.SetFocus;
+ inherited;
+ db_cadastro.Text:=datetostr(now);
+ db_razao_social.SetFocus;
+
 end;
 
 end.

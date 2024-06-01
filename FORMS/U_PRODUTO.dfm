@@ -1,87 +1,146 @@
 inherited Frm_Produto: TFrm_Produto
   Caption = 'CADASTRO DE PRODUTOS'
-  ClientHeight = 420
-  ExplicitHeight = 449
+  ClientHeight = 387
+  ExplicitHeight = 416
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
-    Left = 158
-    Top = 120
-    Width = 66
+    Left = 88
+    Top = 104
+    Width = 74
     Height = 13
     Caption = 'ID_PRODUTO'
-    FocusControl = DB_id_produto
+    FocusControl = db_id_produto
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label2: TLabel [1]
-    Left = 158
-    Top = 200
-    Width = 51
-    Height = 13
-    Caption = 'VL_CUSTO'
-    FocusControl = DB_vl_custo
-  end
-  object Label3: TLabel [2]
-    Left = 298
-    Top = 200
-    Width = 50
-    Height = 13
-    Caption = 'VL_VENDA'
-    FocusControl = DB_vl_venda
-  end
-  object Label4: TLabel [3]
-    Left = 437
-    Top = 200
-    Width = 47
-    Height = 13
-    Caption = 'ESTOQUE'
-    FocusControl = DB_estoque
-  end
-  object Label5: TLabel [4]
-    Left = 577
-    Top = 200
-    Width = 72
-    Height = 13
-    Caption = 'ESTOQUE_MIN'
-    FocusControl = DB_estoque_min
-  end
-  object Label6: TLabel [5]
-    Left = 158
-    Top = 240
-    Width = 45
-    Height = 13
-    Caption = 'UNIDADE'
-  end
-  object Label7: TLabel [6]
-    Left = 298
-    Top = 120
-    Width = 55
-    Height = 13
-    Caption = 'CADASTRO'
-    FocusControl = DB_cadastro
-  end
-  object Label8: TLabel [7]
-    Left = 246
-    Top = 240
-    Width = 86
-    Height = 13
-    Caption = 'ID_FORNECEDOR'
-    FocusControl = DB_id_fornecedor
-  end
-  object Label9: TLabel [8]
-    Left = 348
-    Top = 240
-    Width = 29
-    Height = 13
-    Caption = 'NOME'
-    FocusControl = DB_nome
-  end
-  object Label10: TLabel [9]
-    Left = 158
-    Top = 159
-    Width = 114
+    Left = 88
+    Top = 144
+    Width = 125
     Height = 13
     Caption = 'PRODUTO_DESCRICAO'
-    FocusControl = DB_descricao
+    FocusControl = db_descricao
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel [2]
+    Left = 88
+    Top = 184
+    Width = 57
+    Height = 13
+    Caption = 'VL_CUSTO'
+    FocusControl = db_vl_custo
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel [3]
+    Left = 244
+    Top = 184
+    Width = 56
+    Height = 13
+    Caption = 'VL_VENDA'
+    FocusControl = db_vl_venda
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label5: TLabel [4]
+    Left = 400
+    Top = 184
+    Width = 50
+    Height = 13
+    Caption = 'ESTOQUE'
+    FocusControl = db_estoque
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label6: TLabel [5]
+    Left = 556
+    Top = 184
+    Width = 79
+    Height = 13
+    Caption = 'ESTOQUE_MIN'
+    FocusControl = db_estoque_min
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label7: TLabel [6]
+    Left = 88
+    Top = 224
+    Width = 50
+    Height = 13
+    Caption = 'UNIDADE'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label8: TLabel [7]
+    Left = 228
+    Top = 104
+    Width = 61
+    Height = 13
+    Caption = 'CADASTRO'
+    FocusControl = Db_cadastro
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label9: TLabel [8]
+    Left = 149
+    Top = 224
+    Width = 92
+    Height = 13
+    Caption = 'ID_FORNECEDOR'
+    FocusControl = db_id_fornecedor
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label10: TLabel [9]
+    Left = 289
+    Top = 223
+    Width = 31
+    Height = 13
+    Caption = 'NOME'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   inherited Panel1: TPanel
     TabOrder = 8
@@ -90,98 +149,92 @@ inherited Frm_Produto: TFrm_Produto
     end
   end
   inherited Panel2: TPanel
-    Top = 368
+    Top = 335
     TabOrder = 9
-    ExplicitTop = 368
+    ExplicitTop = 335
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
   end
-  object DB_id_produto: TDBEdit [12]
-    Left = 158
-    Top = 136
+  object db_id_produto: TDBEdit [12]
+    Left = 88
+    Top = 120
     Width = 134
     Height = 21
     DataField = 'ID_PRODUTO'
     DataSource = ds_padrao
-    TabOrder = 10
+    TabOrder = 0
   end
-  object DB_vl_custo: TDBEdit [13]
-    Left = 158
-    Top = 216
-    Width = 134
+  object db_descricao: TDBEdit [13]
+    Left = 88
+    Top = 160
+    Width = 618
     Height = 21
-    DataField = 'VL_CUSTO'
+    CharCase = ecUpperCase
+    DataField = 'PRODUTO_DESCRICAO'
     DataSource = ds_padrao
     TabOrder = 1
   end
-  object DB_vl_venda: TDBEdit [14]
-    Left = 298
-    Top = 216
-    Width = 133
+  object db_vl_custo: TDBEdit [14]
+    Left = 88
+    Top = 197
+    Width = 150
     Height = 21
-    DataField = 'VL_VENDA'
+    DataField = 'VL_CUSTO'
     DataSource = ds_padrao
     TabOrder = 2
   end
-  object DB_estoque: TDBEdit [15]
-    Left = 437
-    Top = 216
-    Width = 134
+  object db_vl_venda: TDBEdit [15]
+    Left = 244
+    Top = 200
+    Width = 150
     Height = 21
-    DataField = 'ESTOQUE'
+    DataField = 'VL_VENDA'
     DataSource = ds_padrao
     TabOrder = 3
   end
-  object DB_estoque_min: TDBEdit [16]
-    Left = 577
-    Top = 216
-    Width = 135
+  object db_estoque: TDBEdit [16]
+    Left = 400
+    Top = 200
+    Width = 150
     Height = 21
-    DataField = 'ESTOQUE_MIN'
+    DataField = 'ESTOQUE'
     DataSource = ds_padrao
     TabOrder = 4
   end
-  object DB_cadastro: TDBEdit [17]
-    Left = 298
-    Top = 136
+  object db_estoque_min: TDBEdit [17]
+    Left = 556
+    Top = 200
+    Width = 150
+    Height = 21
+    DataField = 'ESTOQUE_MIN'
+    DataSource = ds_padrao
+    TabOrder = 5
+  end
+  object Db_cadastro: TDBEdit [18]
+    Left = 228
+    Top = 120
     Width = 134
     Height = 21
     DataField = 'CADASTRO'
     DataSource = ds_padrao
-    TabOrder = 11
+    Enabled = False
+    TabOrder = 10
   end
-  object DB_id_fornecedor: TDBEdit [18]
-    Left = 246
-    Top = 256
-    Width = 96
+  object db_id_fornecedor: TDBEdit [19]
+    Left = 149
+    Top = 240
+    Width = 134
     Height = 21
     DataField = 'ID_FORNECEDOR'
     DataSource = ds_padrao
-    TabOrder = 6
-  end
-  object DB_nome: TDBEdit [19]
-    Left = 348
-    Top = 256
-    Width = 364
-    Height = 21
-    DataField = 'NOME'
-    DataSource = ds_padrao
     TabOrder = 7
+    OnExit = db_id_fornecedorExit
   end
-  object DB_descricao: TDBEdit [20]
-    Left = 158
-    Top = 176
-    Width = 554
-    Height = 21
-    DataField = 'PRODUTO_DESCRICAO'
-    DataSource = ds_padrao
-    TabOrder = 0
-  end
-  object DBC_unidade: TDBComboBox [21]
-    Left = 158
-    Top = 256
-    Width = 82
+  object dbc_unidade: TDBComboBox [20]
+    Left = 88
+    Top = 240
+    Width = 45
     Height = 21
     DataField = 'UNIDADE'
     DataSource = ds_padrao
@@ -190,26 +243,143 @@ inherited Frm_Produto: TFrm_Produto
       'ML'
       'PCT'
       'P'#199
-      'LT')
-    TabOrder = 5
+      'LT'
+      'UN')
+    TabOrder = 6
+  end
+  object Bt_Check_Fornecedor: TBitBtn [21]
+    Left = 712
+    Top = 238
+    Width = 49
+    Height = 25
+    Glyph.Data = {
+      360C0000424D360C000000000000360000002800000020000000200000000100
+      180000000000000C00009D0000009D0000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000004633A64633A64633A64632
+      A500000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000004633A64633A64633A64633A64633
+      A64733A500000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000004633A64633A64633A64633A64633A64633
+      A64633A64734A500000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000004633A64633A64633A64633A64633A64633A64633
+      A64633A64733A74532A500000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000004633A64633A64633A64633A64633A64633A64633A64633
+      A64633A64633A64632A64734A600000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000004633A64633A64633A64633A64633A64633A64633A64633A64633
+      A64633A64633A64633A64633A74733A500000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000004633A64633A64633A64633A64633A64633A64633A64633A64633A64633
+      A64633A64633A64633A64633A64634A64531A700000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      4633A64633A64633A64633A64633A64633A64633A64633A64633A64633A64633
+      A64633A64633A64633A64633A64633A64633A64733A700000000000000000000
+      00000000000000000000000000000000000000000000000000000000004633A6
+      4633A64633A64633A64633A64633A64633A64633A64633A64633A64633A64633
+      A64633A64633A64633A64633A64633A64633A64634A64632A600000000000000
+      00000000000000000000000000000000000000000000000000004633A64633A6
+      4633A64633A64633A64633A64633A64633A64633A64633A60000000000004633
+      A64633A64633A64633A64633A64633A64633A64633A64632A64634A600000000
+      00000000000000000000000000000000000000000000000000004633A64633A6
+      4633A64633A64633A64633A64633A64633A64633A60000000000000000000000
+      004633A64633A64633A64633A64633A64633A64633A64633A64633A64633A600
+      00000000000000000000000000000000000000000000000000004633A64633A6
+      4633A64633A64633A64633A64633A64633A60000000000000000000000000000
+      000000004633A64633A64633A64633A64633A64633A64633A64633A64632A646
+      33A60000000000000000000000000000000000000000000000004633A64633A6
+      4633A64633A64633A64633A64633A60000000000000000000000000000000000
+      000000000000004633A64633A64633A64633A64633A64633A64633A64633A647
+      34A64532A60000000000000000000000000000000000000000004633A64633A6
+      4633A64633A64633A64633A60000000000000000000000000000000000000000
+      000000000000000000004633A64633A64633A64633A64633A64633A64633A646
+      33A64532A64734A5000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000004633A64633A64633A64633A64633A64633A646
+      33A64633A64733A64533A6000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000004633A64633A64633A64633A64633A646
+      33A64633A64633A64633A74633A6000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000004633A64633A64633A64633A646
+      33A64633A64633A64633A64633A64633A6000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000004633A64633A64633A646
+      33A64633A64633A64633A64633A64633A54633A7000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000004633A64633A646
+      33A64633A64633A64633A64633A64633A64633A64633A6000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000004633A646
+      33A64633A64633A64633A64633A64633A64633A64632A64634A6000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000046
+      33A64633A64633A64633A64633A64633A64633A64633A64633A7000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00004633A64633A64633A64633A64633A64633A64633A64633A6000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000004633A64633A64633A64633A64633A64633A64633A6000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000004633A64633A64633A64633A64633A64633A6000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000004633A64633A64633A64633A64633A6000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000}
+    TabOrder = 11
+    OnClick = Bt_Check_FornecedorClick
+  end
+  object DBLookupComboBox1: TDBLookupComboBox [22]
+    Left = 286
+    Top = 240
+    Width = 420
+    Height = 21
+    DataField = 'NOME'
+    DataSource = ds_padrao
+    TabOrder = 12
   end
   inherited Q_padrao: TFDQuery
+    Active = True
+    UpdateOptions.AssignedValues = [uvGeneratorName]
     SQL.Strings = (
-      'SELECT '
-      '      A.ID_PRODUTO,'
-      '      A.PRODUTO_DESCRICAO,'
-      '      A.VL_CUSTO,'
-      '      A.VL_VENDA,'
-      '      A.ESTOQUE,'
-      '      A.ESTOQUE_MIN,'
-      '      A.UNIDADE,'
-      '      A.CADASTRO,'
-      '      A.ID_FORNECEDOR,'
-      '      B.NOME'
-      'FROM PRODUTO A, FORNECEDOR B'
-      'WHERE A.ID_FORNECEDOR=B.ID_FORNECEDOR')
-    Left = 56
-    Top = 192
+      'SELECT A.ID_PRODUTO,'
+      '       A.PRODUTO_DESCRICAO,'
+      '       A.VL_CUSTO,'
+      '       A.VL_VENDA,'
+      '       A.ESTOQUE,'
+      '       A.ESTOQUE_MIN,'
+      '       A.UNIDADE,'
+      '       A.CADASTRO,'
+      '       A.ID_FORNECEDOR'
+      ' FROM PRODUTO A, FORNECEDOR B'
+      ' WHERE A.ID_FORNECEDOR=B.ID_FORNECEDOR')
+    Left = 776
+    Top = 72
     object Q_padraoID_PRODUTO: TIntegerField
       FieldName = 'ID_PRODUTO'
       Origin = 'ID_PRODUTO'
@@ -222,7 +392,7 @@ inherited Frm_Produto: TFrm_Produto
       Required = True
       Size = 100
     end
-    object Q_padraoVL_CUSTO: TBCDField
+    object Q_padraoVL_CUSTO: TFMTBCDField
       FieldName = 'VL_CUSTO'
       Origin = 'VL_CUSTO'
       Required = True
@@ -230,7 +400,7 @@ inherited Frm_Produto: TFrm_Produto
       Precision = 18
       Size = 2
     end
-    object Q_padraoVL_VENDA: TBCDField
+    object Q_padraoVL_VENDA: TFMTBCDField
       FieldName = 'VL_VENDA'
       Origin = 'VL_VENDA'
       Required = True
@@ -238,14 +408,14 @@ inherited Frm_Produto: TFrm_Produto
       Precision = 18
       Size = 2
     end
-    object Q_padraoESTOQUE: TBCDField
+    object Q_padraoESTOQUE: TFMTBCDField
       FieldName = 'ESTOQUE'
       Origin = 'ESTOQUE'
       Required = True
       Precision = 18
       Size = 2
     end
-    object Q_padraoESTOQUE_MIN: TBCDField
+    object Q_padraoESTOQUE_MIN: TFMTBCDField
       FieldName = 'ESTOQUE_MIN'
       Origin = 'ESTOQUE_MIN'
       Required = True
@@ -268,16 +438,45 @@ inherited Frm_Produto: TFrm_Produto
       Required = True
     end
     object Q_padraoNOME: TStringField
-      AutoGenerateValue = arDefault
+      FieldKind = fkLookup
       FieldName = 'NOME'
-      Origin = 'NOME'
-      ProviderFlags = []
-      ReadOnly = True
+      LookupDataSet = Q_fornecedor
+      LookupKeyFields = 'ID_FORNECEDOR'
+      LookupResultField = 'NOME'
+      KeyFields = 'ID_FORNECEDOR'
       Size = 100
+      Lookup = True
     end
   end
   inherited ds_padrao: TDataSource
-    Left = 56
-    Top = 256
+    Left = 776
+    Top = 128
+  end
+  object Q_fornecedor: TFDQuery
+    Active = True
+    Connection = DM.conexao
+    SQL.Strings = (
+      'SELECT ID_FORNECEDOR,'
+      '       NOME '
+      'FROM FORNECEDOR'
+      'ORDER BY ID_FORNECEDOR')
+    Left = 704
+    Top = 72
+    object Q_fornecedorID_FORNECEDOR: TIntegerField
+      FieldName = 'ID_FORNECEDOR'
+      Origin = 'ID_FORNECEDOR'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object Q_fornecedorNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Required = True
+      Size = 100
+    end
+  end
+  object Ds_Fornecedor: TDataSource
+    Left = 640
+    Top = 72
   end
 end

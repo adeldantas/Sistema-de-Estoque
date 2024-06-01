@@ -1,0 +1,149 @@
+unit U_Conta_Receber;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_padrao, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Mask, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TFrm_Conta_Receber = class(TFrm_padrao)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit9: TDBEdit;
+    DBEdit10: TDBEdit;
+    DBEdit11: TDBEdit;
+    DBEdit12: TDBEdit;
+    DBEdit13: TDBEdit;
+    bt_imprimir: TBitBtn;
+    DBGrid1: TDBGrid;
+    Q_padraoID_VENDA: TIntegerField;
+    Q_padraoID_CLIENTE: TIntegerField;
+    Q_padraoNOME: TStringField;
+    Q_padraoCPF: TStringField;
+    Q_padraoID_SEQUENCIA: TIntegerField;
+    Q_padraoVALOR_PARCELA: TFMTBCDField;
+    Q_padraoDT_VENCIMENTO: TDateField;
+    Q_padraoDT_PAGAMENTO: TDateField;
+    Q_padraoATRASO: TIntegerField;
+    Q_padraoJUROS: TFMTBCDField;
+    Q_padraoVL_JUROS: TFMTBCDField;
+    Q_padraoTOTAL_PAGAR: TFMTBCDField;
+    Q_padraoSTATUS: TStringField;
+    ed_pesquisa: TEdit;
+    BitBtn1: TBitBtn;
+    cb_opcao: TComboBox;
+    procedure bt_PesquisarClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Conta_Receber: TFrm_Conta_Receber;
+
+implementation
+
+{$R *.dfm}
+
+uses U_Form_pesquisa_padrao, U_pesq_parcela_Receber;
+
+procedure TFrm_Conta_Receber.BitBtn1Click(Sender: TObject);
+begin
+Q_padrao.Close; // fecha
+Q_padrao.SQL.Add(''); // limpa
+Q_padrao.Params.Clear;  //limpamos os parametros
+Q_padrao.SQL.Clear;  // limPa o sql
+Q_padrao.SQL.Add('SELECT                                                     '
+                       +'A.ID_VENDA,                                               '
+                       +'A.ID_CLIENTE,                                             '
+                       +'B.NOME,                                                   '
+                       +'B.CPF,                                                    '
+                       +'c.id_sequencia,                                           '
+                       +'c.ID_VENDA,                                               '
+                       +'VALOR_PARCELA,                                            '
+                        +'ATRASO,                                            '
+                       +'C.JUROS,                                                  '
+                       +'C.VL_JUROS,                                               '
+                       +'DT_VENCIMENTO,                                            '
+                       +'DT_PAGAMENTO,                                             '
+                       +'TOTAL_PAGAR,                                             '
+                       +'C.STATUS                                                  '
+                       +'FROM VENDA A                                              ');
+Q_padrao.SQL.Add('INNER JOIN CLIENTE B ON B.ID_CLIENTE = A.ID_CLIENTE         ');
+Q_padrao.SQL.Add('INNER JOIN CONTAS_RECEBER C ON C.ID_VENDA = A.ID_VENDA      ');
+
+
+
+if edit1.Text > inttostr(0)  then
+   begin
+
+   Q_padrao.SQL.Add('WHERE A.ID_CLIENTE =:PID_CLIENTE');
+   Q_padrao.ParamByName('PID_CLIENTE').AsString:=edit1.Text;
+   Q_padrao.SQL.Add('AND C.STATUS= ''EM ABERTO''');
+
+   end;
+
+if edit1.Text<>'' then
+   begin
+   Q_padrao.SQL.Add('WHERE B.NOME LIKE :PNOME');
+   Q_padrao.ParamByName('PNOME').AsString:='%' +edit1.Text +'%';
+   Q_padrao.SQL.Add('AND C.STATUS= ''EM ABERTO''');
+
+ end;
+
+  Q_padrao.Open;
+
+   if Q_padrao.IsEmpty then
+       begin
+         Messagedlg('Nenhum registro encontrado!',mtInformation,[mbOk],0);
+       end;
+
+end;
+
+procedure TFrm_Conta_Receber.bt_PesquisarClick(Sender: TObject);
+begin
+Q_padrao.close;
+  Frm_pesq_Parcela_Receber:=Tfrm_Pesq_Parcela_Receber.create(self);
+ Frm_pesq_Parcela_Receber.showmodal;
+  try
+
+ if Frm_pesq_Parcela_Receber.codigo > 0 then
+    begin
+       Q_padrao.Open;
+       Q_padrao.Locate('ID_VENDA',Frm_pesq_parcela_Receber.codigo,[]);
+       Q_padrao.Locate('DT_VENCIMENTO',Frm_pesq_parcela_Receber.data,[]);
+       Q_padrao.Locate('ID_SEQUENCIA',Frm_pesq_parcela_Receber.sequencia,[]);
+    end;
+ finally
+   Frm_pesq_Parcela_Receber.Free;
+   Frm_pesq_Parcela_Receber:=nil;
+  end;
+end;
+
+end.

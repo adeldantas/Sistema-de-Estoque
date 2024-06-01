@@ -1,0 +1,70 @@
+unit U_Backup;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_backup_restore_padrao, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ExtCtrls, FireDAC.Stan.Def, FireDAC.VCLUI.Wait,
+  FireDAC.Phys.IBWrapper, FireDAC.Stan.Intf, FireDAC.Phys, FireDAC.Phys.IBBase;
+
+type
+  TFm_Backup = class(TFm_Backup_Restore_Padrao)
+    BACKUP: TFDIBBackup;
+    procedure bt_backup_restoreClick(Sender: TObject);
+    procedure BACKUPProgress(ASender: TFDPhysDriverService;
+      const AMessage: string);
+    procedure BACKUPError(ASender, AInitiator: TObject;
+      var AException: Exception);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fm_Backup: TFm_Backup;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure TFm_Backup.BACKUPError(ASender, AInitiator: TObject;
+  var AException: Exception);
+begin
+  inherited;
+  status.Lines.Add('TUDO CERTO');
+  Status.Lines.Add(AException.Message);
+end;
+
+procedure TFm_Backup.BACKUPProgress(ASender: TFDPhysDriverService;
+  const AMessage: string);
+begin
+  inherited;
+  status.Lines.Add('TUDO CERTO');
+  Status.Lines.Add(Amessage);
+end;
+
+procedure TFm_Backup.bt_backup_restoreClick(Sender: TObject);
+begin
+  inherited;
+  // REALIZA O BACKUP
+  try
+    Backup.DriverLink:=DM.FDPhysFBDriverLink1;
+    Backup.UserName:='SYSDBA';
+    Backup.Password:='masterkey';
+    Backup.Host:='servidor';
+    Backup.Protocol:=iplocal;
+    Backup.Database:=ed_origem.Text;
+    Backup.BackupFiles.Clear;
+    Backup.Backup;
+  except
+  Messagedlg('Falha na execução do backup!',mtError,[mbOk],0);
+
+  end;
+
+end;
+
+end.

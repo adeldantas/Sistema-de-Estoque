@@ -1,0 +1,118 @@
+unit U_pesq_conta_pagar;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, U_Form_pesquisa_padrao, Data.DB,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, frxClass, frxExportBaseDialog, frxExportPDF,
+  frxDBSet, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.DBCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.Mask, Vcl.ExtCtrls;
+
+type
+  TFrm_pesq_conta_pagar = class(TFrm_pesquisa_padrao)
+    Q_pesq_padraoID_COMPRA: TIntegerField;
+    Q_pesq_padraoID_FORNECEDOR: TIntegerField;
+    Q_pesq_padraoNOME: TStringField;
+    Q_pesq_padraoCNPJ: TStringField;
+    Q_pesq_padraoID_SEQUENCIA: TIntegerField;
+    Q_pesq_padraoVALOR_PARCELA: TFMTBCDField;
+    Q_pesq_padraoDT_VENCIMENTO: TDateField;
+    Q_pesq_padraoDT_PAGAMENTO: TDateField;
+    Q_pesq_padraoATRASO: TIntegerField;
+    Q_pesq_padraoJUROS: TFMTBCDField;
+    Q_pesq_padraoVL_JUROS: TFMTBCDField;
+    Q_pesq_padraoTOTAL_PAGAR: TFMTBCDField;
+    Q_pesq_padraoSTATUS: TStringField;
+    procedure cb_chave_pesquisaChange(Sender: TObject);
+    procedure bt_PesquisaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_pesq_conta_pagar: TFrm_pesq_conta_pagar;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrm_pesq_conta_pagar.bt_PesquisaClick(Sender: TObject);
+begin
+ Q_pesq_padrao.Close; // fecha
+ Q_pesq_padrao.SQL.Add(''); // limpa
+ Q_pesq_padrao.Params.Clear;  //limpamos os parametros
+ Q_pesq_padrao.SQL.Clear;  // limPa o sql
+ Q_pesq_padrao.SQL.Add('SELECT '
+                       +'A.ID_COMPRA,                                              '
+                       +'A.ID_FORNECEDOR,                                          '
+                       +'B.NOME,                                                   '
+                       +'B.CNPJ,                                                   '
+                       +'C.ID_SEQUENCIA,                                           '
+                       +'C.VALOR_PARCELA,                                          '
+                       +'C.DT_VENCIMENTO,                                          '
+                       +'C.DT_PAGAMENTO,                                           '
+                       +'C.ATRASO,                                                 '
+                       +'C.JUROS,                             '
+                       +'C.VL_JUROS,                          '
+                       +'C.TOTAL_PAGAR,                       '
+                       +'C.STATUS                             '
+                       +'FROM COMPRA A                        ');
+  Q_pesq_padrao.SQL.Add('INNER JOIN FORNECEDOR B ON B.ID_FORNECEDOR = A.ID_FORNECEDOR');
+  Q_pesq_padrao.SQL.Add('INNER JOIN CONTAS_PAGAR C ON C.ID_COMPRA = A.ID_COMPRA');
+
+
+   //OPÇÕES DE PESQUISA
+ case cb_chave_pesquisa.ItemIndex of
+   0:begin// pesquisa por c
+      Q_pesq_padrao.SQL.Add('WHERE A.ID_FORNECEDOR =:PID_FORNECEDOR'); // criamos o parametro
+      Q_pesq_padrao.ParamByName('PID_FORNECEDOR').AsString:=ed_nome.Text; // aponta para o campo do parametro
+      Q_pesq_padrao.SQL.Add('AND C.STATUS= ''EM ABERTO''');
+      Q_pesq_padrao.SQL.Add('ORDER BY C.ID_SEQUENCIA');
+     end;
+
+    1:begin// pesquisa por c
+      Q_pesq_padrao.SQL.Add('WHERE C.NOME LIKE :PNOME'); // criamos o parametro
+      Q_pesq_padrao.ParamByName('PNME').AsString:=ed_nome.Text; // aponta para o campo do parametro
+      Q_pesq_padrao.SQL.Add('AND C.STATUS= ''EM ABERTO''');
+      Q_pesq_padrao.SQL.Add('ORDER BY C.ID_SEQUENCIA');
+     end;
+
+     2:begin// pesquisa por c
+      Q_pesq_padrao.SQL.Add('WHERE C.CNPJ =:PCNPJ'); // criamos o parametro
+      Q_pesq_padrao.ParamByName('PCNPJ').AsString:=ed_nome.Text; // aponta para o campo do parametro
+      Q_pesq_padrao.SQL.Add('AND C.STATUS= ''EM ABERTO''');
+      Q_pesq_padrao.SQL.Add('ORDER BY C.ID_SEQUENCIA');
+     end;
+ end;
+
+
+end;
+
+procedure TFrm_pesq_conta_pagar.cb_chave_pesquisaChange(Sender: TObject);
+begin
+  case cb_chave_pesquisa.ItemIndex of
+   0:begin
+     lb_nome.Caption:='Digite o código do Fornecedor';
+     ed_nome.SetFocus;
+     end;
+
+     1:begin
+     lb_nome.Caption:='Digite o nome do Fornecedor';
+     ed_nome.SetFocus;
+     end;
+
+     2:begin
+     lb_nome.Caption:='Digite o CNPJ do Fornecedor';
+     ed_nome.SetFocus;
+     end;
+
+  end;
+
+end;
+
+end.

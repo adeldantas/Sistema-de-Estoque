@@ -1,0 +1,14 @@
+inherited Fm_Backup: TFm_Backup
+  Caption = 'FORMUL'#193'RIO DE BACKUP DPO BANCO DE DADOS'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Color = clSilver
+    inherited bt_backup: TBitBtn
+      OnClick = bt_backupClick
+    end
+  end
+  inherited Backup: TFDIBBackup
+    DriverLink = DM.FDPhysFBDriverLink1
+  end
+end

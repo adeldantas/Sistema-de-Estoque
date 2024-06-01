@@ -1,256 +1,304 @@
 inherited Frm_Fornecedor: TFrm_Fornecedor
-  Caption = 'CADASTRO DE FORNECEDORES'
-  ClientHeight = 412
-  ExplicitHeight = 441
+  Caption = 'CADASTRO DE FORNCEDORES'
+  ClientHeight = 444
+  ExplicitHeight = 473
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]
-    Left = 130
-    Top = 80
-    Width = 86
+    Left = 120
+    Top = 72
+    Width = 92
     Height = 13
     Caption = 'ID_FORNECEDOR'
-    FocusControl = DBEdit1
+    FocusControl = dbDb_id_fornecedor
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label2: TLabel [1]
-    Left = 130
-    Top = 120
-    Width = 29
+    Left = 120
+    Top = 112
+    Width = 31
     Height = 13
     Caption = 'NOME'
-    FocusControl = db_nome
+    FocusControl = Db_Nome
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label3: TLabel [2]
-    Left = 130
-    Top = 160
-    Width = 54
+    Left = 120
+    Top = 152
+    Width = 56
     Height = 13
     Caption = 'ENDERECO'
     FocusControl = DBEdit3
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label4: TLabel [3]
-    Left = 686
-    Top = 160
-    Width = 43
+    Left = 599
+    Top = 152
+    Width = 47
     Height = 13
     Caption = 'NUMERO'
     FocusControl = DBEdit4
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label5: TLabel [4]
-    Left = 130
-    Top = 200
-    Width = 39
+    Left = 120
+    Top = 192
+    Width = 44
     Height = 13
     Caption = 'BAIRRO'
     FocusControl = DBEdit5
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label6: TLabel [5]
-    Left = 130
-    Top = 240
-    Width = 38
+    Left = 120
+    Top = 232
+    Width = 42
     Height = 13
     Caption = 'CIDADE'
     FocusControl = DBEdit6
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label7: TLabel [6]
-    Left = 686
-    Top = 240
-    Width = 13
+    Left = 690
+    Top = 229
+    Width = 14
     Height = 13
     Caption = 'UF'
+    FocusControl = DBEdit7
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label8: TLabel [7]
-    Left = 130
-    Top = 280
-    Width = 19
+    Left = 120
+    Top = 272
+    Width = 20
     Height = 13
     Caption = 'CEP'
     FocusControl = DBEdit8
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label9: TLabel [8]
-    Left = 270
-    Top = 280
-    Width = 50
-    Height = 16
+    Left = 298
+    Top = 269
+    Width = 52
+    Height = 13
     Caption = 'TELEFONE'
     FocusControl = DBEdit9
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label10: TLabel [9]
-    Left = 420
-    Top = 280
-    Width = 25
+    Left = 514
+    Top = 269
+    Width = 27
     Height = 13
     Caption = 'CNPJ'
     FocusControl = DBEdit10
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   object Label11: TLabel [10]
-    Left = 270
-    Top = 80
-    Width = 55
-    Height = 13
-    Caption = 'CADASTRO'
-    FocusControl = DB_cadastro
-  end
-  object Label12: TLabel [11]
-    Left = 567
-    Top = 280
-    Width = 30
+    Left = 120
+    Top = 306
+    Width = 35
     Height = 13
     Caption = 'EMAIL'
-    FocusControl = cxDBTextEdit1
+    FocusControl = DBEdit11
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label12: TLabel [11]
+    Left = 272
+    Top = 72
+    Width = 61
+    Height = 13
+    Caption = 'CADASTRO'
+    FocusControl = db_cadastro
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
   end
   inherited Panel1: TPanel
-    TabOrder = 10
+    TabOrder = 12
     inherited bt_Pesquisar: TBitBtn
       OnClick = bt_PesquisarClick
     end
   end
   inherited Panel2: TPanel
-    Top = 360
-    TabOrder = 11
-    ExplicitTop = 360
+    Top = 392
+    TabOrder = 13
+    ExplicitTop = 392
     inherited DBNavigator1: TDBNavigator
       Hints.Strings = ()
     end
   end
-  object DBEdit1: TDBEdit [14]
-    Left = 130
-    Top = 96
+  object dbDb_id_fornecedor: TDBEdit [14]
+    Left = 120
+    Top = 88
     Width = 134
     Height = 21
     DataField = 'ID_FORNECEDOR'
     DataSource = ds_padrao
-    TabOrder = 12
+    TabOrder = 0
   end
-  object db_nome: TDBEdit [15]
-    Left = 130
-    Top = 136
+  object Db_Nome: TDBEdit [15]
+    Left = 120
+    Top = 128
     Width = 600
     Height = 21
     CharCase = ecUpperCase
     DataField = 'NOME'
     DataSource = ds_padrao
-    TabOrder = 0
+    TabOrder = 2
   end
   object DBEdit3: TDBEdit [16]
-    Left = 130
-    Top = 176
-    Width = 550
+    Left = 120
+    Top = 168
+    Width = 470
     Height = 21
     CharCase = ecUpperCase
     DataField = 'ENDERECO'
     DataSource = ds_padrao
-    TabOrder = 1
+    TabOrder = 3
   end
   object DBEdit4: TDBEdit [17]
-    Left = 686
-    Top = 176
-    Width = 44
+    Left = 599
+    Top = 168
+    Width = 121
     Height = 21
     DataField = 'NUMERO'
     DataSource = ds_padrao
-    TabOrder = 2
+    TabOrder = 4
   end
   object DBEdit5: TDBEdit [18]
-    Left = 129
-    Top = 213
+    Left = 120
+    Top = 208
     Width = 600
     Height = 21
     CharCase = ecUpperCase
     DataField = 'BAIRRO'
     DataSource = ds_padrao
-    TabOrder = 3
+    TabOrder = 5
   end
   object DBEdit6: TDBEdit [19]
-    Left = 130
-    Top = 256
-    Width = 550
+    Left = 120
+    Top = 245
+    Width = 553
     Height = 21
     CharCase = ecUpperCase
     DataField = 'CIDADE'
     DataSource = ds_padrao
-    TabOrder = 4
+    TabOrder = 7
   end
-  object DBEdit8: TDBEdit [20]
-    Left = 130
-    Top = 296
-    Width = 134
+  object DBEdit7: TDBEdit [20]
+    Left = 679
+    Top = 245
+    Width = 41
     Height = 21
-    DataField = 'CEP'
+    CharCase = ecUpperCase
+    DataField = 'UF'
     DataSource = ds_padrao
     TabOrder = 6
   end
-  object DBEdit9: TDBEdit [21]
-    Left = 270
-    Top = 296
-    Width = 144
+  object DBEdit8: TDBEdit [21]
+    Left = 120
+    Top = 285
+    Width = 161
     Height = 21
-    DataField = 'TELEFONE'
-    DataSource = ds_padrao
-    TabOrder = 7
-  end
-  object DBEdit10: TDBEdit [22]
-    Left = 420
-    Top = 296
-    Width = 141
-    Height = 21
-    DataField = 'CNPJ'
+    DataField = 'CEP'
     DataSource = ds_padrao
     TabOrder = 8
   end
-  object DB_cadastro: TDBEdit [23]
-    Left = 270
-    Top = 96
-    Width = 133
+  object DBEdit9: TDBEdit [22]
+    Left = 298
+    Top = 285
+    Width = 194
+    Height = 21
+    DataField = 'TELEFONE'
+    DataSource = ds_padrao
+    TabOrder = 9
+  end
+  object DBEdit10: TDBEdit [23]
+    Left = 514
+    Top = 285
+    Width = 206
+    Height = 21
+    DataField = 'CNPJ'
+    DataSource = ds_padrao
+    TabOrder = 10
+  end
+  object DBEdit11: TDBEdit [24]
+    Left = 120
+    Top = 322
+    Width = 600
+    Height = 21
+    CharCase = ecUpperCase
+    DataField = 'EMAIL'
+    DataSource = ds_padrao
+    TabOrder = 11
+  end
+  object db_cadastro: TDBEdit [25]
+    Left = 272
+    Top = 88
+    Width = 134
     Height = 21
     DataField = 'CADASTRO'
     DataSource = ds_padrao
-    TabOrder = 13
-  end
-  object DBEdit7: TDBComboBox [24]
-    Left = 686
-    Top = 256
-    Width = 44
-    Height = 21
-    DataField = 'UF'
-    DataSource = ds_padrao
-    Items.Strings = (
-      'AC'
-      'AL'
-      'AM'
-      'AP'
-      'BA'
-      'CE'
-      'DF'
-      'ES'
-      'GO'
-      'MA'
-      'MG'
-      'MS'
-      'MT'
-      'PA'
-      'PB'
-      'PE'
-      'PI'
-      'PR'
-      'RJ'
-      'RN'
-      'RO'
-      'RR'
-      'RS'
-      'SC'
-      'SE'
-      'SP'
-      'TO')
-    TabOrder = 5
-  end
-  object cxDBTextEdit1: TcxDBTextEdit [25]
-    Left = 567
-    Top = 296
-    DataBinding.DataField = 'EMAIL'
-    DataBinding.DataSource = ds_padrao
-    TabOrder = 9
-    Width = 163
+    TabOrder = 1
   end
   inherited Q_padrao: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
@@ -259,27 +307,26 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     UpdateOptions.AutoIncFields = 'ID_FORNECEDOR'
     SQL.Strings = (
       'SELECT'
-      '      ID_FORNECEDOR,'
-      '      NOME,'
-      '      ENDERECO,'
-      '      NUMERO,'
-      '      BAIRRO,'
-      '      CIDADE,'
-      '      UF,'
-      '      CEP,'
-      '      TELEFONE,'
-      '      CNPJ,'
-      '      EMAIL,'
-      '      CADASTRO'
-      'FROM FORNECEDOR'
+      '     ID_FORNECEDOR,'
+      '     NOME,'
+      '     ENDERECO,'
+      '     NUMERO,'
+      '     BAIRRO,'
+      '     CIDADE,'
+      '     UF,'
+      '     CEP,'
+      '     TELEFONE,'
+      '     CNPJ,'
+      '     EMAIL,'
+      '     CADASTRO'
+      '   FROM FORNECEDOR'
       'ORDER BY ID_FORNECEDOR')
-    Left = 16
-    Top = 80
-    object Q_padraoID_FORNECEDOR: TIntegerField
+    Left = 752
+    object Q_padraoID_FORNECEDOR: TFDAutoIncField
       FieldName = 'ID_FORNECEDOR'
       Origin = 'ID_FORNECEDOR'
       ProviderFlags = [pfInWhere, pfInKey]
-      Required = True
+      ReadOnly = True
     end
     object Q_padraoNOME: TStringField
       FieldName = 'NOME'
@@ -328,14 +375,14 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
       FieldName = 'TELEFONE'
       Origin = 'TELEFONE'
       Required = True
-      EditMask = '!\(99\)0000-0000;0;_'
+      EditMask = '!\(999\)0000-0000;0;_'
       Size = 16
     end
     object Q_padraoCNPJ: TStringField
       FieldName = 'CNPJ'
       Origin = 'CNPJ'
       Required = True
-      EditMask = '00.000.000\/9999-00;0;_'
+      EditMask = '00\.000\.000\/0000\-00;0;_'
     end
     object Q_padraoEMAIL: TStringField
       FieldName = 'EMAIL'
@@ -350,7 +397,6 @@ inherited Frm_Fornecedor: TFrm_Fornecedor
     end
   end
   inherited ds_padrao: TDataSource
-    Left = 16
-    Top = 152
+    Left = 752
   end
 end

@@ -1,0 +1,91 @@
+unit U_movimento_preco;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls;
+
+type
+  TFrm_Movimenta_preco = class(TForm)
+    rg: TRadioGroup;
+    ed_produto: TEdit;
+    ed_porcentagem: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    BT_ACAO: TBitBtn;
+    DBGrid1: TDBGrid;
+    Q_PRODUTO: TFDQuery;
+    DS_PRODUTO: TDataSource;
+    SP_AUMENTO: TFDStoredProc;
+    SP_AUMENTO_TODOS: TFDStoredProc;
+    SP_DIMINUIR: TFDStoredProc;
+    SP_DIMINUIR_TODOS: TFDStoredProc;
+    procedure BT_ACAOClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Movimenta_preco: TFrm_Movimenta_preco;
+
+implementation
+
+{$R *.dfm}
+
+uses U_DM;
+
+procedure TFrm_Movimenta_preco.BT_ACAOClick(Sender: TObject);
+begin
+  case rg.ItemIndex of
+   0:begin
+   SP_Aumento.Close;
+   SP_Aumento.Prepare;
+   //Q_Aumento.SQL.Add('EXECUTE PROCEDURE SP_AUMENTA_VALOR_VENDA :P_ID_PRODUTO,:P_PORCENTAGEM');
+   SP_Aumento.Params.ParamByName('P_ID_PRODUTO').AsInteger:=strtoint(ed_produto.Text);
+   SP_Aumento.Params.ParamByName('P_PORCENTAGEM').AsInteger:=strtoint(ed_PORCENTAGEM.Text);
+   SP_Aumento.ExecProc
+   end;
+  {
+  1:begin
+    Q_Aumento.Close;
+    Q_Aumento.SQL.Clear;
+    q_aumento.Prepare;
+    Q_Aumento.SQL.Add('EXECUTE PROCEDURE SP_AUMENTA_VALOR_VENDA_TODOS :P_ID_PRODUTO,:P_PORCENTAGEM');
+    Q_Aumento.Params.ParamByName('P_ID_PRODUTO').AsInteger:=strtoint(ed_produto.Text);
+    Q_Aumento.Params.ParamByName('P_PORCENTAGEM').AsInteger:=strtoint(ed_PORCENTAGEM.Text);
+    Q_Aumento.ExecSQL;
+
+    end;
+
+  2:begin // DIMINUI OS VALORES DE VENDA DE PRODUTO ESPECIFICO
+   Q_Aumento.Close;
+   Q_Aumento.SQL.Clear;
+   q_aumento.Prepare;
+   Q_Aumento.SQL.Add('EXECUTE PROCEDURE SP_DIMINUI_VALOR_VENDA :P_ID_PRODUTO,:P_PORCENTAGEM');
+   Q_Aumento.Params.ParamByName('P_ID_PRODUTO').AsInteger:=strtoint(ed_produto.Text);
+   Q_Aumento.Params.ParamByName('P_PORCENTAGEM').AsInteger:=strtoint(ed_PORCENTAGEM.Text);
+   Q_Aumento.ExecSQL;
+  end;
+
+  3:begin // DIMINUI O VALOR DE TODOS OS PRODUTOS
+   Q_Aumento.Close;
+   Q_Aumento.SQL.Clear;
+   Q_Aumento.SQL.Add('EXECUTE PROCEDURE SP_DIMINUI_VALOR_VENDA_TODOS :P_PORCENTAGEM');
+   Q_Aumento.Params.ParamByName('P_PORCENTAGEM').AsInteger:=strtoint(ed_PORCENTAGEM.Text);
+   Q_Aumento.ExecSQL;
+  end;}
+end;
+
+  Messagedlg('Ação realizada com sucesso!',mtInformation,[mbOk],0);
+  q_produto.close;
+  q_produto.open;
+end;
+
+end.
