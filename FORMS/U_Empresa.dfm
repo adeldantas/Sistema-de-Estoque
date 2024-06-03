@@ -1,7 +1,7 @@
 inherited Frm_empresa: TFrm_empresa
   Caption = 'CADASTRO DA EMPRESA'
   ClientHeight = 460
-  ExplicitTop = -50
+  ExplicitLeft = -38
   ExplicitHeight = 489
   PixelsPerInch = 96
   TextHeight = 13
@@ -332,7 +332,6 @@ inherited Frm_empresa: TFrm_empresa
     Height = 21
     DataField = 'CEP'
     DataSource = ds_padrao
-    MaxLength = 9
     TabOrder = 9
   end
   object DBEdit10: TDBEdit [25]
@@ -342,7 +341,6 @@ inherited Frm_empresa: TFrm_empresa
     Height = 21
     DataField = 'TELEFONE'
     DataSource = ds_padrao
-    MaxLength = 13
     TabOrder = 10
   end
   object DBEdit11: TDBEdit [26]
@@ -352,7 +350,6 @@ inherited Frm_empresa: TFrm_empresa
     Height = 21
     DataField = 'CNPJ'
     DataSource = ds_padrao
-    MaxLength = 18
     TabOrder = 11
   end
   object DBEdit12: TDBEdit [27]
@@ -665,7 +662,6 @@ inherited Frm_empresa: TFrm_empresa
     OnClick = bt_clearClick
   end
   inherited Q_padrao: TFDQuery
-    Active = True
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_ID_EMPRESA'
